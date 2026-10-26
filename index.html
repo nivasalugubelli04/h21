@@ -1,0 +1,1378 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f2e9">
+<meta name="description" content="Hover21 Magazine — fashion, beauty, culture, art and objects that shape the conversation.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hover21 Magazine — The Culture Issue">
+<meta property="og:description" content="The global voice of culture. Fashion, beauty, ideas and objects in motion.">
+<title>Hover21 Magazine — The Culture Issue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#f6f2e9; --paper-deep:#eae4d8; --ink:#1b1a18; --muted:#777168;
+  --rule:#cec7ba; --orange:#ef5b37; --sun:#f6c451; --plum:#3e2a35; --sage:#dce4cd;
+  --surface:#fffdf8; --nav:#171715; --nav-ink:#f9f5ed;
+  --sans:'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --display:'Unbounded', 'Arial Black', sans-serif;
+  --serif:'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --page:min(1380px, calc(100% - 64px));
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark; --paper:#171715; --paper-deep:#22211e; --ink:#f4efe6; --muted:#b7b0a5;
+  --rule:#48443d; --surface:#20201c; --nav:#090909; --nav-ink:#f9f5ed; --sage:#343c2d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--sans);transition:background .28s,color .28s}
+body,button,input{font-family:var(--sans)}
+button,input{font-size:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+button:disabled{opacity:.45;cursor:not-allowed}
+::selection{background:var(--sun);color:#181714}
+[hidden]{display:none!important}
+.container{width:var(--page);margin-inline:auto}
+.skip-link{position:fixed;top:-60px;left:12px;z-index:500;background:var(--sun);padding:10px 14px;color:#171715;font-weight:700}
+.skip-link:focus{top:12px}
+.scroll-progress{height:3px;position:fixed;top:0;left:0;z-index:300;background:var(--orange);width:0;pointer-events:none}
+.eyebrow{font:600 10px/1.4 var(--display);letter-spacing:.13em;text-transform:uppercase}
+.eyebrow .dot{color:var(--orange);padding-inline:7px}
+.eyebrow-line{display:flex;align-items:center;gap:11px}
+.eyebrow-line:before{content:"";height:8px;width:8px;background:var(--orange);border-radius:50%;flex:none}
+.edition-bar{background:var(--ink);color:var(--paper);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.edition-inner{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.edition-inner span:nth-child(2){opacity:.72}
+.edition-inner a{font-weight:700;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px}
+.edition-inner a:hover{color:var(--sun);border-color:var(--sun)}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:26px 24px}
+.brand{display:inline-flex;align-items:center;gap:13px;min-width:0}
+.brand-glyph{font:800 clamp(40px,5vw,66px)/.88 var(--display);letter-spacing:-.12em;display:flex;align-items:baseline;white-space:nowrap}
+.brand-glyph .twentyone{letter-spacing:-.1em;background:linear-gradient(115deg,var(--orange),var(--sun));background-clip:text;-webkit-background-clip:text;color:transparent;padding-right:.11em}
+.brand-word{font:600 10px/1.25 var(--display);letter-spacing:.23em;border-left:1px solid var(--rule);padding:10px 0 10px 15px}
+.brand-tagline{font:italic 18px/1.2 var(--serif);color:var(--muted);margin-left:auto;margin-right:30px;white-space:nowrap}
+.header-actions{display:flex;align-items:center;gap:7px}
+.icon-button{width:42px;height:42px;display:grid;place-items:center;background:transparent;border:1px solid var(--rule);border-radius:50%;cursor:pointer;position:relative;transition:background .2s,border-color .2s,transform .2s}
+.icon-button:hover{background:var(--sun);border-color:var(--sun);transform:translateY(-2px);color:#171715}
+.icon-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.count-dot{position:absolute;right:-3px;top:-4px;min-width:18px;height:18px;padding:0 4px;border-radius:99px;background:var(--orange);color:white;font:600 10px/18px var(--sans);text-align:center;border:2px solid var(--paper)}
+.category-nav{position:sticky;top:0;z-index:100;background:var(--nav);color:var(--nav-ink);border-bottom:1px solid rgba(255,255,255,.12)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:54px;gap:20px}
+.nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,40px);list-style:none;margin:0;padding:0}
+.nav-links a{display:flex;align-items:center;min-height:54px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(249,245,237,.75);position:relative;transition:color .18s}
+.nav-links a:after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform .22s var(--ease)}
+.nav-links a:hover,.nav-links a[aria-current="location"]{color:white}
+.nav-links a:hover:after,.nav-links a[aria-current="location"]:after{transform:scaleX(1)}
+.nav-mobile-tools{display:flex;gap:8px;align-items:center}
+.nav-menu-toggle{display:none;width:38px;height:38px;border:1px solid #55534c;border-radius:50%;color:white;background:transparent;place-items:center;cursor:pointer}
+.menu-toggle-label{display:none}
+.nav-menu-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.search-panel{background:var(--nav);color:white;border-top:1px solid #403f3a;padding:17px 0 20px}
+.search-panel-inner{display:flex;align-items:center;gap:14px}
+.search-field{display:flex;align-items:center;gap:12px;flex:1;border-bottom:1px solid #68645c;padding:8px 0 11px;min-width:0}
+.search-field svg{height:20px;width:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}
+.search-field input{background:transparent;border:0;outline:none;color:white;min-width:0;width:100%;font:400 clamp(17px,2vw,24px)/1.3 var(--serif)}
+.search-field input::placeholder{color:#918c82}
+.search-count{color:#bdb6a9;font-size:11px;white-space:nowrap}
+.search-clear{border:0;background:transparent;color:var(--sun);text-decoration:underline;text-underline-offset:4px;cursor:pointer;font-size:12px}
+.search-results-banner{background:var(--sun);color:#1d1b16;padding:20px 0;margin:0}
+.search-results-inner{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.search-results-inner strong{font:600 clamp(16px,2.3vw,22px)/1.2 var(--display);letter-spacing:-.04em}
+.search-results-inner span{font-size:12px}
+
+/* Opening spread */
+.cover-intro{padding:clamp(36px,6vw,78px) 0 26px}
+.cover-intro .issue-line{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--rule);padding-bottom:13px}
+.issue-right{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.cover-intro-row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(230px,.65fr);align-items:end;gap:clamp(24px,6vw,100px);padding:24px 0 24px}
+.cover-intro h1{font:400 clamp(48px,8vw,112px)/.91 var(--serif);letter-spacing:-.055em;margin:0;max-width:870px}
+.cover-intro h1 em{font-weight:400;color:var(--orange)}
+.cover-intro-copy{max-width:340px;padding-bottom:7px;color:var(--muted);font-size:14px;line-height:1.75}
+.cover-intro-copy p{margin:0 0 15px}
+.cover-intro-copy strong{color:var(--ink);font-weight:600}
+.cover-prompt{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--rule);padding-top:12px;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.cover-prompt .scroll-cue{display:inline-flex;gap:9px;align-items:center;color:var(--ink)}
+.scroll-cue span{display:inline-grid;place-items:center;border:1px solid var(--rule);width:24px;height:24px;border-radius:50%;font-size:14px;line-height:1}
+.top-stage{background:var(--nav);color:#f6f2e9;padding:27px 0 58px;position:relative;overflow:hidden}
+.stage-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:15px;margin-bottom:19px;border-bottom:1px solid #43403a}
+.stage-head h2{font:500 11px/1.3 var(--display);letter-spacing:.16em;text-transform:uppercase;margin:0}
+.stage-head h2 span{color:var(--sun)}
+.stage-head .stage-note{font-size:10px;letter-spacing:.1em;color:#a6a095;text-transform:uppercase}
+.cover-grid{display:grid;grid-template-columns:.82fr 1.5fr .82fr;gap:13px;align-items:end}
+.cover-story{min-width:0;position:relative;align-self:end}
+.story-media{display:block;position:relative;overflow:hidden;background:#3a3831;isolation:isolate}
+.story-media img{transition:transform .75s var(--ease),filter .4s;will-change:transform}
+.story-media:hover img,.story-media:focus-visible img{transform:scale(1.045)}
+.cover-side .story-media{height:clamp(330px,34vw,455px)}
+.cover-side .story-media:after,.cover-feature .story-media:after{content:"";position:absolute;inset:25% 0 0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.65));z-index:1;pointer-events:none}
+.cover-side-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0 0;border-top:1px solid #58544b;margin-top:10px}
+.cover-side-meta .kind{font:500 9px/1.4 var(--display);letter-spacing:.13em;text-transform:uppercase;color:var(--sun)}
+.cover-side-meta .author{font-size:10px;color:#b9b3a8}
+.cover-side h3{font:400 clamp(21px,2.1vw,29px)/1.08 var(--serif);letter-spacing:-.02em;margin:12px 0 9px;max-width:22ch}
+.cover-side .mini-dek{font-size:12px;line-height:1.65;color:#bcb5a9;margin:0;max-width:38ch}
+.cover-feature{align-self:stretch;display:flex;flex-direction:column;min-width:0}
+.cover-feature .feature-visual{position:relative;min-height:505px;flex:1;overflow:hidden;background:#10100f}
+.cover-feature .story-media{position:absolute;inset:0;min-height:0;height:100%}
+.cover-feature .story-media img{position:absolute;inset:0;object-position:left center}
+.cover-feature .feature-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:clamp(22px,3.2vw,44px);background:linear-gradient(180deg,transparent,rgba(0,0,0,.92));pointer-events:none}
+.cover-feature .feature-content a{pointer-events:auto}
+.cover-feature h2 a{color:inherit}
+.cover-feature h2 a:hover{color:var(--sun)}
+.cover-feature .feature-content .read-link{pointer-events:auto}
+.feature-index{position:absolute;right:22px;top:20px;z-index:3;border:1px solid rgba(255,255,255,.65);border-radius:50%;width:39px;height:39px;display:grid;place-items:center;font:500 10px var(--display);letter-spacing:.05em}
+.cover-feature .story-kicker{display:flex;align-items:center;gap:9px;color:var(--sun);font:500 10px/1.4 var(--display);letter-spacing:.16em;text-transform:uppercase;margin-bottom:13px}
+.cover-feature .story-kicker:before{content:"";height:1px;width:25px;background:var(--sun)}
+.cover-feature h2{font:400 clamp(36px,4.1vw,58px)/.98 var(--serif);letter-spacing:-.045em;max-width:13ch;margin:0 0 15px;text-wrap:balance}
+.cover-feature h2 em{font-weight:400;color:var(--sun)}
+.cover-feature .feature-dek{font-size:13px;color:rgba(255,255,255,.82);line-height:1.7;max-width:48ch;margin:0 0 20px}
+.story-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.read-link{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:40px;padding:0 15px;background:var(--sun);border:1px solid var(--sun);color:#1b1915;font-size:11px;font-weight:700;letter-spacing:.02em;cursor:pointer;transition:background .2s,transform .2s}
+.read-link span{font-size:16px;transition:transform .2s}
+.read-link:hover{background:#ffd875;transform:translateY(-2px)}
+.read-link:hover span{transform:translateX(3px)}
+.save-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:transparent;border:1px solid rgba(255,255,255,.38);min-height:39px;padding:0 12px;color:inherit;cursor:pointer;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:border .2s,color .2s,background .2s}
+.save-button svg{height:15px;width:15px;stroke:currentColor;fill:none;stroke-width:1.7}
+.save-button:hover,.save-button.is-saved{background:rgba(255,255,255,.12);border-color:var(--sun);color:var(--sun)}
+.save-button.is-saved svg{fill:var(--sun)}
+.cover-small-save{position:absolute;z-index:4;right:12px;top:12px;width:37px;height:37px;padding:0;border-radius:50%;background:rgba(20,20,18,.63);border-color:rgba(255,255,255,.55)}
+.cover-small-save span{display:none}
+.top-stage-bottom{border-top:1px solid #43403a;margin-top:26px;padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#a6a095;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.top-stage-bottom strong{font:500 11px var(--display);color:var(--paper)}
+.top-stage-bottom span:last-child{color:var(--sun)}
+.no-results{padding:34px 0;color:var(--muted);border-bottom:1px solid var(--rule)}
+
+/* Running editorial strap */
+.ticker{overflow:hidden;background:var(--orange);color:#171715;border-bottom:1px solid var(--ink)}
+.ticker-track{display:flex;align-items:center;gap:32px;width:max-content;padding:12px 0;animation:marquee 34s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-item{font:600 10px/1.2 var(--display);letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;display:inline-flex;align-items:center;gap:30px}
+.ticker-item:after{content:"✳";font:400 17px/1 var(--sans)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* Editorial sections */
+.editorial-section{padding:clamp(56px,7.5vw,108px) 0 0;scroll-margin-top:66px}
+.section-topline{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--rule);padding-bottom:13px;margin-bottom:clamp(22px,3vw,40px)}
+.section-num{font:500 10px/1.3 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.section-num strong{color:var(--orange);font-weight:700}
+.section-topline .section-aside{font-size:11px;color:var(--muted);letter-spacing:.06em}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:26px}
+.section-heading h2{font:400 clamp(42px,6.5vw,86px)/.88 var(--serif);letter-spacing:-.05em;margin:0;text-wrap:balance}
+.section-heading h2 em{font-weight:400;color:var(--orange)}
+.section-heading p{margin:0;max-width:300px;color:var(--muted);font-size:13px;line-height:1.7;padding-bottom:5px}
+.article-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(18px,3vw,38px);align-items:start}
+.article-card{min-width:0;position:relative}
+.article-card .card-media{display:block;overflow:hidden;position:relative;background:var(--paper-deep);isolation:isolate}
+.article-card .card-media img{transition:transform .75s var(--ease),filter .4s}
+.article-card:hover .card-media img{transform:scale(1.035)}
+.article-card .card-media:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(transparent,rgba(0,0,0,.2));opacity:.45;pointer-events:none}
+.article-card .save-float{position:absolute;right:13px;top:13px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(18,18,17,.58);color:white;display:grid;place-items:center;cursor:pointer;transition:background .18s,color .18s}
+.article-card .save-float svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7}
+.article-card .save-float:hover,.article-card .save-float.is-saved{background:var(--sun);border-color:var(--sun);color:#181714}
+.article-card .save-float.is-saved svg{fill:#181714}
+.card-meta-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 0 9px;border-bottom:1px solid var(--rule);font:500 9px/1.3 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.card-meta-line .tag{color:var(--orange)}
+.card-meta-line .read-time{font:500 10px var(--sans);letter-spacing:0;text-transform:none}
+.article-card h3{font:400 clamp(27px,3.8vw,48px)/1.02 var(--serif);letter-spacing:-.035em;margin:14px 0 11px;max-width:21ch;text-wrap:balance}
+.article-card h3 a{transition:color .18s}
+.article-card h3 a:hover{color:var(--orange)}
+.article-card .card-dek{font-size:13px;line-height:1.75;color:var(--muted);max-width:57ch;margin:0}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px}
+.byline{font-size:10px;color:var(--muted);letter-spacing:.04em}
+.text-arrow{display:inline-flex;gap:9px;align-items:center;border-bottom:1px solid var(--ink);padding-bottom:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.text-arrow span{font-size:15px;transition:transform .2s}
+.text-arrow:hover{color:var(--orange);border-color:var(--orange)}
+.text-arrow:hover span{transform:translateX(4px)}
+.article-grid .article-card:nth-child(2){margin-top:clamp(28px,5vw,72px)}
+.article-grid .article-card:nth-child(2) .card-media{aspect-ratio:4/5}
+.article-grid .article-card:nth-child(1) .card-media{aspect-ratio:1.22/1}
+
+/* The interlude */
+.interlude{margin-top:clamp(65px,9vw,124px);background:var(--sun);color:#171715;position:relative;overflow:hidden}
+.interlude-inner{width:var(--page);margin:auto;display:grid;grid-template-columns:.35fr 1fr .35fr;align-items:center;gap:25px;min-height:260px;padding-block:clamp(28px,5vw,62px)}
+.interlude-mark{width:82px;height:82px;border:1px solid rgba(23,23,21,.6);border-radius:50%;display:grid;place-items:center;font:500 12px var(--display);letter-spacing:-.06em;transform:rotate(-12deg)}
+.interlude blockquote{margin:0;font:400 clamp(35px,5.7vw,76px)/.99 var(--serif);letter-spacing:-.045em;max-width:1000px;text-wrap:balance}
+.interlude blockquote em{font-weight:400;color:var(--plum)}
+.interlude-side{align-self:end;text-align:right;font-size:10px;letter-spacing:.12em;text-transform:uppercase;line-height:1.8}
+
+/* Beauty issue */
+.beauty-section{background:#ece5e1;color:#211c1d;margin-top:0;padding-bottom:clamp(56px,7.5vw,108px);position:relative;overflow:hidden}
+.beauty-section .container{position:relative;z-index:1}
+.beauty-section .section-topline{border-color:rgba(33,28,29,.25)}
+.beauty-section .section-heading h2 em{color:#b44d64}
+.beauty-section .article-grid{grid-template-columns:.82fr 1.18fr;align-items:start}
+.beauty-section .article-grid .article-card:nth-child(1){margin-top:clamp(25px,4vw,55px)}
+.beauty-section .article-grid .article-card:nth-child(1) .card-media{aspect-ratio:4/5}
+.beauty-section .article-grid .article-card:nth-child(2){margin-top:0}
+.beauty-section .article-grid .article-card:nth-child(2) .card-media{aspect-ratio:1.22/1}
+.beauty-section .card-meta-line{border-color:rgba(33,28,29,.25)}
+.beauty-section .card-meta-line .tag{color:#a64159}
+.beauty-section .byline,.beauty-section .card-dek,.beauty-section .section-num,.beauty-section .section-heading p{color:#6a5d5d}
+.beauty-section .text-arrow{border-color:#211c1d}
+.beauty-section .article-card h3 a:hover{color:#a64159}
+.beauty-ghost{position:absolute;right:-.04em;top:90px;font:800 clamp(110px,21vw,310px)/.8 var(--display);letter-spacing:-.11em;color:rgba(255,255,255,.24);pointer-events:none;user-select:none}
+
+/* Art and ideas — split image panel */
+.arts-section{background:#1c1b19;color:#f6f2e9;padding:clamp(56px,7.5vw,108px) 0 clamp(60px,8vw,110px);margin-top:0}
+.arts-section .section-topline{border-color:#4a4740}
+.arts-section .section-num{color:#ada69a}
+.arts-section .section-heading h2 em{color:var(--sun)}
+.arts-section .section-heading p{color:#bdb5a8}
+.arts-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:13px;align-items:stretch}
+.arts-tile{position:relative;min-height:clamp(390px,48vw,670px);overflow:hidden;background:#2b2925;isolation:isolate}
+.arts-tile:after{content:"";position:absolute;inset:20% 0 0;background:linear-gradient(180deg,transparent 32%,rgba(0,0,0,.82));pointer-events:none;z-index:1}
+.arts-tile img{position:absolute;inset:0;transition:transform .8s var(--ease)}
+.arts-tile:hover img{transform:scale(1.04)}
+.arts-copy{position:absolute;z-index:2;left:clamp(19px,3vw,38px);right:clamp(19px,3vw,38px);bottom:clamp(22px,4vw,48px)}
+.arts-copy .eyebrow{color:var(--sun);margin-bottom:13px}
+.arts-copy h3{font:400 clamp(32px,4.2vw,56px)/.98 var(--serif);letter-spacing:-.04em;max-width:15ch;margin:0 0 12px}
+.arts-copy p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.78);max-width:42ch;margin:0 0 19px}
+.arts-copy .text-arrow{border-color:rgba(255,255,255,.8)}
+.arts-copy .text-arrow:hover{color:var(--sun);border-color:var(--sun)}
+.arts-index{position:absolute;z-index:2;right:18px;top:18px;font:500 10px var(--display);letter-spacing:.1em;border:1px solid rgba(255,255,255,.65);padding:8px 10px;color:white}
+
+/* Shopping edit */
+.shopping-section{padding-bottom:clamp(70px,8vw,120px)}
+.shopping-intro{display:grid;grid-template-columns:1fr .8fr;gap:35px;align-items:end;margin-bottom:30px}
+.shopping-intro h2{font:400 clamp(44px,7vw,90px)/.9 var(--serif);letter-spacing:-.05em;margin:0}
+.shopping-intro h2 em{color:var(--orange);font-weight:400}
+.shopping-intro p{max-width:360px;color:var(--muted);font-size:13px;line-height:1.75;margin:0 0 5px auto}
+.shopping-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.shopping-card{display:grid;grid-template-columns:1fr;min-width:0}
+.shopping-card .card-media{aspect-ratio:1.5/1;overflow:hidden;position:relative;background:var(--paper-deep)}
+.shopping-card .card-media img{transition:transform .75s var(--ease)}
+.shopping-card:hover .card-media img{transform:scale(1.04)}
+.shopping-card .card-details{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--rule);padding:14px 0 18px}
+.shopping-card .card-details .tag{font:500 9px var(--display);letter-spacing:.13em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.shopping-card h3{font:400 clamp(27px,3.2vw,41px)/1 var(--serif);letter-spacing:-.03em;margin:0 0 9px;max-width:22ch}
+.shopping-card p{font-size:12px;color:var(--muted);line-height:1.7;margin:0;max-width:48ch}
+.shopping-card .save-float{position:absolute;right:13px;top:13px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(18,18,17,.58);color:white;display:grid;place-items:center;cursor:pointer}
+.shopping-card .save-float svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7}
+.shopping-card .save-float.is-saved{background:var(--sun);color:#171715;border-color:var(--sun)}
+.shopping-card .save-float.is-saved svg{fill:#171715}
+
+/* Newsletter / footer */
+.newsletter-section{background:var(--paper-deep);padding:clamp(46px,7vw,92px) 0;border-top:1px solid var(--rule);position:relative;overflow:hidden}
+.newsletter-grid{display:grid;grid-template-columns:1fr .8fr;gap:clamp(28px,6vw,86px);align-items:end}
+.newsletter-copy .eyebrow{color:var(--orange);margin-bottom:16px}
+.newsletter-copy h2{font:400 clamp(48px,7vw,94px)/.88 var(--serif);letter-spacing:-.055em;margin:0;max-width:780px}
+.newsletter-copy h2 em{color:var(--orange);font-weight:400}
+.newsletter-copy p{color:var(--muted);font-size:13px;line-height:1.7;max-width:400px;margin:20px 0 0}
+.newsletter-form{border-bottom:1px solid var(--ink);padding-bottom:13px;display:flex;align-items:center;gap:12px;margin-bottom:7px}
+.newsletter-form input{min-width:0;flex:1;border:0;background:transparent;color:var(--ink);font:400 22px/1.3 var(--serif);padding:10px 0;outline:none}
+.newsletter-form input::placeholder{color:var(--muted)}
+.newsletter-form button{border:0;background:var(--ink);color:var(--paper);padding:14px 17px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:11px;transition:background .2s,color .2s}
+.newsletter-form button:hover{background:var(--orange);color:white}
+.newsletter-form button span{font-size:16px}
+.form-note{min-height:22px;margin:12px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+.site-footer{background:#171715;color:#f6f2e9;padding:42px 0 22px}
+.footer-top{display:grid;grid-template-columns:1.1fr .8fr .8fr;gap:30px;padding-bottom:38px}
+.footer-brand .brand{margin-bottom:16px}
+.footer-brand .brand-glyph{font-size:50px;color:#f6f2e9}
+.footer-brand .brand-glyph .twentyone{color:var(--sun);background:none;-webkit-text-fill-color:var(--sun)}
+.footer-brand .brand-word{border-color:#524f48}
+.footer-brand p{max-width:280px;color:#b9b2a6;font-size:12px;line-height:1.75;margin:0}
+.footer-column h3{font:500 10px var(--display);letter-spacing:.13em;text-transform:uppercase;color:var(--sun);margin:5px 0 15px}
+.footer-links{display:grid;gap:9px}
+.footer-links a{width:max-content;max-width:100%;font-size:12px;color:#dad3c7;border-bottom:1px solid transparent;transition:color .18s,border .18s}
+.footer-links a:hover{color:var(--sun);border-color:var(--sun)}
+.social-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+.social-links a{width:35px;height:35px;display:grid;place-items:center;border:1px solid #615b51;border-radius:50%;transition:background .2s,border .2s,color .2s}
+.social-links a:hover{background:var(--sun);color:#171715;border-color:var(--sun)}
+.social-links svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.footer-bottom{border-top:1px solid #504c44;padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:10px;color:#a6a094;letter-spacing:.04em}
+.footer-bottom .back-top{color:#f6f2e9;white-space:nowrap;display:inline-flex;gap:9px;align-items:center}
+.footer-bottom .back-top:hover{color:var(--sun)}
+
+/* Drawers and article reader */
+dialog{padding:0;border:0;max-width:none;max-height:none;background:transparent;color:var(--ink)}
+dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
+.reader-dialog{width:min(1040px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;background:var(--paper);box-shadow:0 25px 90px rgba(0,0,0,.32)}
+.reader-shell{display:grid;grid-template-columns:.85fr 1fr;min-height:500px}
+.reader-visual{min-height:440px;position:relative;background:var(--paper-deep)}
+.reader-visual img{position:absolute;inset:0}
+.reader-visual .reader-image-label{position:absolute;left:18px;bottom:18px;color:white;z-index:2;font:500 9px var(--display);letter-spacing:.14em;text-transform:uppercase}
+.reader-copy{padding:clamp(22px,4vw,48px);position:relative}
+.dialog-topline{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rule);padding-bottom:13px;margin-bottom:25px}
+.dialog-topline .eyebrow{color:var(--orange)}
+.dialog-close{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:transparent;border:1px solid var(--rule);cursor:pointer;flex:none}
+.dialog-close:hover{background:var(--sun);border-color:var(--sun)}
+.dialog-close svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.7;fill:none}
+.reader-copy h2{font:400 clamp(39px,5vw,61px)/.97 var(--serif);letter-spacing:-.045em;margin:0 0 16px}
+.reader-dek{font-size:14px;line-height:1.75;color:var(--muted);margin:0 0 18px}
+.reader-byline{font:500 9px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.reader-body{padding-top:12px;font-size:13px;line-height:1.8}
+.reader-body p{margin:0 0 13px}
+.reader-actions{display:flex;gap:9px;flex-wrap:wrap;padding-top:10px}
+.reader-actions .save-button{color:var(--ink);border-color:var(--rule)}
+.reader-actions .save-button:hover,.reader-actions .save-button.is-saved{color:var(--orange);border-color:var(--orange);background:transparent}
+.reader-actions .save-button.is-saved svg{fill:var(--orange)}
+.list-dialog{position:fixed;inset:0 0 0 auto;width:min(470px,100%);height:100dvh;max-height:100dvh;overflow:auto;background:var(--paper);box-shadow:-18px 0 70px rgba(0,0,0,.25);padding:clamp(22px,4vw,34px);transform:translateX(0)}
+.list-header{display:flex;align-items:start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:20px}
+.list-header h2{font:400 40px/.98 var(--serif);letter-spacing:-.04em;margin:9px 0 0}
+.list-header p{font-size:11px;color:var(--muted);margin:10px 0 0}
+.saved-items{display:grid;gap:13px}
+.saved-item{display:grid;grid-template-columns:92px 1fr auto;align-items:center;gap:13px;border-bottom:1px solid var(--rule);padding-bottom:13px}
+.saved-item img{width:92px;height:108px;object-fit:cover;background:var(--paper-deep)}
+.saved-item .saved-kind{font:500 8px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.saved-item h3{font:400 20px/1.06 var(--serif);margin:7px 0 8px;letter-spacing:-.02em}
+.saved-item .saved-open{background:transparent;border:0;text-align:left;padding:0;cursor:pointer}
+.saved-remove{background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:8px}
+.saved-remove:hover{color:var(--orange)}
+.saved-empty{padding:24px 0;color:var(--muted);font-size:13px;line-height:1.7}
+.saved-empty strong{display:block;color:var(--ink);font:400 30px/1 var(--serif);margin-bottom:10px}
+.info-dialog{width:min(520px,calc(100% - 32px));background:var(--paper);padding:clamp(23px,4vw,36px);box-shadow:0 25px 90px rgba(0,0,0,.3)}
+.info-dialog h2{font:400 39px/.98 var(--serif);margin:14px 0}
+.info-dialog p{font-size:13px;line-height:1.75;color:var(--muted);margin:0 0 14px}
+.toast{position:fixed;left:50%;bottom:24px;z-index:500;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:var(--ink);color:var(--paper);border:1px solid rgba(255,255,255,.18);padding:12px 18px;font-size:12px;max-width:calc(100% - 32px);box-shadow:0 12px 40px rgba(0,0,0,.22);transition:opacity .2s,transform .2s}
+.toast.is-visible{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:1;transform:none}
+.js-ready .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
+
+@media (min-width:1500px){:root{--page:min(1440px,calc(100% - 96px))}}
+@media (max-width:980px){
+  :root{--page:calc(100% - 44px)}
+  .brand-tagline{display:none}
+  .cover-intro h1{font-size:clamp(48px,8vw,88px)}
+  .cover-grid{grid-template-columns:.78fr 1.35fr .78fr;gap:9px}
+  .cover-side .story-media{height:clamp(300px,37vw,390px)}
+  .cover-feature .feature-visual{min-height:470px}
+  .cover-side h3{font-size:clamp(20px,2.5vw,25px)}
+  .cover-side .mini-dek{font-size:11px}
+  .article-grid{gap:22px}
+  .footer-top{grid-template-columns:1fr .8fr .8fr}
+}
+@media (max-width:720px){
+  :root{--page:calc(100% - 32px)}
+  html{scroll-padding-top:58px}
+  .edition-inner{min-height:31px;font-size:8px;letter-spacing:.08em;gap:8px}
+  .edition-inner span:nth-child(2){display:none}
+  .masthead{padding-block:19px;gap:12px}
+  .brand{gap:9px}
+  .brand-glyph{font-size:39px}
+  .brand-word{font-size:8px;letter-spacing:.16em;padding-left:10px}
+  .header-actions{gap:5px}
+  .icon-button{width:35px;height:35px}
+  .icon-button svg{width:16px;height:16px}
+  .nav-inner{min-height:48px}
+  .nav-menu-toggle{display:flex;width:auto;padding:0 12px;gap:8px;align-items:center;justify-content:center}
+  .menu-toggle-label{display:inline;font:600 9px/1 var(--display);letter-spacing:.12em;text-transform:uppercase}
+  .nav-links{display:none;position:absolute;top:48px;left:0;right:0;background:var(--nav);padding:8px 16px 17px;align-items:stretch;gap:0;border-top:1px solid #35332f}
+  .category-nav.is-open .nav-links{display:grid}
+  .nav-links a{min-height:45px;border-bottom:1px solid #35332f;font-size:10px}
+  .nav-links a:after{bottom:0}
+  .search-panel-inner{flex-wrap:wrap}
+  .search-count{order:3;width:100%}
+  .cover-intro{padding-top:33px;padding-bottom:21px}
+  .cover-intro .issue-line{font-size:9px}
+  .issue-right{font-size:8px}
+  .cover-intro-row{grid-template-columns:1fr;gap:17px;padding:22px 0 20px}
+  .cover-intro h1{font-size:clamp(51px,13vw,82px);max-width:600px}
+  .cover-intro-copy{max-width:500px;padding:0;font-size:13px}
+  .cover-intro-copy p{margin-bottom:8px}
+  .cover-prompt{font-size:8px}
+  .top-stage{padding:19px 0 32px}
+  .stage-head .stage-note{display:none}
+  .cover-grid{grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
+  .cover-feature{grid-column:1/-1;grid-row:1;min-height:0}
+  .cover-feature .feature-visual{min-height:0;display:flex;flex-direction:column;overflow:visible}
+  .cover-feature .story-media{position:relative;inset:auto;display:block;flex:none;height:auto;min-height:0;aspect-ratio:1.28/1}
+  .cover-feature .feature-content{position:relative;left:auto;right:auto;bottom:auto;padding:22px;background:var(--nav);pointer-events:auto}
+  .cover-feature h2{font-size:clamp(38px,9.5vw,58px);max-width:12ch}
+  .cover-feature .feature-dek{font-size:12px;max-width:44ch}
+  .cover-side .story-media{height:auto;aspect-ratio:4/5}
+  .cover-side h3{font-size:clamp(20px,5vw,28px)}
+  .cover-side .mini-dek{display:none}
+  .cover-side-meta{align-items:flex-start;flex-direction:column;gap:3px}
+  .cover-side-meta .author{font-size:9px}
+  .cover-small-save{right:8px;top:8px;width:33px;height:33px}
+  .top-stage-bottom{align-items:flex-start;font-size:8px}
+  .ticker-track{animation-duration:42s}
+  .editorial-section{padding-top:56px}
+  .section-topline{margin-bottom:20px}
+  .section-topline .section-aside{display:none}
+  .section-heading{display:block;margin-bottom:22px}
+  .section-heading h2{font-size:clamp(43px,11vw,64px);margin-bottom:13px}
+  .section-heading p{max-width:430px;font-size:12px}
+  .article-grid,.beauty-section .article-grid{grid-template-columns:1fr;gap:31px}
+  .article-grid .article-card:nth-child(2),.beauty-section .article-grid .article-card:nth-child(1){margin-top:0}
+  .article-grid .article-card:nth-child(1) .card-media,.article-grid .article-card:nth-child(2) .card-media,.beauty-section .article-grid .article-card:nth-child(1) .card-media,.beauty-section .article-grid .article-card:nth-child(2) .card-media{aspect-ratio:1.2/1}
+  .article-card h3{font-size:clamp(32px,7vw,43px);max-width:20ch}
+  .interlude{margin-top:56px}
+  .interlude-inner{grid-template-columns:auto 1fr;gap:15px;min-height:0;padding-block:32px}
+  .interlude-mark{width:46px;height:46px;font-size:8px}
+  .interlude blockquote{font-size:clamp(34px,8vw,54px)}
+  .interlude-side{grid-column:2;text-align:left;font-size:8px;margin-top:0}
+  .beauty-ghost{top:200px;font-size:37vw;right:-.1em}
+  .beauty-section{padding-bottom:58px}
+  .arts-grid{grid-template-columns:1fr;gap:12px}
+  .arts-tile{min-height:clamp(360px,105vw,550px)}
+  .arts-copy h3{font-size:clamp(35px,9vw,53px)}
+  .shopping-section{padding-bottom:62px}
+  .shopping-intro{grid-template-columns:1fr;gap:15px;margin-bottom:23px}
+  .shopping-intro h2{font-size:clamp(48px,12vw,72px)}
+  .shopping-intro p{margin:0;max-width:440px}
+  .shopping-grid{grid-template-columns:1fr;gap:27px}
+  .shopping-card .card-media{aspect-ratio:1.24/1}
+  .shopping-card h3{font-size:clamp(32px,7vw,41px)}
+  .newsletter-grid{grid-template-columns:1fr;gap:30px}
+  .newsletter-copy h2{font-size:clamp(49px,11.5vw,73px)}
+  .newsletter-form input{font-size:20px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}
+  .reader-shell{grid-template-columns:1fr}
+  .reader-visual{min-height:0;aspect-ratio:1.15/1}
+  .reader-copy{padding:22px}
+  .reader-copy h2{font-size:clamp(39px,9vw,58px)}
+  .reader-dialog{max-height:calc(100dvh - 16px);width:calc(100% - 16px)}
+}
+@media (max-width:390px){
+  :root{--page:calc(100% - 24px)}
+  .edition-inner a{font-size:8px}
+  .cover-feature .feature-content{padding:16px}
+  .cover-feature h2{font-size:36px}
+  .cover-feature .feature-dek{font-size:11px}
+  .cover-feature .story-actions{gap:7px}
+  .cover-feature .read-link,.cover-feature .save-button{min-height:36px;padding:0 10px;font-size:9px}
+  .cover-side h3{font-size:19px}
+  .cover-side-meta .kind{font-size:8px}
+  .brand-glyph{font-size:34px}
+  .header-actions .icon-button{width:32px;height:32px}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js-ready .reveal{opacity:1;transform:none}
+}
+
+/* ==========================================================================
+   UI/UX Refinements: Glassmorphism, Elevated Connect Hub & Social Media Strip
+   ========================================================================== */
+.edition-inner {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.edition-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.edition-divider { opacity: 0.5; }
+.edition-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+.edition-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: var(--paper);
+  transition: all 0.22s var(--ease);
+}
+.edition-pill:hover {
+  background: var(--sun);
+  border-color: var(--sun);
+  color: #171715;
+  transform: translateY(-1px);
+}
+.edition-cta {
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,.45);
+  padding-bottom: 2px;
+  margin-left: 6px;
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+.edition-cta:hover { color: var(--sun); border-color: var(--sun); }
+
+/* Glassmorphic Sticky Nav */
+.category-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(23, 23, 21, 0.94);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+/* Connect Section Styles */
+.connect-section {
+  padding: clamp(60px, 8vw, 115px) 0 clamp(40px, 6vw, 80px);
+  background: var(--surface);
+  border-top: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+.connect-header {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: end;
+  gap: 32px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.connect-header h2 {
+  font: 400 clamp(44px, 6.5vw, 84px)/.92 var(--serif);
+  letter-spacing: -.05em;
+  margin: 10px 0 0;
+}
+.connect-header h2 em {
+  color: var(--orange);
+  font-style: italic;
+}
+.connect-dek {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+  max-width: 480px;
+}
+.connect-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.connect-card {
+  position: relative;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s ease;
+  overflow: hidden;
+}
+.connect-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  border-color: var(--ink);
+}
+.connect-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font: 600 10px/1 var(--display);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.platform-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule);
+  transition: transform 0.3s var(--ease), background 0.3s ease;
+}
+.connect-card:hover .platform-icon {
+  transform: scale(1.08) rotate(4deg);
+}
+.platform-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ig-icon { color: #E1306C; background: rgba(225, 48, 108, 0.08); border-color: rgba(225, 48, 108, 0.2); }
+.tt-icon { color: var(--ink); background: rgba(0, 0, 0, 0.05); }
+.mail-icon { color: var(--orange); background: rgba(239, 91, 55, 0.08); border-color: rgba(239, 91, 55, 0.2); }
+
+.platform-handle {
+  font: 400 clamp(20px, 2.2vw, 26px)/1.2 var(--serif);
+  letter-spacing: -.02em;
+  margin: 0 0 12px;
+  word-break: break-all;
+}
+.platform-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0 0 24px;
+  flex: 1;
+}
+.platform-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-size: 11px;
+  color: var(--muted);
+}
+.platform-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.platform-meta span:before {
+  content: "•";
+  color: var(--orange);
+}
+.platform-meta span:first-child:before {
+  content: "";
+  display: none;
+}
+.connect-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.22s var(--ease);
+}
+.connect-btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+.ig-btn:hover {
+  background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045);
+  border-color: transparent;
+  color: #FFFFFF;
+}
+.tt-btn:hover {
+  background: #000000;
+  border-color: #000000;
+  box-shadow: 0 4px 15px rgba(254, 44, 85, 0.35);
+  color: #FFFFFF;
+}
+.email-action-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+.copy-btn {
+  min-width: 44px;
+  padding: 0 14px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+.copy-btn:hover {
+  background: var(--sun);
+  border-color: var(--sun);
+  color: #171715;
+}
+
+/* Footer Social Badges */
+.footer-social-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+.footer-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #dad3c7;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.2s, transform 0.2s;
+}
+.footer-social-pill:hover {
+  color: var(--sun);
+  transform: translateX(3px);
+}
+.footer-social-pill svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+/* Reader Connect Strip */
+.reader-connect-strip {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.reader-connect-strip a {
+  color: var(--orange);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.reader-connect-strip a:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 980px) {
+  .connect-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .connect-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .edition-social-strip {
+    width: 100%;
+    justify-content: flex-start;
+    padding-bottom: 6px;
+  }
+  .edition-pill span {
+    display: none;
+  }
+  .edition-pill {
+    padding: 4px 8px;
+  }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to the stories</a>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+<header class="site-header" id="page-top">
+  <div class="edition-bar">
+    <div class="container edition-inner">
+      <div class="edition-left">
+        <span>Hover21 <b>—</b> International culture desk</span>
+        <span class="edition-divider">·</span>
+        <span class="edition-issue">Issue No. 021 <b>·</b> Saturday, October 24, 2026</span>
+      </div>
+      <div class="edition-social-strip">
+        <a class="edition-pill" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" title="Follow Hover21 on Instagram (@hover21magazine)">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+          <span>@hover21magazine</span>
+        </a>
+        <a class="edition-pill" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" title="Follow Hover21 on TikTok (@hover21magazine)">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
+          <span>TikTok</span>
+        </a>
+        <a class="edition-pill" href="mailto:Hover21magazine@gmail.com" title="Email the Editorial Desk">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
+          <span>Hover21magazine@gmail.com</span>
+        </a>
+        <a class="edition-cta" href="#connect">Connect <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="container masthead">
+    <a class="brand" href="#page-top" aria-label="Hover21 Magazine home">
+      <span class="brand-glyph" aria-hidden="true">H<span class="twentyone">21</span></span>
+      <span class="brand-word">MAGAZINE</span>
+    </a>
+    <div class="brand-tagline">The global voice of culture.</div>
+    <div class="header-actions" aria-label="Magazine tools">
+      <button class="icon-button" id="search-toggle" type="button" aria-label="Open story search" aria-expanded="false" aria-controls="search-panel" title="Search stories">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.6"></circle><path d="m16 16 5 5"></path></svg>
+      </button>
+      <button class="icon-button" id="reading-list-open" type="button" aria-label="Open your reading list" title="Reading list">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg>
+        <span class="count-dot" id="saved-count" aria-live="polite">0</span>
+      </button>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle ink mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.6 8.6 0 0 1 8.8 3.8 8.7 8.7 0 1 0 20.2 15.2Z"></path></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="category-nav" id="category-nav" aria-label="Magazine sections">
+    <div class="container nav-inner">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#top-stories">Top stories</a></li>
+        <li><a href="#fashion">Fashion</a></li>
+        <li><a href="#beauty">Beauty</a></li>
+        <li><a href="#arts">Arts &amp; lifestyle</a></li>
+        <li><a href="#shopping">Shopping</a></li>
+        <li><a href="#connect">Connect &amp; Desk</a></li>
+        <li><a href="#newsletter">The weekly edit</a></li>
+      </ul>
+      <div class="nav-mobile-tools">
+        <button class="nav-menu-toggle" id="menu-toggle" type="button" aria-label="Open section menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"></path></svg><span class="menu-toggle-label">Sections</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="search-panel" id="search-panel" hidden>
+    <div class="container search-panel-inner">
+      <label class="search-field" for="global-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.6"></circle><path d="m16 16 5 5"></path></svg>
+        <input id="global-search" type="search" placeholder="Search a story, subject or idea…" autocomplete="off">
+      </label>
+      <span class="search-count" id="search-count" aria-live="polite">11 stories in this issue</span>
+      <button class="search-clear" id="search-clear" type="button">Clear</button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div id="search-results-banner" class="search-results-banner" hidden>
+    <div class="container search-results-inner"><strong id="search-results-title">THE SEARCH EDIT</strong><span id="search-results-detail"></span></div>
+  </div>
+  <section class="cover-intro container reveal" aria-labelledby="issue-title">
+    <div class="issue-line">
+      <div class="eyebrow-line eyebrow">A point of view, not a feed</div>
+      <div class="issue-right">No. 021 <span class="dot">/</span> The culture issue</div>
+    </div>
+    <div class="cover-intro-row">
+      <h1 id="issue-title">Culture,<br><em>in motion.</em></h1>
+      <div class="cover-intro-copy">
+        <p>Fashion, beauty, art and the ideas that refuse to sit still. A considered look at the people, details and objects shaping the conversation.</p>
+        <p><strong>Hover21 Magazine.</strong> The global voice of culture, with a little more feeling and a little less noise.</p>
+      </div>
+    </div>
+    <div class="cover-prompt"><span>Stories with a point of view</span><a class="scroll-cue" href="#top-stories">Explore this issue <span aria-hidden="true">↓</span></a></div>
+  </section>
+
+  <section class="top-stage" id="top-stories" aria-labelledby="top-stories-title">
+    <div class="container">
+      <div class="stage-head"><h2 id="top-stories-title">The <span>cover</span> spread</h2><div class="stage-note">Three stories to start the conversation <span aria-hidden="true">↘</span></div></div>
+      <div class="cover-grid" id="cover-grid">
+        <article class="cover-story cover-side story-card" data-story-id="vs-show" data-kind="Column" data-search-text="victoria secret runway shane oneill wings glitter glamour maximalism spectacle fashion">
+          <a class="story-media" href="#story-vs-show" data-open-story="vs-show" aria-label="Read: The Victoria’s Secret show wasn’t subtle — and it totally worked">
+            <img src="assets/images/hero_column.png" alt="Editorial cover image of a runway model in feathered white wings, with the column headline printed into the image" fetchpriority="high">
+            <span class="feature-index" aria-hidden="true">01</span>
+          </a>
+          <div class="cover-side-meta"><span class="kind">Column <span class="dot">/</span> Shane O’Neill</span><span class="author">6 min read</span></div>
+          <h3><a href="#story-vs-show" data-open-story="vs-show">The Victoria’s Secret show wasn’t subtle — and it totally worked</a></h3>
+          <p class="mini-dek">Maximalism, unapologetic glitter and theatrical spectacle make a case for full-volume glamour.</p>
+          <button class="save-button cover-small-save" type="button" data-save-story="vs-show" aria-label="Save this column to your reading list" title="Save story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg><span>Save</span></button>
+        </article>
+        <article class="cover-story cover-feature story-card" data-story-id="culture-conversations" data-kind="Cover story" data-search-text="culture conversations artificial intelligence design ateliers emerging media power brokers weekly dossier">
+          <div class="feature-visual">
+            <a class="story-media" href="#story-culture-conversations" data-open-story="culture-conversations" aria-label="Read: Inside the conversations shaping culture this week">
+              <img src="assets/images/hero_cover.png" alt="A technology entrepreneur speaking and gesturing in a dark suit" fetchpriority="high">
+              <span class="feature-index" aria-hidden="true">02</span>
+            </a>
+            <div class="feature-content">
+              <div class="story-kicker">Cover story <span aria-hidden="true">/</span> The weekly dossier</div>
+              <h2><a href="#story-culture-conversations" data-open-story="culture-conversations">Inside the conversations shaping <em>culture</em> this week</a></h2>
+              <p class="feature-dek">From artificial intelligence reshaping design ateliers to the emerging power brokers of international media: a closer look at the new cultural codes.</p>
+              <a class="read-link" href="#story-culture-conversations" data-open-story="culture-conversations">Enter the story <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="story-actions" style="padding-top:12px"><button class="save-button" type="button" data-save-story="culture-conversations" aria-label="Save cover story to your reading list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg><span>Save for later</span></button><span style="font-size:10px;color:#aaa398">8 min read <span style="color:var(--sun)">·</span> Editorial desk</span></div>
+        </article>
+        <article class="cover-story cover-side story-card" data-story-id="front-row-faces" data-kind="Culture" data-search-text="front row faces culture profiles global music ambassadors gen z creative icons paris fashion week">
+          <a class="story-media" href="#story-front-row-faces" data-open-story="front-row-faces" aria-label="Read: The new faces redefining the front row">
+            <img src="assets/images/hero_culture.png" alt="Close-up fashion portrait of a young man holding a pale round object" fetchpriority="high">
+            <span class="feature-index" aria-hidden="true">03</span>
+          </a>
+          <div class="cover-side-meta"><span class="kind">Culture <span class="dot">/</span> Profiles</span><span class="author">5 min read</span></div>
+          <h3><a href="#story-front-row-faces" data-open-story="front-row-faces">The new faces redefining the front row</a></h3>
+          <p class="mini-dek">How global music ambassadors and new creative icons are changing the gravity of fashion week.</p>
+          <button class="save-button cover-small-save" type="button" data-save-story="front-row-faces" aria-label="Save this culture profile to your reading list" title="Save story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg><span>Save</span></button>
+        </article>
+      </div>
+      <div id="hero-no-results" class="no-results" hidden>No cover stories match this search. Try another word.</div>
+      <div class="top-stage-bottom"><strong>Hover21 / A magazine of now</strong><span>Look closer. Think further.</span><span>Keep scrolling ↓</span></div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="Fashion, beauty, culture, art and objects">
+    <div class="ticker-track" aria-hidden="true">
+      <span class="ticker-item">Fashion with feeling</span><span class="ticker-item">Beauty, reconsidered</span><span class="ticker-item">New cultural codes</span><span class="ticker-item">Objects with a point of view</span><span class="ticker-item">Art that gets under your skin</span>
+      <span class="ticker-item">Fashion with feeling</span><span class="ticker-item">Beauty, reconsidered</span><span class="ticker-item">New cultural codes</span><span class="ticker-item">Objects with a point of view</span><span class="ticker-item">Art that gets under your skin</span>
+    </div>
+  </div>
+
+  <section class="editorial-section container" id="fashion" aria-labelledby="fashion-title" data-editorial-section>
+    <div class="section-topline"><div class="section-num"><strong>01</strong> <span class="dot">/</span> The runway edit</div><div class="section-aside">A little drama goes a long way.</div></div>
+    <div class="section-heading"><h2 id="fashion-title">Fashion <em>News</em></h2><p>The silhouette, the statement, the split-second when clothes become a whole mood.</p></div>
+    <div class="article-grid">
+      <article class="article-card story-card reveal" data-story-id="runway-wings" data-kind="Runway" data-search-text="wings glitter autumn runway full volume glamour dramatic featherwork crystal fringe theatrical spectacle shane oneill">
+        <a class="card-media" href="#story-runway-wings" data-open-story="runway-wings" aria-label="Read: Wings, glitter and a season of full-volume glamour"><img src="assets/images/fashion_wings.png" alt="Model in an extravagant feathered white-wing look on a blue-lit runway" loading="lazy"></a>
+        <div class="card-meta-line"><span class="tag">Runway <span class="dot">/</span> Autumn 2026</span><span class="read-time">4 min read</span></div>
+        <h3><a href="#story-runway-wings" data-open-story="runway-wings">Wings, glitter and a season of full-volume glamour</a></h3>
+        <p class="card-dek">Dramatic featherwork, crystal fringe and an electrifying refusal to play quiet on autumn runways.</p>
+        <div class="card-footer"><span class="byline">By Shane O’Neill</span><a class="text-arrow" href="#story-runway-wings" data-open-story="runway-wings">Read the story <span aria-hidden="true">↗</span></a></div>
+        <button class="save-float" type="button" data-save-story="runway-wings" aria-label="Save runway story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
+      </article>
+      <article class="article-card story-card reveal" data-story-id="pink-statement" data-kind="Style" data-search-text="pink statement color forecast fuchsia magenta couture shimmering stage maya lin">
+        <a class="card-media" href="#story-pink-statement" data-open-story="pink-statement" aria-label="Read: Pink returns, and it is not playing quiet"><img src="assets/images/fashion_pink.png" alt="Performer in a vivid pink sparkling dress against a purple-lit stage" loading="lazy"></a>
+        <div class="card-meta-line"><span class="tag">Style <span class="dot">/</span> Color forecast</span><span class="read-time">5 min read</span></div>
+        <h3><a href="#story-pink-statement" data-open-story="pink-statement">Pink returns, and it is not playing quiet</a></h3>
+        <p class="card-dek">Forget muted pastels: high-saturation fuchsia and shimmering magenta make a grand couture entrance.</p>
+        <div class="card-footer"><span class="byline">By Maya Lin</span><a class="text-arrow" href="#story-pink-statement" data-open-story="pink-statement">Read the story <span aria-hidden="true">↗</span></a></div>
+        <button class="save-float" type="button" data-save-story="pink-statement" aria-label="Save pink trend story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
+      </article>
+    </div>
+    <div class="no-results" data-section-empty hidden>No fashion stories match your search. Try a different word.</div>
+  </section>
+
+  <section class="interlude" aria-label="Editor's note">
+    <div class="interlude-inner">
+      <div class="interlude-mark" aria-hidden="true">H / 21</div>
+      <blockquote>“The story isn't only what we wear. It's what we choose to <em>show.</em>”</blockquote>
+      <div class="interlude-side">A note from the desk<br>On style, identity &amp; the everyday</div>
+    </div>
+  </section>
+
+  <section class="editorial-section beauty-section" id="beauty" aria-labelledby="beauty-title" data-editorial-section>
+    <div class="beauty-ghost" aria-hidden="true">GLOW</div>
+    <div class="container">
+      <div class="section-topline"><div class="section-num"><strong>02</strong> <span class="dot">/</span> The beauty desk</div><div class="section-aside">Less noise. More nuance.</div></div>
+      <div class="section-heading"><h2 id="beauty-title">Beauty <em>News</em></h2><p>Products, rituals and small shifts in how we want to look — and how we want to feel.</p></div>
+      <div class="article-grid">
+        <article class="article-card story-card reveal" data-story-id="beauty-blush" data-kind="Makeup" data-search-text="blush palette sold out weekend ariana grande baked pigment sculpted cheekbone renaissance camille dubois">
+          <a class="card-media" href="#story-beauty-blush" data-open-story="beauty-blush" aria-label="Read: The blush palette that sold out in a weekend"><img src="assets/images/beauty_blush.png" alt="Beauty campaign portrait with an open blush palette" loading="lazy"></a>
+          <div class="card-meta-line"><span class="tag">Makeup <span class="dot">/</span> Cult release</span><span class="read-time">4 min read</span></div>
+          <h3><a href="#story-beauty-blush" data-open-story="beauty-blush">The blush palette that sold out in a weekend</a></h3>
+          <p class="card-dek">Inside the viral obsession with buildable baked pigment and the sculpted-cheekbone renaissance.</p>
+          <div class="card-footer"><span class="byline">By Camille Dubois</span><a class="text-arrow" href="#story-beauty-blush" data-open-story="beauty-blush">Read the story <span aria-hidden="true">↗</span></a></div>
+          <button class="save-float" type="button" data-save-story="beauty-blush" aria-label="Save blush palette story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
+        </article>
+        <article class="article-card story-card reveal" data-story-id="glass-skin" data-kind="Skincare" data-search-text="glass skin ten step routine k beauty barrier repair cushions multi benefit ceramides dewy finish kenji sato">
+          <a class="card-media" href="#story-glass-skin" data-open-story="glass-skin" aria-label="Read: Glass skin, minus the ten-step routine"><img src="assets/images/beauty_skincare.png" alt="Minimal skincare campaign portrait with a pale cushion compact" loading="lazy"></a>
+          <div class="card-meta-line"><span class="tag">Skincare <span class="dot">/</span> K-beauty</span><span class="read-time">5 min read</span></div>
+          <h3><a href="#story-glass-skin" data-open-story="glass-skin">Glass skin, minus the ten-step routine</a></h3>
+          <p class="card-dek">Streamlined barrier-repair cushions and multi-benefit ceramides promise a dewy finish without the clutter.</p>
+          <div class="card-footer"><span class="byline">By Kenji Sato</span><a class="text-arrow" href="#story-glass-skin" data-open-story="glass-skin">Read the story <span aria-hidden="true">↗</span></a></div>
+          <button class="save-float" type="button" data-save-story="glass-skin" aria-label="Save skincare story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
+        </article>
+      </div>
+      <div class="no-results" data-section-empty hidden>No beauty stories match your search. Try a different word.</div>
+    </div>
+  </section>
+
+  <section class="editorial-section arts-section" id="arts" aria-labelledby="arts-title" data-editorial-section>
+    <div class="container">
+      <div class="section-topline"><div class="section-num"><strong>03</strong> <span class="dot">/</span> Art &amp; ideas</div><div class="section-aside">Look at the world sideways.</div></div>
+      <div class="section-heading"><h2 id="arts-title">Arts &amp; <em>lifestyle</em></h2><p>Form, function and a little bit of wonder — where design crosses over into feeling.</p></div>
+      <div class="arts-grid">
+        <article class="arts-tile story-card reveal" data-story-id="arts-car" data-kind="Design" data-search-text="concept car sculpture RDSTR Milan prototype aerodynamic minimalism Julian Vance automotive sculpture">
+          <a href="#story-arts-car" data-open-story="arts-car" aria-label="Read: A concept car that looks like a sculpture"><img src="assets/images/arts_car.png" alt="Sculptural silver concept car in a dark studio" loading="lazy"></a>
+          <span class="arts-index">OBJECT 01</span>
+          <div class="arts-copy"><div class="eyebrow">Design <span class="dot">/</span> Automotive sculpture</div><h3>A concept car that looks like a sculpture</h3><p>The RDSTR prototype strips away visual noise to put aerodynamic form and proportion at the centre.</p><a class="text-arrow" href="#story-arts-car" data-open-story="arts-car">Explore the feature <span aria-hidden="true">↗</span></a></div>
+          <button class="save-float" type="button" data-save-story="arts-car" aria-label="Save concept car story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
+        </article>
+        <article class="arts-tile story-card reveal" data-story-id="arts-flowers" data-kind="Art" data-search-text="digital meadow immersive tech generative florals visitor movement London landmark Clara Oswald">
+          <a href="#story-arts-flowers" data-open-story="arts-flowers" aria-label="Read: Walk through a digital meadow in full bloom"><img src="assets/images/arts_flowers.png" alt="Immersive digital flower meadow installation filled with purple and orange blooms" loading="lazy"></a>
+          <span class="arts-index">EXPERIENCE 02</span>
+          <div class="arts-copy"><div class="eyebrow">Art <span class="dot">/</span> Immersive tech</div><h3>Walk through a digital meadow in full bloom</h3><p>Generative florals respond to movement, inviting visitors into a landscape that is part artwork, part atmosphere.</p><a class="text-arrow" href="#story-arts-flowers" data-open-story="arts-flowers">Explore the feature <span aria-hidden="true">↗</span></a></div>
+          <button class="save-float" type="button" data-save-story="arts-flowers" aria-label="Save immersive art story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
+        </article>
+      </div>
+      <div class="no-results" data-section-empty hidden>No arts or lifestyle stories match your search. Try a different word.</div>
+    </div>
+  </section>
+
+  <section class="editorial-section shopping-section container" id="shopping" aria-labelledby="shopping-title" data-editorial-section>
+    <div class="section-topline"><div class="section-num"><strong>04</strong> <span class="dot">/</span> The considered edit</div><div class="section-aside">Worth a closer look.</div></div>
+    <div class="shopping-intro"><h2 id="shopping-title">Shopping <em>News</em></h2><p>Pieces with a little personality. This is the edit for things that earn their place, from everyday uniform to collectible design.</p></div>
+    <div class="shopping-grid">
+      <article class="shopping-card story-card reveal" data-story-id="shopping-streetwear" data-kind="Streetwear" data-search-text="green tracksuits chrome sneakers head to toe streetwear autumn drop athletic tailoring modern capital cities marcus reid">
+        <div class="card-media"><a href="#story-shopping-streetwear" data-open-story="shopping-streetwear" aria-label="Read: Green tracksuits and chrome sneakers, head to toe"><img src="assets/images/shopping_streetwear.png" alt="Models in green sportswear and earth-tone layers in a warm wheat-coloured setting" loading="lazy"></a><button class="save-float" type="button" data-save-story="shopping-streetwear" aria-label="Save streetwear story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button></div>
+        <div class="card-details"><div><div class="tag">Streetwear <span class="dot">/</span> Autumn drop</div><h3><a href="#story-shopping-streetwear" data-open-story="shopping-streetwear">Green tracksuits and chrome sneakers, head to toe</a></h3><p>Elevated athletic tailoring meets space-age footwear, with colour doing much of the talking.</p></div><a class="text-arrow" href="#story-shopping-streetwear" data-open-story="shopping-streetwear" aria-label="Read streetwear story">↗</a></div>
+      </article>
+      <article class="shopping-card story-card reveal" data-story-id="shopping-sneakers" data-kind="Sneakers" data-search-text="earth tone running shoes everyone wants New Balance 992 forest green sage suede charcoal collectors wish list Chloe Dupont">
+        <div class="card-media"><a href="#story-shopping-sneakers" data-open-story="shopping-sneakers" aria-label="Read: The earth-tone running shoes everyone wants"><img src="assets/images/shopping_sneakers.png" alt="Earth-tone running sneakers arranged on a display plinth beside greenery" loading="lazy"></a><button class="save-float" type="button" data-save-story="shopping-sneakers" aria-label="Save sneakers story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button></div>
+        <div class="card-details"><div><div class="tag">Sneakers <span class="dot">/</span> Collector edit</div><h3><a href="#story-shopping-sneakers" data-open-story="shopping-sneakers">The earth-tone running shoes everyone wants</a></h3><p>Forest green, sage suede and charcoal tones bring a softer palette to a collector favourite.</p></div><a class="text-arrow" href="#story-shopping-sneakers" data-open-story="shopping-sneakers" aria-label="Read sneaker story">↗</a></div>
+      </article>
+    </div>
+    <div class="no-results" data-section-empty hidden>No shopping stories match your search. Try a different word.</div>
+  </section>
+
+    <!-- NEW: The Cultural Network & Connect Hub -->
+  <section class="editorial-section connect-section" id="connect" aria-labelledby="connect-title" data-editorial-section>
+    <div class="container">
+      <div class="section-topline">
+        <div class="section-num"><strong>05</strong> <span class="dot">/</span> Editorial Desk &amp; Community</div>
+        <div class="section-aside">The Global Network</div>
+      </div>
+      <div class="connect-header reveal">
+        <div>
+          <div class="eyebrow eyebrow-line">Direct Channels &amp; Submissions</div>
+          <h2 id="connect-title">Connect with <em>Hover21.</em></h2>
+        </div>
+        <p class="connect-dek">Follow our official channels for real-time runway moments, backstage dispatches, and cultural dialogue — or reach our international editorial team directly.</p>
+      </div>
+
+      <div class="connect-grid reveal">
+        <!-- Card 1: Instagram -->
+        <div class="connect-card card-instagram">
+          <div class="connect-card-top">
+            <div class="platform-badge"><span class="badge-dot"></span> Official Instagram</div>
+            <div class="platform-icon ig-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+            </div>
+          </div>
+          <h3 class="platform-handle">@hover21magazine</h3>
+          <p class="platform-desc">Visual stories, fashion week backstage chronicles, curated styling editorials, and daily cultural moodboards from international capitals.</p>
+          <div class="platform-meta">
+            <span>Visual Narratives</span>
+            <span>Runway Chronicles</span>
+          </div>
+          <a class="connect-btn ig-btn" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">
+            <span>Follow on Instagram</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 2: TikTok -->
+        <div class="connect-card card-tiktok">
+          <div class="connect-card-top">
+            <div class="platform-badge"><span class="badge-dot"></span> Official TikTok</div>
+            <div class="platform-icon tt-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
+            </div>
+          </div>
+          <h3 class="platform-handle">@hover21magazine</h3>
+          <p class="platform-desc">Runway in motion, front row Paris &amp; Milan commentary, street soundscapes, viral beauty breakdowns, and unfiltered creator moments.</p>
+          <div class="platform-meta">
+            <span>Runway in Motion</span>
+            <span>Front Row Access</span>
+          </div>
+          <a class="connect-btn tt-btn" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer">
+            <span>Watch on TikTok</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 3: Editorial Mail -->
+        <div class="connect-card card-email">
+          <div class="connect-card-top">
+            <div class="platform-badge"><span class="badge-dot"></span> Editorial Office</div>
+            <div class="platform-icon mail-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m22 7-10 7L2 7"></path></svg>
+            </div>
+          </div>
+          <h3 class="platform-handle">Hover21magazine@gmail.com</h3>
+          <p class="platform-desc">For editorial story pitches, press invitations, photo essay submissions, partnership enquiries, and direct correspondence with our desk.</p>
+          <div class="platform-meta">
+            <span>Editorial Pitches</span>
+            <span>Direct Response</span>
+          </div>
+          <div class="email-action-row">
+            <a class="connect-btn mail-btn" href="mailto:Hover21magazine@gmail.com">
+              <span>Send Email</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+            </a>
+            <button class="connect-btn copy-btn" id="copy-email-btn" type="button" data-copy="Hover21magazine@gmail.com" title="Copy email address to clipboard">
+              <span>Copy</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+    <div class="container newsletter-grid">
+      <div class="newsletter-copy reveal"><div class="eyebrow">Direct from the editorial desk <span class="dot">/</span> Every Friday</div><h2 id="newsletter-title">A better kind of <em>scroll.</em></h2><p>The Hover21 Weekly Edit brings thoughtful picks from fashion, beauty, art and contemporary design — without the noise.</p></div>
+      <div class="newsletter-form-wrap reveal">
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <label for="newsletter-email" class="visually-hidden" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Email address</label>
+          <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="Your email address" required>
+          <button type="submit">Join the edit <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="form-note" id="newsletter-status" aria-live="polite">One considered dispatch, every Friday. No clutter.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#page-top" aria-label="Hover21 Magazine home"><span class="brand-glyph" aria-hidden="true">H<span class="twentyone">21</span></span><span class="brand-word">MAGAZINE</span></a>
+        <p>Fashion, beauty, ideas and objects — viewed with curiosity, edited with intention. The global voice of culture.</p>
+        <div class="footer-social-row">
+          <a class="footer-social-pill" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram Hover21 Magazine">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+            <span>Instagram: <strong>@hover21magazine</strong></span>
+          </a>
+          <a class="footer-social-pill" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" aria-label="TikTok Hover21 Magazine">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
+            <span>TikTok: <strong>@hover21magazine</strong></span>
+          </a>
+          <a class="footer-social-pill" href="mailto:Hover21magazine@gmail.com" aria-label="Email Hover21 Magazine">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
+            <span>Email: <strong>Hover21magazine@gmail.com</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-column"><h3>Find your way</h3><nav class="footer-links" aria-label="Footer navigation"><a href="#top-stories">Top stories</a><a href="#fashion">Fashion news</a><a href="#beauty">Beauty news</a><a href="#arts">Arts &amp; lifestyle</a><a href="#shopping">Shopping edit</a></nav></div>
+      <div class="footer-column"><h3>Get in touch</h3><nav class="footer-links" aria-label="Contact links"><a href="mailto:Hover21magazine@gmail.com">Editorial enquiries ↗</a><a href="#newsletter">The weekly edit ↗</a><a href="#" data-policy="Privacy &amp; cookies">Privacy &amp; cookies</a><a href="#" data-policy="Terms &amp; editorial standards">Terms &amp; editorial standards</a></nav><p style="font-size:11px;color:#a6a094;line-height:1.7;margin:18px 0 0">Have a story to tell?<br><a style="color:#f6c451" href="mailto:Hover21magazine@gmail.com">Hover21magazine@gmail.com</a></p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Hover21 Magazine. All rights reserved.</span><span>Made for the curious.</span><a class="back-top" href="#page-top">Back to top <span aria-hidden="true">↑</span></a></div>
+  </div>
+</footer>
+
+<dialog id="reader-dialog" class="reader-dialog" aria-labelledby="reader-title">
+  <div class="reader-shell">
+    <div class="reader-visual"><img id="reader-image" src="" alt=""><span class="reader-image-label" id="reader-image-label">Hover21 / The culture issue</span></div>
+    <div class="reader-copy">
+      <div class="dialog-topline"><span class="eyebrow" id="reader-category">The story</span><button class="dialog-close" type="button" data-close-dialog="reader-dialog" aria-label="Close article"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"></path></svg></button></div>
+      <h2 id="reader-title">The headline goes here</h2>
+      <p class="reader-dek" id="reader-dek"></p>
+      <div class="reader-byline" id="reader-byline"></div>
+      <div class="reader-body" id="reader-body"></div>
+      <div class="reader-actions"><button class="save-button" id="reader-save" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg><span>Save for later</span></button><button class="save-button" id="reader-share" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path></svg><span>Share story</span></button></div>
+      <div class="reader-connect-strip">
+        <span>Enjoyed this piece? Connect with our editors on <a href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram @hover21magazine</a> or pitch your story to <a href="mailto:Hover21magazine@gmail.com">Hover21magazine@gmail.com</a>.</span>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="list-dialog" class="list-dialog" aria-labelledby="list-title">
+  <div class="list-header"><div><div class="eyebrow">Your personal edit</div><h2 id="list-title">Reading list.</h2><p id="list-subtitle">Stories to come back to.</p></div><button class="dialog-close" type="button" data-close-dialog="list-dialog" aria-label="Close reading list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"></path></svg></button></div>
+  <div id="saved-items" class="saved-items"></div>
+</dialog>
+
+<dialog id="info-dialog" class="info-dialog" aria-labelledby="info-title">
+  <div class="dialog-topline"><span class="eyebrow">Publisher information</span><button class="dialog-close" type="button" data-close-dialog="info-dialog" aria-label="Close information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"></path></svg></button></div>
+  <h2 id="info-title">Publisher information</h2>
+  <p id="info-body"></p>
+  <a class="read-link" href="mailto:Hover21magazine@gmail.com">Contact the editorial desk <span aria-hidden="true">↗</span></a>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  'use strict';
+  const STORIES = {
+    'vs-show': {title:'The Victoria’s Secret show wasn’t subtle — and it totally worked', category:'Column / Fashion', author:'Shane O’Neill', readTime:'6 min read', dek:'Maximalism, unapologetic glitter and the return of theatrical spectacle made a case for full-volume glamour.', body:[
+      'There is a particular pleasure in a show that knows exactly what it is. Feathered wings, crystal fringe and unapologetic shine made the runway feel like an event rather than a quiet exercise in restraint.',
+      'The point was not subtlety. It was commitment: a visual language built for the room, the camera and the collective memory of a night out. For a moment, fashion let spectacle be the point.',
+      'This column looks at why high-voltage glamour still has a place in a style conversation that often rewards understatement.' ]},
+    'culture-conversations': {title:'Inside the conversations shaping culture this week', category:'Cover story / The weekly dossier', author:'Editorial desk', readTime:'8 min read', dek:'From artificial intelligence reshaping design ateliers to the emerging power brokers of international media, a closer look at the new cultural codes.', body:[
+      'Culture rarely changes in one clean, obvious moment. More often, it shifts through a thousand small decisions: the image a designer keeps, the platform an audience trusts, the voice that gets invited into the room.',
+      'Artificial intelligence is becoming part of the conversation around design and authorship, while new media channels continue to change how taste travels. The questions are practical as much as philosophical: who shapes the work, who frames it, and who gets to decide what matters?',
+      'The weekly dossier follows those overlapping conversations with one aim: to look past the loudest headline and notice the ideas still taking shape.' ]},
+    'front-row-faces': {title:'The new faces redefining the front row', category:'Culture / Profiles', author:'Elena Thorne', readTime:'5 min read', dek:'How global music ambassadors and a new generation of creative icons are changing the gravity and business of fashion week.', body:[
+      'The front row has become its own cultural stage. Music, fandom, personal style and luxury branding now meet in a single frame, and the people sitting there can shape a conversation long after the show has ended.',
+      'For a younger generation of audiences, style does not live neatly inside one industry. It moves between a performance, a campaign, a street photograph and a post shared with millions of people.',
+      'This profile considers how the front row became more than a seating plan — and why the most interesting influence is often the hardest to categorise.' ]},
+    'runway-wings': {title:'Wings, glitter and a season of full-volume glamour', category:'Fashion / Runway', author:'Shane O’Neill', readTime:'4 min read', dek:'Dramatic featherwork, crystal fringe and an electrifying refusal to play quiet on autumn runways.', body:[
+      'Fashion has always had room for the theatrical. This season, featherwork and crystal details bring texture, movement and scale to silhouettes that are designed to be seen from the back of a room.',
+      'The appeal is partly in the craft — and partly in the permission to enjoy fashion as spectacle. Shine becomes a material, movement becomes part of the styling, and the runway turns into a performance.',
+      'The result is full-volume glamour: not a rule for every wardrobe, but a reminder that getting dressed can still be a form of play.' ]},
+    'pink-statement': {title:'Pink returns, and it is not playing quiet', category:'Fashion / Style', author:'Maya Lin', readTime:'5 min read', dek:'High-saturation fuchsia and shimmering magenta make a grand couture entrance, far beyond the muted pastel palette.', body:[
+      'This is pink with the volume turned up. Fuchsia and magenta bring energy to the frame, especially when paired with reflective fabric, movement and confident, uncomplicated styling.',
+      'Colour can do the work of an entire outfit. It gives a familiar silhouette a new attitude and creates a visual centre of gravity before accessories or details enter the conversation.',
+      'The takeaway is less about following a forecast and more about choosing a shade that feels deliberate.' ]},
+    'beauty-blush': {title:'The blush palette that sold out in a weekend', category:'Beauty / Makeup', author:'Camille Dubois', readTime:'4 min read', dek:'Inside the viral obsession with buildable baked pigment and the sculpted-cheekbone renaissance.', body:[
+      'Blush has moved beyond a finishing touch. Texture, pigment and placement now sit at the centre of a look, with baked formulas offering a balance between a soft wash of colour and a more sculpted finish.',
+      'The appeal of a buildable palette is its range: a little colour can bring warmth to an everyday routine, while layered pigment can create a more deliberate editorial effect.',
+      'The best beauty products earn their place by being expressive without making the routine feel like work.' ]},
+    'glass-skin': {title:'Glass skin, minus the ten-step routine', category:'Beauty / Skincare', author:'Kenji Sato', readTime:'5 min read', dek:'Streamlined barrier-focused formulas and multi-benefit ceramides offer a dewy finish without the clutter.', body:[
+      'The glass-skin conversation is changing shape. Rather than treating a long product lineup as the goal, the focus is on a considered routine and a finish that looks comfortable, hydrated and light-catching.',
+      'Barrier-focused care and multi-benefit formulas are part of that shift. The idea is to choose products for what they do, give a routine room to settle, and avoid adding steps simply to make the shelf look impressive.',
+      'A simpler routine can still feel luxurious when the textures, packaging and daily ritual have been chosen with intention.' ]},
+    'arts-car': {title:'A concept car that looks like a sculpture', category:'Arts & lifestyle / Design', author:'Julian Vance', readTime:'6 min read', dek:'The RDSTR prototype strips away visual noise to showcase aerodynamic form and proportion.', body:[
+      'Some objects ask to be read before they are used. The RDSTR concept takes that sculptural approach to automotive design, turning the silhouette, surfaces and play of light into the first part of the experience.',
+      'Its visual language is pared back rather than plain. By reducing obvious ornament, proportion becomes easier to notice and small changes in surface carry more weight.',
+      'The idea sits at the intersection of engineering and visual culture: a vehicle imagined as a moving object, but also as a study in form.' ]},
+    'arts-flowers': {title:'Walk through a digital meadow in full bloom', category:'Arts & lifestyle / Immersive art', author:'Clara Oswald', readTime:'5 min read', dek:'Generative florals respond to visitor movement, inviting a sensory encounter between technology and a living landscape.', body:[
+      'A digital meadow changes the usual relationship between a viewer and an artwork. The image is not simply there to be looked at; movement can become part of how the environment responds.',
+      'Generative florals bring colour, repetition and organic forms into an immersive space. The effect is part landscape, part moving image, with visitors helping determine how the work is experienced from one moment to the next.',
+      'The most compelling technology-led art does not ask us to admire the technology alone. It gives us a reason to pause, move and notice.' ]},
+    'shopping-streetwear': {title:'Green tracksuits and chrome sneakers, head to toe', category:'Shopping / Streetwear', author:'Marcus Reid', readTime:'4 min read', dek:'Elevated athletic tailoring meets space-age footwear, with colour doing much of the talking.', body:[
+      'The tracksuit keeps its ease but changes its posture. Rich green, considered proportions and a cleaner finish move athletic staples into a more deliberate everyday uniform.',
+      'Chrome and metallic footwear add a counterpoint to soft fabrics and earthy tones. The combination works because each piece has a clear role: one grounds the look, the other catches the eye.',
+      'Think of this as a styling idea rather than a strict shopping list — a balance between comfort, colour and one object that makes the outfit feel personal.' ]},
+    'shopping-sneakers': {title:'The earth-tone running shoes everyone wants', category:'Shopping / Sneakers', author:'Chloe Dupont', readTime:'4 min read', dek:'Forest green, sage suede and charcoal tones bring a softer palette to a collector favourite.', body:[
+      'Earth tones give a technical sneaker a different kind of presence. Forest green, muted sage and charcoal feel grounded, while mixed materials add detail without relying on a high-contrast colour story.',
+      'For collectors, the attraction can be as much about texture and proportion as the silhouette itself. Suede, mesh and layered panels reward a closer look, especially in a palette that feels easy to wear.',
+      'A considered sneaker does not need to shout. Sometimes the small choices are what make it worth keeping.' ]}
+  };
+  const STORY_IDS = Object.keys(STORIES);
+  const saveKey = 'hover21-reading-list-v2';
+  const themeKey = 'hover21-theme-v1';
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  const getStoryCard = id => $(`[data-story-id="${CSS.escape(id)}"]`);
+  let currentStory = null;
+  let toastTimer = null;
+  let saved = [];
+  try { const parsed = JSON.parse(localStorage.getItem(saveKey) || '[]'); if (Array.isArray(parsed)) saved = parsed.filter(id => STORIES[id]); } catch (_) { saved = []; }
+  function safeSave(){ try { localStorage.setItem(saveKey, JSON.stringify(saved)); } catch (_) {} }
+  function toast(message){ const el=$('#toast'); el.textContent=message; el.classList.add('is-visible'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('is-visible'),2900); }
+  function storyImage(id){ const card=getStoryCard(id); return card ? $('img',card) : null; }
+  function refreshSaved(){
+    $('#saved-count').textContent=String(saved.length);
+    $('#saved-count').setAttribute('aria-label', `${saved.length} saved ${saved.length===1?'story':'stories'}`);
+    $$('[data-save-story]').forEach(btn=>{
+      const on=saved.includes(btn.dataset.saveStory); btn.classList.toggle('is-saved',on); btn.setAttribute('aria-pressed',String(on));
+      const span=$('span',btn); if(span && btn.classList.contains('save-button')) span.textContent=on?'Saved':'Save for later';
+      btn.title=on?'Remove from reading list':'Save story';
+    });
+    const readerSave=$('#reader-save'); if(currentStory && readerSave){ const on=saved.includes(currentStory); readerSave.classList.toggle('is-saved',on); readerSave.setAttribute('aria-pressed',String(on)); const s=$('span',readerSave); if(s)s.textContent=on?'Saved to your list':'Save for later'; }
+    safeSave(); renderSavedList();
+  }
+  function toggleSaved(id){
+    if(!STORIES[id]) return;
+    if(saved.includes(id)){ saved=saved.filter(x=>x!==id); toast('Removed from your reading list.'); }
+    else { saved.unshift(id); toast('Saved for a quieter moment.'); }
+    refreshSaved();
+  }
+  function openStory(id){
+    const story=STORIES[id], card=getStoryCard(id), image=storyImage(id); if(!story || !card || !image) return;
+    currentStory=id;
+    $('#reader-image').src=image.currentSrc || image.src; $('#reader-image').alt=image.alt || story.title;
+    $('#reader-image-label').textContent=`Hover21 / ${story.category}`;
+    $('#reader-category').textContent=story.category; $('#reader-title').textContent=story.title; $('#reader-dek').textContent=story.dek;
+    $('#reader-byline').textContent=`${story.author}  /  ${story.readTime}  /  The culture issue`;
+    $('#reader-body').replaceChildren(...story.body.map(copy=>{const p=document.createElement('p');p.textContent=copy;return p;}));
+    refreshSaved(); const d=$('#reader-dialog'); if(!d.open) d.showModal();
+  }
+  function closeDialog(id){ const d=document.getElementById(id); if(d && d.open)d.close(); }
+  function renderSavedList(){
+    const root=$('#saved-items'); root.replaceChildren(); $('#list-subtitle').textContent=`${saved.length} ${saved.length===1?'story':'stories'} saved for later.`;
+    if(!saved.length){ const empty=document.createElement('div');empty.className='saved-empty';empty.innerHTML='<strong>A little space for later.</strong>Your saved stories will live here. Tap a bookmark anywhere in the issue to keep something close.';root.append(empty);return; }
+    saved.forEach(id=>{
+      const story=STORIES[id], card=getStoryCard(id), img=storyImage(id); if(!story||!card||!img)return;
+      const row=document.createElement('div');row.className='saved-item';
+      const image=document.createElement('img');image.src=img.currentSrc||img.src;image.alt=img.alt||'';image.loading='lazy';
+      const content=document.createElement('div');const kind=document.createElement('div');kind.className='saved-kind';kind.textContent=story.category;
+      const open=document.createElement('button');open.className='saved-open';open.type='button';const title=document.createElement('h3');title.textContent=story.title;open.append(title);open.addEventListener('click',()=>{closeDialog('list-dialog');openStory(id);});content.append(kind,open);
+      const remove=document.createElement('button');remove.className='saved-remove';remove.type='button';remove.textContent='×';remove.setAttribute('aria-label',`Remove ${story.title} from reading list`);remove.addEventListener('click',()=>{saved=saved.filter(x=>x!==id);refreshSaved();toast('Story removed.');});
+      row.append(image,content,remove);root.append(row);
+    });
+  }
+  // Search is shared by the masthead, cover spread and all editorial departments.
+  const searchPanel=$('#search-panel'), searchInput=$('#global-search');
+  function runSearch(){
+    const query=searchInput.value.trim().toLowerCase(); let total=0, heroCount=0;
+    $$('[data-story-id]').forEach(card=>{
+      const id=card.dataset.storyId, story=STORIES[id];
+      const hay=((card.dataset.searchText||'')+' '+(story?story.title+' '+story.dek+' '+story.category+' '+story.author:'' )+' '+card.textContent).toLowerCase();
+      const ok=!query || hay.includes(query); card.hidden=!ok; if(ok){total++;if(card.closest('#cover-grid'))heroCount++;}
+    });
+    $$('[data-editorial-section]').forEach(section=>{
+      const cards=$$('[data-story-id]',section);const any=cards.some(card=>!card.hidden);section.hidden=Boolean(query)&&!any;
+      const empty=$('[data-section-empty]',section);if(empty)empty.hidden=!query||any;
+    });
+    const coverGrid=$('#cover-grid');coverGrid.hidden=Boolean(query)&&heroCount===0;$('#hero-no-results').hidden=!query||heroCount>0;
+    $('#search-results-banner').hidden=!query;
+    if(query){$('#search-results-title').textContent=total?`The search edit / “${searchInput.value.trim()}”`:'No stories found';$('#search-results-detail').textContent=`${total} ${total===1?'story':'stories'} match${total===1?'es':''}.`;} 
+    $('#search-count').textContent=query?`${total} ${total===1?'story':'stories'} found`:`${STORY_IDS.length} stories in this issue`;
+    $('.cover-intro').hidden=Boolean(query);
+    $('.ticker').hidden=Boolean(query);
+    $('.interlude').hidden=Boolean(query);
+  }
+  $('#search-toggle').addEventListener('click',()=>{
+    const opening=searchPanel.hidden;searchPanel.hidden=!opening;$('#search-toggle').setAttribute('aria-expanded',String(opening));
+    if(opening){setTimeout(()=>searchInput.focus(),40);}else{searchInput.blur();}
+  });
+  searchInput.addEventListener('input',runSearch);
+  $('#search-clear').addEventListener('click',()=>{searchInput.value='';runSearch();searchInput.focus();});
+  $$('[data-open-story]').forEach(el=>el.addEventListener('click',event=>{event.preventDefault();openStory(el.dataset.openStory);}));
+  $$('[data-save-story]').forEach(btn=>btn.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();toggleSaved(btn.dataset.saveStory);}));
+  $('#reading-list-open').addEventListener('click',()=>{renderSavedList();$('#list-dialog').showModal();});
+  $('#reader-save').addEventListener('click',()=>{if(currentStory)toggleSaved(currentStory);});
+  $('#reader-share').addEventListener('click',async()=>{
+    if(!currentStory)return;const story=STORIES[currentStory];const shareData={title:story.title,text:story.dek,url:location.href.split('#')[0]+`#story-${currentStory}`};
+    try{if(navigator.share){await navigator.share(shareData);}else if(navigator.clipboard && location.protocol!=='file:'){await navigator.clipboard.writeText(`${shareData.title}\n${shareData.text}\n${shareData.url}`);toast('Story details copied.');}else{toast('Share this story: '+story.title);}}
+    catch(err){if(err && err.name!=='AbortError')toast('Sharing is not available in this browser.');}
+  });
+  $$('[data-close-dialog]').forEach(btn=>btn.addEventListener('click',()=>closeDialog(btn.dataset.closeDialog)));
+  $$('dialog').forEach(d=>{
+    d.addEventListener('click',event=>{if(event.target===d)d.close();});
+    d.addEventListener('close',()=>{if(d.id==='reader-dialog')currentStory=null;});
+  });
+  $('#theme-toggle').addEventListener('click',()=>{
+    const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;
+    try{localStorage.setItem(themeKey,next);}catch(_){}
+    $('#theme-toggle').setAttribute('aria-label',next==='dark'?'Switch to light mode':'Switch to dark mode');
+    toast(next==='dark'?'Ink mode on.':'Paper mode on.');
+  });
+  try{const theme=localStorage.getItem(themeKey);if(theme==='dark'||theme==='light')document.documentElement.dataset.theme=theme;}catch(_){}
+  $('#theme-toggle').setAttribute('aria-label',document.documentElement.dataset.theme==='dark'?'Switch to light mode':'Switch to dark mode');
+  const nav=$('#category-nav'), menu=$('#menu-toggle');
+  menu.addEventListener('click',()=>{const isOpen=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',String(isOpen));menu.setAttribute('aria-label',isOpen?'Close section menu':'Open section menu');});
+  $$('#nav-links a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');}));
+  $$('[data-policy]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();$('#info-title').textContent=link.dataset.policy;$('#info-body').textContent='The supplied reference files include this page label, but do not include approved policy wording or the destination page. Add the publisher-approved copy before launch.';$('#info-dialog').showModal();}));
+  $('#newsletter-form').addEventListener('submit',event=>{
+    event.preventDefault();const email=$('#newsletter-email');const status=$('#newsletter-status');
+    if(!email.value.trim()||!email.checkValidity()){status.textContent='Enter a valid email address to continue.';email.focus();return;}
+    status.textContent='Preview only: this design is ready for a mailing-list connection, but it does not transmit or store your address.';toast('The sign-up form is a preview and is not connected yet.');
+  });
+  // Progress bar, reading reveal and current section hint.
+  const progress=$('#scroll-progress');let scrollScheduled=false;
+  function updateProgress(){const doc=document.documentElement;const range=doc.scrollHeight-doc.clientHeight;progress.style.width=(range>0?Math.min(100,doc.scrollTop/range*100):0)+'%';scrollScheduled=false;}
+  window.addEventListener('scroll',()=>{if(!scrollScheduled){requestAnimationFrame(updateProgress);scrollScheduled=true;}},{passive:true});updateProgress();
+  document.body.classList.add('js-ready');
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.08,rootMargin:'0px 0px -25px 0px'});$$('.reveal').forEach(el=>observer.observe(el));}
+  else $$('.reveal').forEach(el=>el.classList.add('is-visible'));
+  // Current section underline: only decorate the link, never alter navigation.
+  if('IntersectionObserver' in window){const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const href='#'+entry.target.id;$$('#nav-links a').forEach(a=>{if(a.getAttribute('href')===href)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}),{rootMargin:'-30% 0px -60% 0px'});$$('main section[id]').forEach(section=>sectionObserver.observe(section));}
+  // 1-Click Copy Email Handler
+  const copyEmailBtn = $('#copy-email-btn');
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', async () => {
+      const email = copyEmailBtn.dataset.copy || 'Hover21magazine@gmail.com';
+      try {
+        if (navigator.clipboard && location.protocol !== 'file:') {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const temp = document.createElement('textarea');
+          temp.value = email;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+        }
+        toast('Email copied: ' + email);
+      } catch (_) {
+        toast('Direct mail: ' + email);
+      }
+    });
+  }
+  refreshSaved();
+})();
+</script>
+</body>
+</html>

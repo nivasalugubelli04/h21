@@ -1,0 +1,969 @@
+/* ==========================================================================
+   Hover21 Magazine — Sleek Vogue-Style Minimalist Luxury
+   Design System: Vogue Paris / British Vogue / High-Fashion Editorial
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Unbounded:wght@400;600;800;900&family=Italiana&display=swap');
+
+:root {
+  /* Vogue Minimalist Palette */
+  --bg-page: #FFFFFF;
+  --bg-subtle: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-ink: #0A0A0A;
+  
+  --fg-ink: #0A0A0A;
+  --fg-secondary: #555555;
+  --fg-muted: #888888;
+  --fg-light: #FFFFFF;
+
+  /* Line & Border Tokens */
+  --line-strong: #0A0A0A;
+  --line-subtle: rgba(10, 10, 10, 0.1);
+  --line-hairline: rgba(10, 10, 10, 0.06);
+
+  /* Signature Client Accent (Orange-Yellow Gradient) */
+  --orange: #FF5A00;
+  --yellow: #FFC700;
+  --brand-grad: linear-gradient(135deg, #FF5A00 0%, #FFC700 100%);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Didot, 'Bodoni MT', Georgia, serif;
+  --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-logo: 'Unbounded', sans-serif;
+  --font-accent: 'Italiana', serif;
+
+  /* Geometry & Curves */
+  --max-w: 1280px;
+  --radius-xs: 2px;
+  --radius-pill: 9999px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--fg-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ==========================================================================
+   Vogue Top Utility Bar
+   ========================================================================== */
+
+.vogue-top-bar {
+  border-bottom: 1px solid var(--line-hairline);
+  padding: 10px 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+}
+
+.top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.edition-label {
+  font-weight: 700;
+  color: var(--fg-ink);
+}
+
+.date-label {
+  color: var(--fg-muted);
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-link {
+  font-weight: 600;
+  color: var(--fg-secondary);
+  transition: color 0.2s ease;
+}
+
+.top-link:hover {
+  color: var(--orange);
+}
+
+/* ==========================================================================
+   Iconic Editorial Masthead
+   ========================================================================== */
+
+.masthead {
+  padding: 36px 0 24px;
+  text-align: center;
+  background: var(--bg-page);
+}
+
+.masthead-brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+.logo-main {
+  font-family: var(--font-logo);
+  font-size: clamp(48px, 8vw, 84px);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  color: var(--fg-ink);
+}
+
+.logo-main i {
+  font-style: normal;
+  background: var(--brand-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.logo-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+  margin-top: 10px;
+}
+
+/* Category Navigation (Vogue-Style Centered Menu) */
+.nav-strip {
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-hairline);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-strip .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+  flex: 1;
+}
+
+.nav-item a {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-ink);
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.nav-item a:hover, .nav-item.active a {
+  color: var(--orange);
+}
+
+.nav-item.active a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--fg-ink);
+}
+
+.nav-utilities {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--fg-ink);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-icon-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--orange);
+}
+
+.nav-icon-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.saved-pill {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--brand-grad);
+  color: #000;
+  font-size: 9px;
+  font-weight: 800;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+/* Global Search Dropdown / Bar */
+.search-bar-wrap {
+  border-bottom: 1px solid var(--line-hairline);
+  background: var(--bg-subtle);
+  padding: 14px 0;
+  display: none;
+}
+
+.search-bar-wrap.open {
+  display: block;
+}
+
+.search-input-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 640px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line-strong);
+  padding: 6px 4px;
+}
+
+.search-input-box svg {
+  width: 18px;
+  height: 18px;
+  color: var(--fg-muted);
+}
+
+.search-input-box input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--fg-ink);
+}
+
+.search-input-box input::placeholder {
+  font-style: italic;
+  color: var(--fg-muted);
+}
+
+/* ==========================================================================
+   Hero Section: Vogue Asymmetric Cover Spread
+   ========================================================================== */
+
+.hero-spread {
+  padding: 44px 0 60px;
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Story Card Base */
+.story-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover .card-photo img {
+  transform: scale(1.04);
+}
+
+.card-photo {
+  position: relative;
+  overflow: hidden;
+  background: #EAEAEA;
+  margin-bottom: 16px;
+}
+
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.hero-left .card-photo,
+.hero-right .card-photo {
+  aspect-ratio: 3 / 4;
+}
+
+.hero-center .card-photo {
+  aspect-ratio: 4 / 5;
+}
+
+/* Editorial Badges & Metadata */
+.card-kicker {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.card-kicker b {
+  color: var(--orange);
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--fg-ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.story-card:hover .card-title {
+  color: var(--orange);
+}
+
+.hero-center .card-title {
+  font-size: clamp(28px, 3.2vw, 38px);
+  line-height: 1.15;
+}
+
+.card-dek {
+  font-size: 14px;
+  color: var(--fg-secondary);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.card-byline {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.card-byline strong {
+  color: var(--fg-ink);
+}
+
+/* ==========================================================================
+   Editorial Category Sections (Fashion, Beauty, Arts, Shopping)
+   ========================================================================== */
+
+.editorial-section {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.section-banner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.section-heading-group {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.section-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--fg-ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.section-h2 strong {
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
+}
+
+.section-search-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--line-subtle);
+  padding: 4px 6px;
+  width: 100%;
+  max-width: 260px;
+  transition: border-color 0.2s ease;
+}
+
+.section-search-inline:focus-within {
+  border-color: var(--orange);
+}
+
+.section-search-inline svg {
+  width: 15px;
+  height: 15px;
+  color: var(--fg-muted);
+}
+
+.section-search-inline input {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  color: var(--fg-ink);
+  width: 100%;
+}
+
+/* 2-Column Split Cards */
+.split-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.split-cards .card-photo {
+  aspect-ratio: 16 / 11;
+}
+
+.split-cards .card-title {
+  font-size: clamp(22px, 2.2vw, 28px);
+}
+
+/* Empty State Fallback */
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--bg-subtle);
+  border: 1px dashed var(--line-subtle);
+  margin-top: 16px;
+}
+
+.empty-state.active {
+  display: block;
+}
+
+.empty-state p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--fg-secondary);
+  margin-bottom: 12px;
+}
+
+.empty-reset-btn {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Newsletter Dispatch (Vogue Minimalist Style)
+   ========================================================================== */
+
+.newsletter-strip {
+  padding: 72px 0;
+  background: var(--bg-subtle);
+  text-align: center;
+  border-top: 1px solid var(--line-hairline);
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.nl-box {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.nl-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.nl-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4.5vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--fg-ink);
+  margin-bottom: 14px;
+}
+
+.nl-desc {
+  font-size: 15px;
+  color: var(--fg-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.nl-form {
+  display: flex;
+  max-width: 440px;
+  margin: 0 auto;
+  border-bottom: 1.5px solid var(--line-strong);
+}
+
+.nl-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  padding: 10px 4px;
+  color: var(--fg-ink);
+}
+
+.nl-input::placeholder {
+  font-style: italic;
+  color: var(--fg-muted);
+}
+
+.nl-btn {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  color: var(--fg-ink);
+  transition: color 0.2s ease;
+}
+
+.nl-btn:hover {
+  color: var(--orange);
+}
+
+/* ==========================================================================
+   Vogue-Style Reading Modal / Slide-Out Drawer
+   ========================================================================== */
+
+.reader-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reader-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.reader-drawer {
+  background: var(--bg-page);
+  color: var(--fg-ink);
+  width: 100%;
+  max-width: 780px;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
+  transform: translateX(100%);
+  transition: transform 0.45s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.reader-backdrop.open .reader-drawer {
+  transform: translateX(0);
+}
+
+.reader-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-hairline);
+  padding: 16px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reader-cat {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.reader-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reader-ctrl-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-subtle);
+  transition: all 0.2s ease;
+}
+
+.reader-ctrl-btn:hover {
+  border-color: var(--line-strong);
+  color: var(--orange);
+}
+
+.reader-content {
+  padding: 40px 48px 80px;
+}
+
+.reader-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  margin-bottom: 32px;
+}
+
+.reader-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4.2vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--fg-ink);
+  margin-bottom: 16px;
+}
+
+.reader-byline {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  border-bottom: 1px solid var(--line-subtle);
+  padding-bottom: 24px;
+  margin-bottom: 36px;
+}
+
+.reader-byline strong {
+  color: var(--fg-ink);
+}
+
+.reader-body {
+  font-size: 18px;
+  line-height: 1.85;
+  color: #2A2A2A;
+}
+
+.reader-body p {
+  margin-bottom: 24px;
+}
+
+.reader-body p:first-of-type::first-letter {
+  font-family: var(--font-serif);
+  font-size: 64px;
+  float: left;
+  line-height: 0.8;
+  padding-right: 14px;
+  padding-top: 4px;
+  color: var(--fg-ink);
+  font-weight: 700;
+}
+
+.reader-pullquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.45;
+  color: var(--fg-ink);
+  border-top: 2px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-subtle);
+  padding: 24px 0;
+  margin: 40px 0;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Vogue-Style Minimalist Luxury Footer
+   ========================================================================== */
+
+footer {
+  margin-top: 60px;
+  border-top: 2px solid var(--line-strong);
+  padding: 64px 0 40px;
+  background: var(--bg-page);
+  text-align: center;
+}
+
+.footer-masthead {
+  font-family: var(--font-logo);
+  font-size: clamp(48px, 9vw, 92px);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  color: var(--fg-ink);
+  text-transform: uppercase;
+}
+
+.footer-masthead span {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(12px, 1.8vw, 15px);
+  letter-spacing: 0.35em;
+  margin-top: 8px;
+  color: var(--fg-muted);
+}
+
+/* Direct Editorial Email */
+.footer-contact-wrap {
+  margin: 24px 0 28px;
+}
+
+.footer-mail-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-ink);
+  border: 1px solid var(--line-strong);
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.footer-mail-pill:hover {
+  background: var(--fg-ink);
+  color: #FFFFFF;
+}
+
+/* Social Media Channels */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 24px 0 36px;
+}
+
+.social-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-subtle);
+  color: var(--fg-ink);
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  border-color: var(--line-strong);
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Legal Links */
+.footer-links {
+  border-top: 1px solid var(--line-hairline);
+  padding-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 28px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+}
+
+.footer-links a:hover {
+  color: var(--fg-ink);
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 28px;
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+/* Toast Notifications */
+.vogue-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-ink);
+  color: #FFFFFF;
+  padding: 14px 24px;
+  border-radius: var(--radius-xs);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s var(--ease);
+  z-index: 2000;
+}
+
+.vogue-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 990px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-center {
+    order: -1;
+  }
+  .split-cards {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .nav-menu {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar-left .date-label {
+    display: none;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .section-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-search-inline {
+    max-width: 100%;
+  }
+  .reader-content {
+    padding: 24px 24px 60px;
+  }
+}
