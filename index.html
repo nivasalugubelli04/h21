@@ -517,6 +517,69 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
+
+/* Robust Footer Social Hub */
+.footer-social-hub {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.06);
+  color: #dad3c7;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  transition: all 0.22s var(--ease);
+  flex: none;
+}
+.footer-icon-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.8 !important;
+  display: block;
+}
+.footer-icon-btn:hover {
+  background: var(--sun);
+  border-color: var(--sun);
+  color: #171715;
+  transform: translateY(-2px);
+}
+.footer-handles {
+  font-size: 12px;
+  color: #a6a094;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.footer-handles a {
+  color: #dad3c7;
+  transition: color 0.18s;
+  text-decoration: none;
+}
+.footer-handles a:hover {
+  color: var(--sun);
+  text-decoration: underline;
+}
+.dot-sep {
+  opacity: 0.5;
+}
+
 /* Simple & Elegant Social / Contact Connect Styles */
 .connect-section {
   padding: clamp(48px, 6vw, 84px) 0 clamp(40px, 5vw, 70px);
@@ -991,19 +1054,23 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
       <div class="footer-brand">
         <a class="brand" href="#page-top" aria-label="Hover21 Magazine home"><span class="brand-glyph" aria-hidden="true">H<span class="twentyone">21</span></span><span class="brand-word">MAGAZINE</span></a>
         <p>Fashion, beauty, ideas and objects — viewed with curiosity, edited with intention. The global voice of culture.</p>
-        <div class="footer-social-row">
-          <a class="footer-social-pill" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram Hover21 Magazine">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
-            <span>Instagram: <strong>@hover21magazine</strong></span>
-          </a>
-          <a class="footer-social-pill" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" aria-label="TikTok Hover21 Magazine">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
-            <span>TikTok: <strong>@hover21magazine</strong></span>
-          </a>
-          <a class="footer-social-pill" href="mailto:Hover21magazine@gmail.com" aria-label="Email Hover21 Magazine">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
-            <span>Email: <strong>Hover21magazine@gmail.com</strong></span>
-          </a>
+        <div class="footer-social-hub">
+          <div class="footer-social-icons">
+            <a class="footer-icon-btn" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" title="Follow @hover21magazine on Instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+            </a>
+            <a class="footer-icon-btn" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" title="Follow @hover21magazine on TikTok" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
+            </a>
+            <a class="footer-icon-btn" href="mailto:Hover21magazine@gmail.com" title="Email: Hover21magazine@gmail.com" aria-label="Email Editorial Desk">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
+            </a>
+          </div>
+          <div class="footer-handles">
+            <a href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">@hover21magazine</a>
+            <span class="dot-sep">·</span>
+            <a href="mailto:Hover21magazine@gmail.com">Hover21magazine@gmail.com</a>
+          </div>
         </div>
       </div>
       <div class="footer-column"><h3>Find your way</h3><nav class="footer-links" aria-label="Footer navigation"><a href="#top-stories">Top stories</a><a href="#fashion">Fashion news</a><a href="#beauty">Beauty news</a><a href="#arts">Arts &amp; lifestyle</a><a href="#shopping">Shopping edit</a></nav></div>
