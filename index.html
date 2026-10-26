@@ -517,255 +517,146 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
-/* Connect Section Styles */
+/* Simple & Elegant Social / Contact Connect Styles */
 .connect-section {
-  padding: clamp(60px, 8vw, 115px) 0 clamp(40px, 6vw, 80px);
+  padding: clamp(48px, 6vw, 84px) 0 clamp(40px, 5vw, 70px);
   background: var(--surface);
   border-top: 1px solid var(--rule);
-  position: relative;
-  overflow: hidden;
 }
-.connect-header {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: end;
-  gap: 32px;
-  margin-bottom: clamp(32px, 5vw, 56px);
+.connect-simple-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: clamp(28px, 4vw, 44px);
+  flex-wrap: wrap;
 }
-.connect-header h2 {
-  font: 400 clamp(44px, 6.5vw, 84px)/.92 var(--serif);
-  letter-spacing: -.05em;
-  margin: 10px 0 0;
+.connect-simple-header h2 {
+  font: 400 clamp(36px, 5vw, 64px)/.95 var(--serif);
+  letter-spacing: -.04em;
+  margin: 6px 0 0;
 }
-.connect-header h2 em {
+.connect-simple-header h2 em {
   color: var(--orange);
   font-style: italic;
 }
-.connect-dek {
-  font-size: 14px;
-  line-height: 1.75;
+.connect-simple-header p {
   color: var(--muted);
+  font-size: 13px;
+  max-width: 360px;
+  line-height: 1.6;
   margin: 0;
-  max-width: 480px;
 }
-.connect-grid {
+.connect-simple-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
-.connect-card {
-  position: relative;
-  border: 1px solid var(--rule);
+.simple-social-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
   background: var(--paper);
+  border: 1px solid var(--rule);
   border-radius: 4px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s ease;
-  overflow: hidden;
+  transition: all 0.25s var(--ease);
+  color: var(--ink);
+  text-decoration: none;
 }
-.connect-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+.simple-social-card:hover {
+  transform: translateY(-3px);
   border-color: var(--ink);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
 }
-.connect-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-.platform-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font: 600 10px/1 var(--display);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--orange);
-}
-.platform-icon {
-  width: 44px;
-  height: 44px;
+.simple-logo-wrap {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: grid;
   place-items: center;
+  flex: none;
+  background: var(--surface);
   border: 1px solid var(--rule);
-  transition: transform 0.3s var(--ease), background 0.3s ease;
+  transition: transform 0.25s var(--ease), background 0.2s, color 0.2s;
 }
-.connect-card:hover .platform-icon {
-  transform: scale(1.08) rotate(4deg);
+.simple-social-card:hover .simple-logo-wrap {
+  transform: scale(1.08);
 }
-.platform-icon svg {
-  width: 20px;
-  height: 20px;
+.simple-logo-wrap svg {
+  width: 22px;
+  height: 22px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.ig-icon { color: #E1306C; background: rgba(225, 48, 108, 0.08); border-color: rgba(225, 48, 108, 0.2); }
-.tt-icon { color: var(--ink); background: rgba(0, 0, 0, 0.05); }
-.mail-icon { color: var(--orange); background: rgba(239, 91, 55, 0.08); border-color: rgba(239, 91, 55, 0.2); }
+.simple-logo-wrap.ig-wrap { color: #E1306C; }
+.simple-social-card:hover .simple-logo-wrap.ig-wrap { background: #E1306C; color: #FFF; border-color: #E1306C; }
+.simple-logo-wrap.tt-wrap { color: var(--ink); }
+.simple-social-card:hover .simple-logo-wrap.tt-wrap { background: #000; color: #FFF; border-color: #000; }
+.simple-logo-wrap.mail-wrap { color: var(--orange); }
+.simple-social-card:hover .simple-logo-wrap.mail-wrap { background: var(--orange); color: #FFF; border-color: var(--orange); }
 
-.platform-handle {
-  font: 400 clamp(20px, 2.2vw, 26px)/1.2 var(--serif);
-  letter-spacing: -.02em;
-  margin: 0 0 12px;
-  word-break: break-all;
-}
-.platform-desc {
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--muted);
-  margin: 0 0 24px;
+.simple-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
   flex: 1;
 }
-.platform-meta {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-  padding-top: 14px;
-  border-top: 1px solid var(--rule);
-  font-size: 11px;
+.simple-platform-name {
+  font: 600 10px/1.2 var(--display);
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--muted);
 }
-.platform-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+.simple-handle {
+  font: 500 clamp(14px, 1.3vw, 17px)/1.3 var(--serif);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.platform-meta span:before {
-  content: "•";
+.simple-arrow {
+  font-size: 18px;
+  color: var(--muted);
+  transition: transform 0.2s, color 0.2s;
+  flex: none;
+}
+.simple-social-card:hover .simple-arrow {
   color: var(--orange);
+  transform: translate(3px, -3px);
 }
-.platform-meta span:first-child:before {
-  content: "";
-  display: none;
-}
-.connect-btn {
+.simple-copy-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 20px;
-  font-size: 11px;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  border-radius: 2px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
-  border-radius: 2px;
   cursor: pointer;
-  transition: all 0.22s var(--ease);
-}
-.connect-btn:hover {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-.ig-btn:hover {
-  background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045);
-  border-color: transparent;
-  color: #FFFFFF;
-}
-.tt-btn:hover {
-  background: #000000;
-  border-color: #000000;
-  box-shadow: 0 4px 15px rgba(254, 44, 85, 0.35);
-  color: #FFFFFF;
-}
-.email-action-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
-}
-.copy-btn {
-  min-width: 44px;
-  padding: 0 14px;
-  background: transparent;
   color: var(--ink);
-  border: 1px solid var(--rule);
+  transition: all 0.2s;
+  flex: none;
 }
-.copy-btn:hover {
+.simple-copy-btn:hover {
   background: var(--sun);
   border-color: var(--sun);
   color: #171715;
 }
 
-/* Footer Social Badges */
-.footer-social-row {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 20px;
-}
-.footer-social-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: #dad3c7;
-  font-size: 12px;
-  font-weight: 500;
-  transition: color 0.2s, transform 0.2s;
-}
-.footer-social-pill:hover {
-  color: var(--sun);
-  transform: translateX(3px);
-}
-.footer-social-pill svg {
-  width: 17px;
-  height: 17px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.8;
-}
-
-/* Reader Connect Strip */
-.reader-connect-strip {
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--rule);
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-.reader-connect-strip a {
-  color: var(--orange);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.reader-connect-strip a:hover {
-  color: var(--ink);
-}
-
 @media (max-width: 980px) {
-  .connect-grid {
+  .connect-simple-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .connect-header {
-    grid-template-columns: 1fr;
-    gap: 16px;
   }
 }
-@media (max-width: 768px) {
-  .edition-social-strip {
-    width: 100%;
-    justify-content: flex-start;
-    padding-bottom: 6px;
-  }
   .edition-pill span {
     display: none;
   }
@@ -788,17 +679,17 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
         <span class="edition-issue">Issue No. 021 <b>·</b> Saturday, October 24, 2026</span>
       </div>
       <div class="edition-social-strip">
-        <a class="edition-pill" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" title="Follow Hover21 on Instagram (@hover21magazine)">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
-          <span>@hover21magazine</span>
+        <a class="edition-pill" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram: @hover21magazine" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+          <span>Instagram</span>
         </a>
-        <a class="edition-pill" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" title="Follow Hover21 on TikTok (@hover21magazine)">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
+        <a class="edition-pill" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" title="TikTok: @hover21magazine" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
           <span>TikTok</span>
         </a>
-        <a class="edition-pill" href="mailto:Hover21magazine@gmail.com" title="Email the Editorial Desk">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
-          <span>Hover21magazine@gmail.com</span>
+        <a class="edition-pill" href="mailto:Hover21magazine@gmail.com" title="Email: Hover21magazine@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
+          <span>Email</span>
         </a>
         <a class="edition-cta" href="#connect">Connect <span aria-hidden="true">↓</span></a>
       </div>
@@ -1021,86 +912,59 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
     <div class="no-results" data-section-empty hidden>No shopping stories match your search. Try a different word.</div>
   </section>
 
-    <!-- NEW: The Cultural Network & Connect Hub -->
+    <!-- Simple & Elegant Social / Contact Connect Hub -->
   <section class="editorial-section connect-section" id="connect" aria-labelledby="connect-title" data-editorial-section>
     <div class="container">
       <div class="section-topline">
-        <div class="section-num"><strong>05</strong> <span class="dot">/</span> Editorial Desk &amp; Community</div>
-        <div class="section-aside">The Global Network</div>
+        <div class="section-num"><strong>05</strong> <span class="dot">/</span> Connect</div>
+        <div class="section-aside">Social &amp; Editorial Desk</div>
       </div>
-      <div class="connect-header reveal">
+      <div class="connect-simple-header reveal">
         <div>
-          <div class="eyebrow eyebrow-line">Direct Channels &amp; Submissions</div>
-          <h2 id="connect-title">Connect with <em>Hover21.</em></h2>
+          <div class="eyebrow eyebrow-line">Direct Channels</div>
+          <h2 id="connect-title">Follow &amp; <em>Get in touch.</em></h2>
         </div>
-        <p class="connect-dek">Follow our official channels for real-time runway moments, backstage dispatches, and cultural dialogue — or reach our international editorial team directly.</p>
+        <p>Follow Hover21 for real-time runway moments and visual dispatches, or reach our editorial desk directly.</p>
       </div>
 
-      <div class="connect-grid reveal">
-        <!-- Card 1: Instagram -->
-        <div class="connect-card card-instagram">
-          <div class="connect-card-top">
-            <div class="platform-badge"><span class="badge-dot"></span> Official Instagram</div>
-            <div class="platform-icon ig-icon">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
-            </div>
+      <div class="connect-simple-grid reveal">
+        <!-- Instagram -->
+        <a class="simple-social-card" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @hover21magazine">
+          <div class="simple-logo-wrap ig-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
           </div>
-          <h3 class="platform-handle">@hover21magazine</h3>
-          <p class="platform-desc">Visual stories, fashion week backstage chronicles, curated styling editorials, and daily cultural moodboards from international capitals.</p>
-          <div class="platform-meta">
-            <span>Visual Narratives</span>
-            <span>Runway Chronicles</span>
+          <div class="simple-card-info">
+            <span class="simple-platform-name">Instagram</span>
+            <span class="simple-handle">@hover21magazine</span>
           </div>
-          <a class="connect-btn ig-btn" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">
-            <span>Follow on Instagram</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
-          </a>
-        </div>
+          <span class="simple-arrow" aria-hidden="true">↗</span>
+        </a>
 
-        <!-- Card 2: TikTok -->
-        <div class="connect-card card-tiktok">
-          <div class="connect-card-top">
-            <div class="platform-badge"><span class="badge-dot"></span> Official TikTok</div>
-            <div class="platform-icon tt-icon">
-              <svg viewBox="0 0 24 24"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
-            </div>
+        <!-- TikTok -->
+        <a class="simple-social-card" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" aria-label="TikTok: @hover21magazine">
+          <div class="simple-logo-wrap tt-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
           </div>
-          <h3 class="platform-handle">@hover21magazine</h3>
-          <p class="platform-desc">Runway in motion, front row Paris &amp; Milan commentary, street soundscapes, viral beauty breakdowns, and unfiltered creator moments.</p>
-          <div class="platform-meta">
-            <span>Runway in Motion</span>
-            <span>Front Row Access</span>
+          <div class="simple-card-info">
+            <span class="simple-platform-name">TikTok</span>
+            <span class="simple-handle">@hover21magazine</span>
           </div>
-          <a class="connect-btn tt-btn" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer">
-            <span>Watch on TikTok</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
-          </a>
-        </div>
+          <span class="simple-arrow" aria-hidden="true">↗</span>
+        </a>
 
-        <!-- Card 3: Editorial Mail -->
-        <div class="connect-card card-email">
-          <div class="connect-card-top">
-            <div class="platform-badge"><span class="badge-dot"></span> Editorial Office</div>
-            <div class="platform-icon mail-icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m22 7-10 7L2 7"></path></svg>
-            </div>
+        <!-- Email -->
+        <div class="simple-social-card email-card">
+          <a class="simple-logo-wrap mail-wrap" href="mailto:Hover21magazine@gmail.com" aria-label="Send email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m22 7-10 7L2 7"></path></svg>
+          </a>
+          <div class="simple-card-info">
+            <span class="simple-platform-name">Editorial Desk</span>
+            <a class="simple-handle" href="mailto:Hover21magazine@gmail.com">Hover21magazine@gmail.com</a>
           </div>
-          <h3 class="platform-handle">Hover21magazine@gmail.com</h3>
-          <p class="platform-desc">For editorial story pitches, press invitations, photo essay submissions, partnership enquiries, and direct correspondence with our desk.</p>
-          <div class="platform-meta">
-            <span>Editorial Pitches</span>
-            <span>Direct Response</span>
-          </div>
-          <div class="email-action-row">
-            <a class="connect-btn mail-btn" href="mailto:Hover21magazine@gmail.com">
-              <span>Send Email</span>
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
-            </a>
-            <button class="connect-btn copy-btn" id="copy-email-btn" type="button" data-copy="Hover21magazine@gmail.com" title="Copy email address to clipboard">
-              <span>Copy</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-          </div>
+          <button class="simple-copy-btn" id="copy-email-btn" type="button" data-copy="Hover21magazine@gmail.com" title="Copy email address" aria-label="Copy email address">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy</span>
+          </button>
         </div>
       </div>
     </div>
