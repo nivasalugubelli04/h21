@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f2e9">
+<meta name="description" content="Read full editorial articles and culture stories from Hover21 Magazine.">
+<title id="page-title">Article — Hover21 Magazine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#f6f2e9; --paper-deep:#eae4d8; --ink:#1b1a18; --muted:#777168;
+  --rule:#cec7ba; --orange:#ef5b37; --sun:#f6c451; --plum:#3e2a35; --sage:#dce4cd;
+  --surface:#fffdf8; --nav:#171715; --nav-ink:#f9f5ed;
+  --sans:'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --display:'Unbounded', 'Arial Black', sans-serif;
+  --serif:'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --page:min(1280px, calc(100% - 48px));
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark; --paper:#171715; --paper-deep:#22211e; --ink:#f4efe6; --muted:#b7b0a5;
+  --rule:#48443d; --surface:#20201c; --nav:#090909; --nav-ink:#f9f5ed; --sage:#343c2d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.68 var(--sans);transition:background .28s,color .28s}
+body,button,input{font-family:var(--sans)}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+::selection{background:var(--sun);color:#181714}
+
+.scroll-progress{height:4px;position:fixed;top:0;left:0;z-index:350;background:linear-gradient(90deg, var(--orange), var(--sun));width:0;transition:width .1s linear}
+.container{width:var(--page);margin-inline:auto}
+
+/* Masthead Header */
+.site-header{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:14px}
+.masthead-left{display:flex;align-items:center;gap:14px;justify-self:start}
+.masthead-center{justify-self:center;text-align:center}
+.masthead-right{justify-self:end;display:flex;align-items:center;gap:10px}
+
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--rule);border-radius:2px;font:600 11px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;transition:all .2s var(--ease)}
+.back-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateX(-2px)}
+.back-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+
+.brand{display:inline-flex;align-items:center;gap:12px}
+.brand-logo-img{height:42px;width:auto;object-fit:contain;display:block;border-radius:4px}
+:root[data-theme="dark"] .brand-logo-img{filter:brightness(.92) contrast(1.05);background:#fff;padding:2px 6px}
+.brand-word{font:600 10px/1.25 var(--display);letter-spacing:.25em;border-left:1px solid var(--rule);padding:8px 0 8px 12px}
+
+.header-actions{display:flex;align-items:center;gap:8px}
+.icon-button{width:38px;height:38px;display:grid;place-items:center;background:transparent;border:1px solid var(--rule);border-radius:50%;cursor:pointer;position:relative;transition:background .2s,border-color .2s,transform .2s}
+.icon-button:hover{background:var(--sun);border-color:var(--sun);transform:translateY(-2px);color:#171715}
+.icon-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+
+/* Sign In Button */
+.sign-in-btn{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:99px;font:600 11px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .22s var(--ease)}
+.sign-in-btn:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-1px);box-shadow:0 4px 14px rgba(239,91,55,.3)}
+.sign-in-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* Article Shell */
+.article-page{padding-block: clamp(32px, 5vw, 64px) clamp(64px, 8vw, 120px)}
+.article-header{max-width:860px;margin-inline:auto;text-align:center;margin-bottom:clamp(32px,4vw,52px)}
+.article-category-badge{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+.article-category-badge .dot{color:var(--muted)}
+.article-title{font:400 clamp(38px,6vw,72px)/1.02 var(--serif);letter-spacing:-.04em;margin:0 0 20px;color:var(--ink);text-wrap:balance}
+.article-dek{font-size:clamp(18px,2.2vw,24px);line-height:1.48;color:var(--muted);max-width:740px;margin:0 auto 28px;text-wrap:balance}
+
+/* Byline and Tools Strip */
+.article-meta-strip{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-block:14px;max-width:960px;margin:0 auto}
+.meta-author-group{display:flex;align-items:center;gap:12px;text-align:left}
+.author-avatar{width:46px;height:46px;border-radius:50%;overflow:hidden;background:var(--paper-deep);border:1px solid var(--rule);flex:none}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-info{display:flex;flex-direction:column}
+.author-name{font:600 14px var(--sans);color:var(--ink)}
+.author-title{font-size:12px;color:var(--muted)}
+.meta-right{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--muted)}
+.meta-date{white-space:nowrap}
+.article-actions-bar{display:flex;align-items:center;gap:8px}
+.action-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--surface);border:1px solid var(--rule);border-radius:99px;font:600 11px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s var(--ease);color:var(--ink)}
+.action-pill:hover{background:var(--sun);border-color:var(--sun);color:#171715;transform:translateY(-1px)}
+.action-pill svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8}
+.action-pill.is-saved{background:var(--sun);border-color:var(--sun);color:#171715}
+
+/* Hero Media */
+.article-hero-wrap{max-width:1120px;margin:clamp(24px,4vw,44px) auto;position:relative}
+.article-hero-media{width:100%;max-height:680px;aspect-ratio:16/9;overflow:hidden;border-radius:3px;background:#2b2925;box-shadow:0 12px 38px rgba(0,0,0,.08)}
+.article-hero-media img{width:100%;height:100%;object-fit:cover}
+.article-hero-caption{font-size:13px;line-height:1.6;color:var(--muted);padding-top:10px;text-align:center;font-style:italic}
+
+/* Reading Body */
+.article-body{max-width:720px;margin:0 auto;font-size:clamp(17px,1.25vw,19px);line-height:1.75;color:var(--ink)}
+.article-body p{margin:0 0 24px}
+.article-body p:first-of-type::first-letter{font-family:var(--serif);font-size:4.8em;float:left;line-height:.75;padding-right:.12em;padding-top:.08em;color:var(--orange)}
+.article-body h3{font:400 clamp(26px,3.5vw,36px)/1.15 var(--serif);letter-spacing:-.03em;margin:42px 0 16px;color:var(--ink)}
+.article-pullquote{margin:36px -28px;padding:26px 32px;background:var(--paper-deep);border-left:4px solid var(--orange);font:400 clamp(22px,2.8vw,30px)/1.35 var(--serif);letter-spacing:-.025em;color:var(--ink)}
+.article-pullquote cite{display:block;font:600 11px/1.4 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:14px;font-style:normal}
+
+/* Article Author Bio */
+.author-bio-card{max-width:720px;margin:48px auto 0;padding:28px;background:var(--surface);border:1px solid var(--rule);border-radius:4px;display:flex;gap:20px;align-items:center}
+.author-bio-card img{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--rule)}
+.author-bio-text h4{margin:0 0 6px;font:600 16px var(--sans)}
+.author-bio-text p{margin:0;font-size:13px;line-height:1.65;color:var(--muted)}
+
+/* Comments / Discussion */
+.comments-section{max-width:720px;margin:64px auto 0;border-top:1px solid var(--rule);padding-top:40px}
+.comments-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.comments-header h3{font:400 28px/1 var(--serif);margin:0}
+.comment-input-wrap{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.comment-textarea{width:100%;min-height:96px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:4px;font:inherit;color:var(--ink);resize:vertical;outline:none}
+.comment-textarea:focus{border-color:var(--orange)}
+.comment-submit-btn{align-self:flex-end;padding:9px 20px;background:var(--ink);color:var(--paper);border:0;border-radius:2px;font:600 11px var(--display);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.comment-submit-btn:hover{background:var(--orange);color:#fff}
+.comment-item{padding:18px 0;border-bottom:1px solid var(--rule)}
+.comment-item:last-child{border-bottom:0}
+.comment-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:8px}
+.comment-author{font-weight:600;color:var(--ink)}
+.comment-text{margin:0;font-size:14px;line-height:1.6}
+
+/* More Stories Grid */
+.more-stories-section{background:var(--paper-deep);padding-block:clamp(48px,6vw,84px);border-top:1px solid var(--rule)}
+.section-headline{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:12px}
+.section-headline h2{font:400 clamp(28px,3.8vw,44px)/1 var(--serif);margin:0}
+.section-headline h2 em{color:var(--orange);font-style:italic}
+.section-headline a{font:600 11px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.section-headline a:hover{color:var(--orange)}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px}
+.more-card{background:var(--surface);border:1px solid var(--rule);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s var(--ease),box-shadow .25s}
+.more-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.more-media{aspect-ratio:16/10;overflow:hidden;position:relative}
+.more-media img{transition:transform .6s var(--ease)}
+.more-card:hover .more-media img{transform:scale(1.05)}
+.more-card-content{padding:20px;display:flex;flex-direction:column;flex:1}
+.more-tag{font:600 10px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.more-card-content h3{font:400 21px/1.22 var(--serif);letter-spacing:-.02em;margin:0 0 10px;color:var(--ink)}
+.more-card-content p{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 16px;flex:1}
+.more-link{font:600 11px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.more-link:hover{color:var(--orange)}
+
+/* Footer */
+.site-footer{background:#171715;color:#f6f2e9;padding:48px 0 28px}
+.footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid #3d3b37}
+.footer-brand img{height:38px;width:auto;margin-bottom:14px;background:#fff;padding:2px 6px;border-radius:3px}
+.footer-brand p{color:#aaa396;font-size:13px;line-height:1.7;max-width:320px;margin:0}
+.footer-column h3{font:600 11px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin:0 0 14px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:#dad3c7;font-size:13px;transition:color .2s}
+.footer-links a:hover{color:var(--sun)}
+.footer-bottom{padding-top:20px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#8f887b}
+
+/* Sign-In Modal */
+dialog{padding:0;border:0;background:transparent;color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(10,10,9,.75);backdrop-filter:blur(6px)}
+.auth-dialog{width:min(440px, calc(100% - 32px));background:var(--paper);border-radius:4px;box-shadow:0 28px 80px rgba(0,0,0,.35);overflow:hidden;border:1px solid var(--rule)}
+.auth-shell{padding:36px 32px}
+.auth-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.auth-title{font:400 32px/1 var(--serif);margin:0;letter-spacing:-.03em}
+.auth-close-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:transparent;cursor:pointer;display:grid;place-items:center}
+.auth-close-btn:hover{background:var(--sun);border-color:var(--sun)}
+.auth-close-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);margin-bottom:24px}
+.auth-tab{background:transparent;border:0;padding:10px;font:600 12px var(--display);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent}
+.auth-tab.active{color:var(--ink);border-bottom-color:var(--orange)}
+.auth-form{display:flex;flex-direction:column;gap:16px}
+.auth-field label{display:block;font:600 11px var(--display);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;color:var(--muted)}
+.auth-field input{width:100%;padding:11px 14px;background:var(--surface);border:1px solid var(--rule);border-radius:2px;font:inherit;color:var(--ink);outline:none}
+.auth-field input:focus{border-color:var(--orange)}
+.auth-extras{display:flex;align-items:center;justify-content:space-between;font-size:12px}
+.auth-extras a{color:var(--orange);text-decoration:underline}
+.auth-submit-btn{padding:13px;background:var(--ink);color:var(--paper);border:0;border-radius:2px;font:600 12px var(--display);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:background .2s}
+.auth-submit-btn:hover{background:var(--orange);color:#fff}
+.auth-divider{text-align:center;position:relative;margin-block:16px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.auth-divider::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule);z-index:0}
+.auth-divider span{background:var(--paper);padding-inline:10px;position:relative;z-index:1}
+.social-auth-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:11px;background:var(--surface);border:1px solid var(--rule);border-radius:2px;font:600 12px var(--sans);cursor:pointer;transition:background .2s}
+.social-auth-btn:hover{background:var(--paper-deep);border-color:var(--ink)}
+.social-auth-btn svg{width:16px;height:16px}
+
+/* Toast */
+.toast-notice{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--nav);color:#fff;padding:10px 20px;border-radius:99px;font:600 12px var(--sans);box-shadow:0 8px 24px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:all .25s var(--ease);z-index:400}
+.toast-notice.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+@media (max-width:768px){
+  .masthead{grid-template-columns:auto 1fr;row-gap:12px}
+  .masthead-center{grid-column:1/-1;justify-self:start}
+  .article-pullquote{margin:24px 0;padding:20px}
+  .footer-top{grid-template-columns:1fr;gap:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container masthead">
+    <div class="masthead-left">
+      <a class="back-btn" href="index.html" title="Back to Hover21 Magazine Homepage">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>Back to Magazine</span>
+      </a>
+    </div>
+    <div class="masthead-center">
+      <a class="brand" href="index.html" aria-label="Hover21 Magazine Home">
+        <img src="assets/images/h21_logo.png" alt="Hover21 Logo" class="brand-logo-img">
+        <span class="brand-word">MAGAZINE</span>
+      </a>
+    </div>
+    <div class="masthead-right header-actions">
+      <button class="sign-in-btn" id="sign-in-btn" type="button" aria-label="Sign in to your account">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span id="sign-in-text">Sign In</span>
+      </button>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch theme mode" title="Toggle theme">
+        <svg viewBox="0 0 24 24"><path d="M20.2 15.2A8.6 8.6 0 0 1 8.8 3.8 8.7 8.7 0 1 0 20.2 15.2Z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article class="article-page" id="article-root">
+    <div class="container">
+      <header class="article-header">
+        <div class="article-category-badge" id="article-category">Column <span class="dot">·</span> Fashion</div>
+        <h1 class="article-title" id="article-title">The Victoria’s Secret show wasn’t subtle — and it totally worked</h1>
+        <p class="article-dek" id="article-dek">Maximalism, unapologetic glitter and the return of theatrical spectacle made a case for full-volume glamour.</p>
+        
+        <div class="article-meta-strip">
+          <div class="meta-author-group">
+            <div class="author-avatar">
+              <img id="author-img" src="assets/images/hero_column.png" alt="Author photo">
+            </div>
+            <div class="author-info">
+              <span class="author-name" id="author-name">Shane O’Neill</span>
+              <span class="author-title" id="author-role">Fashion Features Editor</span>
+            </div>
+          </div>
+          
+          <div class="meta-right">
+            <span class="meta-date" id="article-date">October 28, 2026</span>
+            <span class="dot">·</span>
+            <span class="meta-read-time" id="article-read-time">6 min read</span>
+            <div class="article-actions-bar">
+              <button class="action-pill" id="bookmark-btn" type="button" aria-label="Bookmark article">
+                <svg viewBox="0 0 24 24"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg>
+                <span id="bookmark-text">Save</span>
+              </button>
+              <button class="action-pill" id="share-btn" type="button" aria-label="Share article">
+                <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path></svg>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero Visual -->
+      <div class="article-hero-wrap">
+        <div class="article-hero-media">
+          <img id="article-hero-img" src="assets/images/hero_column.png" alt="Article Hero">
+        </div>
+        <div class="article-hero-caption" id="article-hero-caption">
+          Runway spectacle in motion: crystal fringe, structural featherwork and high-gloss lighting.
+        </div>
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-body" id="article-body">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Author Bio -->
+      <div class="author-bio-card">
+        <img id="bio-img" src="assets/images/hero_column.png" alt="Author biography">
+        <div class="author-bio-text">
+          <h4 id="bio-name">About Shane O’Neill</h4>
+          <p id="bio-desc">Shane O’Neill is a senior culture and fashion editor at Hover21 Magazine based between Paris and New York, reporting on runway evolution, modern luxury narratives, and contemporary visual identity.</p>
+        </div>
+      </div>
+
+      <!-- Comments / Discussion -->
+      <section class="comments-section" aria-label="Reader Discussion">
+        <div class="comments-header">
+          <h3>Reader Responses (<span id="comments-count">2</span>)</h3>
+          <span style="font-size:12px;color:var(--muted)">Join the discussion</span>
+        </div>
+        <div class="comment-input-wrap">
+          <textarea class="comment-textarea" id="comment-input" placeholder="Share your perspective on this piece…"></textarea>
+          <button class="comment-submit-btn" id="comment-submit" type="button">Post Response</button>
+        </div>
+        <div class="comments-list" id="comments-list">
+          <div class="comment-item">
+            <div class="comment-meta">
+              <span class="comment-author">Claire V. (Milan)</span>
+              <span>2 hours ago</span>
+            </div>
+            <p class="comment-text">The observation regarding the sheer engineering behind the wings is spot-on. When spectacle has genuine artisanal pedigree, it transforms from cheap entertainment into pure living art.</p>
+          </div>
+          <div class="comment-item">
+            <div class="comment-meta">
+              <span class="comment-author">Julian K. (New York)</span>
+              <span>5 hours ago</span>
+            </div>
+            <p class="comment-text">Finally, an essay that doesn't just bow to the altar of minimalist neutrals. Bring back theatrical excitement!</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- More From This Issue -->
+  <section class="more-stories-section">
+    <div class="container">
+      <div class="section-headline">
+        <h2>More from <em>Issue No. 021</em></h2>
+        <a href="index.html">View All Stories ↗</a>
+      </div>
+      <div class="more-grid" id="more-stories-grid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/images/h21_logo.png" alt="Hover21 Logo">
+        <p>Fashion, beauty, ideas and objects — viewed with curiosity, edited with intention. The global voice of contemporary culture.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Explore Departments</h3>
+        <nav class="footer-links">
+          <a href="index.html#top-stories">Cover Stories</a>
+          <a href="index.html#fashion">Fashion &amp; Runway</a>
+          <a href="index.html#beauty">Beauty Desk</a>
+          <a href="index.html#arts">Arts &amp; Design</a>
+          <a href="index.html#shopping">Shopping Edit</a>
+        </nav>
+      </div>
+      <div class="footer-column">
+        <h3>Editorial Office</h3>
+        <nav class="footer-links">
+          <a href="mailto:Hover21magazine@gmail.com">Pitch an Article ↗</a>
+          <a href="https://www.instagram.com/hover21magazine" target="_blank" rel="noopener">Instagram: @hover21magazine</a>
+          <a href="https://www.tiktok.com/@hover21magazine" target="_blank" rel="noopener">TikTok: @hover21magazine</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hover21 Magazine. All rights reserved.</span>
+      <a href="index.html" style="color:var(--sun)">← Return to Homepage</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Auth Dialog Modal -->
+<dialog id="auth-dialog" class="auth-dialog">
+  <div class="auth-shell">
+    <div class="auth-top">
+      <h3 class="auth-title" id="auth-modal-title">Sign In</h3>
+      <button class="auth-close-btn" id="auth-close" type="button" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"></path></svg>
+      </button>
+    </div>
+    
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-signin" type="button">Sign In</button>
+      <button class="auth-tab" id="tab-register" type="button">Create Account</button>
+    </div>
+
+    <form class="auth-form" id="auth-form" onsubmit="return false;">
+      <div class="auth-field" id="name-field" hidden>
+        <label for="auth-name">Full Name</label>
+        <input type="text" id="auth-name" placeholder="Alex Morgan" autocomplete="name">
+      </div>
+      <div class="auth-field">
+        <label for="auth-email">Email Address</label>
+        <input type="email" id="auth-email" placeholder="alex@example.com" required autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label for="auth-password">Password</label>
+        <input type="password" id="auth-password" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+      
+      <div class="auth-extras">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+          <input type="checkbox" id="auth-remember" checked> Remember me
+        </label>
+        <a href="#" id="auth-forgot">Forgot password?</a>
+      </div>
+
+      <button class="auth-submit-btn" id="auth-submit" type="button">Sign In to Hover21</button>
+
+      <div class="auth-divider">
+        <span>or continue with</span>
+      </div>
+
+      <button class="social-auth-btn" id="social-google" type="button">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.17 0 9.97 0 12s.45 3.83 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+        <span>Continue with Google</span>
+      </button>
+      <button class="social-auth-btn" id="social-apple" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.66-.82 1.12-1.95.99-3.09-1 .04-2.18.67-2.87 1.48-.61.71-1.14 1.86-1 2.98 1.11.09 2.23-.57 2.88-1.37z"/></svg>
+        <span>Continue with Apple</span>
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<div class="toast-notice" id="toast-notice" role="status"></div>
+
+<script src="js/stories.js"></script>
+<script>
+(() => {
+  'use strict';
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+  // 1. Reading Progress
+  const progressEl = $('#scroll-progress');
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+    progressEl.style.width = `${progress}%`;
+  }, { passive: true });
+
+  // 2. Parse Query ID
+  const params = new URLSearchParams(window.location.search);
+  const storyId = params.get('id') || 'culture-conversations';
+  const stories = window.HOVER21_STORIES || {};
+  const story = stories[storyId] || stories['culture-conversations'];
+
+  if (!story) return;
+
+  // 3. Render Story Details
+  document.title = `${story.title} — Hover21 Magazine`;
+  $('#article-category').innerHTML = `${story.category} <span class="dot">·</span> Issue 021`;
+  $('#article-title').textContent = story.title;
+  $('#article-dek').textContent = story.dek;
+  $('#author-name').textContent = story.author;
+  $('#author-role').textContent = story.authorRole || 'Contributing Features Writer';
+  $('#author-img').src = story.authorAvatar || story.image;
+  $('#article-date').textContent = story.date || 'October 2026';
+  $('#article-read-time').textContent = story.readTime || '5 min read';
+  $('#article-hero-img').src = story.image;
+  $('#article-hero-caption').textContent = story.imageCaption || `${story.title} — Editorial dossier.`;
+  $('#bio-img').src = story.authorAvatar || story.image;
+  $('#bio-name').textContent = `About ${story.author}`;
+  $('#bio-desc').textContent = `${story.author} writes for Hover21 Magazine, examining the intersections of international culture, contemporary fashion, aesthetics, and material design.`;
+
+  // Render Body Content
+  const bodyRoot = $('#article-body');
+  bodyRoot.innerHTML = '';
+  if (Array.isArray(story.content)) {
+    story.content.forEach(block => {
+      if (block.type === 'paragraph') {
+        const p = document.createElement('p');
+        p.textContent = block.text;
+        bodyRoot.appendChild(p);
+      } else if (block.type === 'quote') {
+        const bq = document.createElement('blockquote');
+        bq.className = 'article-pullquote';
+        bq.innerHTML = `${block.text}<cite>— ${block.author || story.author}</cite>`;
+        bodyRoot.appendChild(bq);
+      } else if (block.type === 'subheading') {
+        const h3 = document.createElement('h3');
+        h3.textContent = block.text;
+        bodyRoot.appendChild(h3);
+      }
+    });
+  }
+
+  // 4. More Stories Grid
+  const moreRoot = $('#more-stories-grid');
+  const allIds = Object.keys(stories).filter(id => id !== story.id);
+  const selectedOther = allIds.slice(0, 3);
+  moreRoot.innerHTML = selectedOther.map(id => {
+    const s = stories[id];
+    return `
+      <article class="more-card">
+        <a class="more-media" href="article.html?id=${encodeURIComponent(id)}" aria-label="${s.title}">
+          <img src="${s.image}" alt="${s.title}" loading="lazy">
+        </a>
+        <div class="more-card-content">
+          <span class="more-tag">${s.category}</span>
+          <h3><a href="article.html?id=${encodeURIComponent(id)}">${s.title}</a></h3>
+          <p>${s.dek}</p>
+          <a class="more-link" href="article.html?id=${encodeURIComponent(id)}">Read Story <span>→</span></a>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  // 5. Toast System
+  const toast = $('#toast-notice');
+  let toastTimer;
+  function showToast(msg) {
+    clearTimeout(toastTimer);
+    toast.textContent = msg;
+    toast.classList.add('show');
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  // 6. Bookmarking
+  const saveKey = 'hover21-reading-list-v2';
+  let saved = [];
+  try { saved = JSON.parse(localStorage.getItem(saveKey) || '[]'); } catch (_) { saved = []; }
+  const bookmarkBtn = $('#bookmark-btn');
+  const bookmarkText = $('#bookmark-text');
+  
+  function updateBookmarkUI() {
+    const isSaved = saved.includes(story.id);
+    bookmarkBtn.classList.toggle('is-saved', isSaved);
+    bookmarkText.textContent = isSaved ? 'Saved' : 'Save';
+  }
+  updateBookmarkUI();
+
+  bookmarkBtn.addEventListener('click', () => {
+    if (saved.includes(story.id)) {
+      saved = saved.filter(x => x !== story.id);
+      showToast('Removed from your reading list.');
+    } else {
+      saved.unshift(story.id);
+      showToast('Saved to your reading list.');
+    }
+    try { localStorage.setItem(saveKey, JSON.stringify(saved)); } catch (_) {}
+    updateBookmarkUI();
+  });
+
+  // 7. Sharing
+  $('#share-btn').addEventListener('click', async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: story.title, text: story.dek, url: window.location.href });
+      } catch (_) {}
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      showToast('Link copied to clipboard!');
+    }
+  });
+
+  // 8. Reader Comments
+  const commentInput = $('#comment-input');
+  const commentSubmit = $('#comment-submit');
+  const commentsList = $('#comments-list');
+  const commentsCount = $('#comments-count');
+
+  commentSubmit.addEventListener('click', () => {
+    const text = commentInput.value.trim();
+    if (!text) {
+      showToast('Please enter your response before submitting.');
+      return;
+    }
+    const item = document.createElement('div');
+    item.className = 'comment-item';
+    item.innerHTML = `
+      <div class="comment-meta">
+        <span class="comment-author">You (Just now)</span>
+        <span>Just now</span>
+      </div>
+      <p class="comment-text">${text.replace(/</g, '&lt;')}</p>
+    `;
+    commentsList.prepend(item);
+    commentInput.value = '';
+    const current = parseInt(commentsCount.textContent, 10) || 0;
+    commentsCount.textContent = current + 1;
+    showToast('Your perspective has been posted.');
+  });
+
+  // 9. Dark/Light Theme Toggle
+  const themeToggle = $('#theme-toggle');
+  const themeKey = 'hover21-theme-v1';
+  const savedTheme = localStorage.getItem(themeKey) || 'light';
+  document.documentElement.dataset.theme = savedTheme;
+
+  themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem(themeKey, next); } catch (_) {}
+  });
+
+  // 10. Auth Modal Handling
+  const authDialog = $('#auth-dialog');
+  const signInBtn = $('#sign-in-btn');
+  const authClose = $('#auth-close');
+  const tabSignIn = $('#tab-signin');
+  const tabRegister = $('#tab-register');
+  const nameField = $('#name-field');
+  const authSubmit = $('#auth-submit');
+  const authTitle = $('#auth-modal-title');
+  const signInText = $('#sign-in-text');
+
+  // Check existing session
+  const currentUser = localStorage.getItem('hover21_user');
+  if (currentUser) {
+    signInText.textContent = currentUser;
+    signInBtn.title = `Signed in as ${currentUser}. Click to sign out.`;
+  }
+
+  signInBtn.addEventListener('click', () => {
+    if (localStorage.getItem('hover21_user')) {
+      if (confirm(`You are currently signed in as ${localStorage.getItem('hover21_user')}. Would you like to sign out?`)) {
+        localStorage.removeItem('hover21_user');
+        signInText.textContent = 'Sign In';
+        signInBtn.title = 'Sign in';
+        showToast('You have been signed out.');
+      }
+      return;
+    }
+    authDialog.showModal();
+  });
+
+  authClose.addEventListener('click', () => authDialog.close());
+  authDialog.addEventListener('click', (e) => {
+    if (e.target === authDialog) authDialog.close();
+  });
+
+  tabSignIn.addEventListener('click', () => {
+    tabSignIn.classList.add('active');
+    tabRegister.classList.remove('active');
+    nameField.hidden = true;
+    authTitle.textContent = 'Sign In';
+    authSubmit.textContent = 'Sign In to Hover21';
+  });
+
+  tabRegister.addEventListener('click', () => {
+    tabRegister.classList.add('active');
+    tabSignIn.classList.remove('active');
+    nameField.hidden = false;
+    authTitle.textContent = 'Create Account';
+    authSubmit.textContent = 'Create Free Account';
+  });
+
+  function completeAuth(name) {
+    localStorage.setItem('hover21_user', name);
+    signInText.textContent = name;
+    authDialog.close();
+    showToast(`Welcome, ${name}!`);
+  }
+
+  authSubmit.addEventListener('click', () => {
+    const email = $('#auth-email').value.trim();
+    if (!email) {
+      showToast('Please provide a valid email address.');
+      return;
+    }
+    const name = nameField.hidden ? email.split('@')[0] : ($('#auth-name').value.trim() || 'Reader');
+    completeAuth(name);
+  });
+
+  $('#social-google').addEventListener('click', () => completeAuth('Google User'));
+  $('#social-apple').addEventListener('click', () => completeAuth('Apple User'));
+  $('#auth-forgot').addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('A password reset link has been dispatched to your email.');
+  });
+})();
+</script>
+</body>
+</html>

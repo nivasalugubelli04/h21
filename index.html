@@ -49,64 +49,57 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .eyebrow .dot{color:var(--orange);padding-inline:7px}
 .eyebrow-line{display:flex;align-items:center;gap:11px}
 .eyebrow-line:before{content:"";height:8px;width:8px;background:var(--orange);border-radius:50%;flex:none}
-.edition-bar{background:var(--ink);color:var(--paper);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-.edition-inner{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.edition-inner span:nth-child(2){opacity:.72}
-.edition-inner a{font-weight:700;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px}
-.edition-inner a:hover{color:var(--sun);border-color:var(--sun)}
-.masthead{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:26px 24px}
-.brand{display:inline-flex;align-items:center;gap:13px;min-width:0}
-.brand-glyph{font:800 clamp(40px,5vw,66px)/.88 var(--display);letter-spacing:-.12em;display:flex;align-items:baseline;white-space:nowrap}
+.masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:18px 16px}
+.masthead-left{display:flex;align-items:center;gap:12px;justify-self:start}
+.masthead-center{justify-self:center;text-align:center}
+.masthead-right{justify-self:end;display:flex;align-items:center;gap:8px}
+.edition-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border:1px solid var(--rule);font:600 10px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;border-radius:2px;color:var(--ink);transition:all .2s var(--ease)}
+.edition-badge:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.brand{display:inline-flex;align-items:center;gap:12px;min-width:0}
+.brand-logo-img{height:46px;width:auto;object-fit:contain;display:block;border-radius:4px}
+:root[data-theme="dark"] .brand-logo-img{background:#fff;padding:2px 8px;border-radius:4px;filter:brightness(.95)}
+.brand-glyph{font:800 clamp(42px,5.8vw,68px)/.86 var(--display);letter-spacing:-.12em;display:flex;align-items:baseline;white-space:nowrap}
 .brand-glyph .twentyone{letter-spacing:-.1em;background:linear-gradient(115deg,var(--orange),var(--sun));background-clip:text;-webkit-background-clip:text;color:transparent;padding-right:.11em}
-.brand-word{font:600 10px/1.25 var(--display);letter-spacing:.23em;border-left:1px solid var(--rule);padding:10px 0 10px 15px}
-.brand-tagline{font:italic 18px/1.2 var(--serif);color:var(--muted);margin-left:auto;margin-right:30px;white-space:nowrap}
-.header-actions{display:flex;align-items:center;gap:7px}
-.icon-button{width:42px;height:42px;display:grid;place-items:center;background:transparent;border:1px solid var(--rule);border-radius:50%;cursor:pointer;position:relative;transition:background .2s,border-color .2s,transform .2s}
+.brand-word{font:600 10px/1.25 var(--display);letter-spacing:.25em;border-left:1px solid var(--rule);padding:10px 0 10px 14px}
+.header-actions{display:flex;align-items:center;gap:9px}
+.sign-in-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:99px;font:600 11px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .22s var(--ease);white-space:nowrap}
+.sign-in-btn:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-1px);box-shadow:0 4px 14px rgba(239,91,55,.28)}
+.sign-in-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.icon-button{width:38px;height:38px;display:grid;place-items:center;background:transparent;border:1px solid var(--rule);border-radius:50%;cursor:pointer;position:relative;transition:background .2s,border-color .2s,transform .2s}
 .icon-button:hover{background:var(--sun);border-color:var(--sun);transform:translateY(-2px);color:#171715}
-.icon-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.icon-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
 .count-dot{position:absolute;right:-3px;top:-4px;min-width:18px;height:18px;padding:0 4px;border-radius:99px;background:var(--orange);color:white;font:600 10px/18px var(--sans);text-align:center;border:2px solid var(--paper)}
-.category-nav{position:sticky;top:0;z-index:100;background:var(--nav);color:var(--nav-ink);border-bottom:1px solid rgba(255,255,255,.12)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:54px;gap:20px}
-.nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,40px);list-style:none;margin:0;padding:0}
-.nav-links a{display:flex;align-items:center;min-height:54px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(249,245,237,.75);position:relative;transition:color .18s}
-.nav-links a:after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform .22s var(--ease)}
+.category-nav{position:sticky;top:0;z-index:100;background:rgba(23,23,21,.96);color:var(--nav-ink);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav-inner{display:flex;align-items:center;justify-content:center;min-height:42px;gap:20px;position:relative}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.2vw,32px);list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav-links a{display:flex;align-items:center;min-height:42px;font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(249,245,237,.8);position:relative;transition:color .18s}
+.nav-links a:after{content:"";position:absolute;left:0;right:0;bottom:7px;height:2px;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform .22s var(--ease)}
 .nav-links a:hover,.nav-links a[aria-current="location"]{color:white}
 .nav-links a:hover:after,.nav-links a[aria-current="location"]:after{transform:scaleX(1)}
-.nav-mobile-tools{display:flex;gap:8px;align-items:center}
-.nav-menu-toggle{display:none;width:38px;height:38px;border:1px solid #55534c;border-radius:50%;color:white;background:transparent;place-items:center;cursor:pointer}
+.nav-mobile-tools{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.nav-menu-toggle{width:36px;height:36px;border:1px solid #55534c;border-radius:50%;color:white;background:transparent;display:grid;place-items:center;cursor:pointer}
 .menu-toggle-label{display:none}
 .nav-menu-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
-.search-panel{background:var(--nav);color:white;border-top:1px solid #403f3a;padding:17px 0 20px}
+.search-panel{background:var(--nav);color:white;border-top:1px solid #403f3a;padding:14px 0 16px}
 .search-panel-inner{display:flex;align-items:center;gap:14px}
-.search-field{display:flex;align-items:center;gap:12px;flex:1;border-bottom:1px solid #68645c;padding:8px 0 11px;min-width:0}
-.search-field svg{height:20px;width:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}
-.search-field input{background:transparent;border:0;outline:none;color:white;min-width:0;width:100%;font:400 clamp(17px,2vw,24px)/1.3 var(--serif)}
+.search-field{display:flex;align-items:center;gap:12px;flex:1;border-bottom:1px solid #68645c;padding:6px 0 9px;min-width:0}
+.search-field svg{height:18px;width:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}
+.search-field input{background:transparent;border:0;outline:none;color:white;min-width:0;width:100%;font:400 clamp(16px,2vw,22px)/1.3 var(--serif)}
 .search-field input::placeholder{color:#918c82}
 .search-count{color:#bdb6a9;font-size:11px;white-space:nowrap}
 .search-clear{border:0;background:transparent;color:var(--sun);text-decoration:underline;text-underline-offset:4px;cursor:pointer;font-size:12px}
-.search-results-banner{background:var(--sun);color:#1d1b16;padding:20px 0;margin:0}
+.search-results-banner{background:var(--sun);color:#1d1b16;padding:16px 0;margin:0}
 .search-results-inner{display:flex;justify-content:space-between;align-items:center;gap:16px}
 .search-results-inner strong{font:600 clamp(16px,2.3vw,22px)/1.2 var(--display);letter-spacing:-.04em}
 .search-results-inner span{font-size:12px}
 
-/* Opening spread */
-.cover-intro{padding:clamp(36px,6vw,78px) 0 26px}
-.cover-intro .issue-line{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--rule);padding-bottom:13px}
-.issue-right{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
-.cover-intro-row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(230px,.65fr);align-items:end;gap:clamp(24px,6vw,100px);padding:24px 0 24px}
-.cover-intro h1{font:400 clamp(48px,8vw,112px)/.91 var(--serif);letter-spacing:-.055em;margin:0;max-width:870px}
-.cover-intro h1 em{font-weight:400;color:var(--orange)}
-.cover-intro-copy{max-width:340px;padding-bottom:7px;color:var(--muted);font-size:14px;line-height:1.75}
-.cover-intro-copy p{margin:0 0 15px}
-.cover-intro-copy strong{color:var(--ink);font-weight:600}
-.cover-prompt{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--rule);padding-top:12px;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-.cover-prompt .scroll-cue{display:inline-flex;gap:9px;align-items:center;color:var(--ink)}
-.scroll-cue span{display:inline-grid;place-items:center;border:1px solid var(--rule);width:24px;height:24px;border-radius:50%;font-size:14px;line-height:1}
-.top-stage{background:var(--nav);color:#f6f2e9;padding:27px 0 58px;position:relative;overflow:hidden}
-.stage-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:15px;margin-bottom:19px;border-bottom:1px solid #43403a}
-.stage-head h2{font:500 11px/1.3 var(--display);letter-spacing:.16em;text-transform:uppercase;margin:0}
-.stage-head h2 span{color:var(--sun)}
-.stage-head .stage-note{font-size:10px;letter-spacing:.1em;color:#a6a095;text-transform:uppercase}
+/* Cover spread hero: zero wasted space */
+.top-stage{background:var(--nav);color:#f6f2e9;padding:22px 0 24px;position:relative;overflow:hidden}
+.stage-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-bottom:12px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.14)}
+.stage-head .stage-title{font:400 clamp(30px,4.2vw,52px)/.94 var(--serif);letter-spacing:-.045em;margin:0;color:#f6f2e9}
+.stage-head .stage-title em{font-style:italic;color:var(--sun);font-weight:400}
+.stage-head .stage-note{font:600 10px/1.3 var(--display);letter-spacing:.14em;color:rgba(255,255,255,.65);text-transform:uppercase}
+.stage-head .stage-note span{color:var(--sun)}
 .cover-grid{display:grid;grid-template-columns:.82fr 1.5fr .82fr;gap:13px;align-items:end}
 .cover-story{min-width:0;position:relative;align-self:end}
 .story-media{display:block;position:relative;overflow:hidden;background:#3a3831;isolation:isolate}
@@ -158,16 +151,15 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .ticker-item:after{content:"✳";font:400 17px/1 var(--sans)}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
-/* Editorial sections */
-.editorial-section{padding:clamp(56px,7.5vw,108px) 0 0;scroll-margin-top:66px}
-.section-topline{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--rule);padding-bottom:13px;margin-bottom:clamp(22px,3vw,40px)}
-.section-num{font:500 10px/1.3 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.section-num strong{color:var(--orange);font-weight:700}
-.section-topline .section-aside{font-size:11px;color:var(--muted);letter-spacing:.06em}
-.section-heading{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:26px}
-.section-heading h2{font:400 clamp(42px,6.5vw,86px)/.88 var(--serif);letter-spacing:-.05em;margin:0;text-wrap:balance}
-.section-heading h2 em{font-weight:400;color:var(--orange)}
-.section-heading p{margin:0;max-width:300px;color:var(--muted);font-size:13px;line-height:1.7;padding-bottom:5px}
+/* Editorial sections — Clean Vogue Layout */
+.editorial-section{padding:clamp(40px,5.5vw,72px) 0 0;scroll-margin-top:54px}
+.vogue-section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:clamp(20px,2.8vw,34px)}
+.vogue-section-title{font:400 clamp(36px,5.2vw,66px)/.94 var(--serif);letter-spacing:-.045em;margin:0;color:var(--ink)}
+.vogue-section-title em{font-style:italic;color:var(--orange);font-weight:400}
+.vogue-section-action{font:600 11px/1.2 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:7px;padding-bottom:2px;transition:color .2s}
+.vogue-section-action:hover{color:var(--orange)}
+.vogue-section-action span{font-size:13px;transition:transform .2s}
+.vogue-section-action:hover span{transform:translateX(3px)}
 .article-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(18px,3vw,38px);align-items:start}
 .article-card{min-width:0;position:relative}
 .article-card .card-media{display:block;overflow:hidden;position:relative;background:var(--paper-deep);isolation:isolate}
@@ -195,19 +187,13 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .article-grid .article-card:nth-child(2) .card-media{aspect-ratio:4/5}
 .article-grid .article-card:nth-child(1) .card-media{aspect-ratio:1.22/1}
 
-/* The interlude */
-.interlude{margin-top:clamp(65px,9vw,124px);background:var(--sun);color:#171715;position:relative;overflow:hidden}
-.interlude-inner{width:var(--page);margin:auto;display:grid;grid-template-columns:.35fr 1fr .35fr;align-items:center;gap:25px;min-height:260px;padding-block:clamp(28px,5vw,62px)}
-.interlude-mark{width:82px;height:82px;border:1px solid rgba(23,23,21,.6);border-radius:50%;display:grid;place-items:center;font:500 12px var(--display);letter-spacing:-.06em;transform:rotate(-12deg)}
-.interlude blockquote{margin:0;font:400 clamp(35px,5.7vw,76px)/.99 var(--serif);letter-spacing:-.045em;max-width:1000px;text-wrap:balance}
-.interlude blockquote em{font-weight:400;color:var(--plum)}
-.interlude-side{align-self:end;text-align:right;font-size:10px;letter-spacing:.12em;text-transform:uppercase;line-height:1.8}
 
 /* Beauty issue */
-.beauty-section{background:#ece5e1;color:#211c1d;margin-top:0;padding-bottom:clamp(56px,7.5vw,108px);position:relative;overflow:hidden}
+.beauty-section{background:#ece5e1;color:#211c1d;margin-top:0;padding-bottom:clamp(44px,6vw,84px);position:relative;overflow:hidden}
 .beauty-section .container{position:relative;z-index:1}
-.beauty-section .section-topline{border-color:rgba(33,28,29,.25)}
-.beauty-section .section-heading h2 em{color:#b44d64}
+.beauty-section .vogue-section-header{border-color:rgba(33,28,29,.22)}
+.beauty-section .vogue-section-title em{color:#b44d64}
+.beauty-section .vogue-section-action:hover{color:#b44d64}
 .beauty-section .article-grid{grid-template-columns:.82fr 1.18fr;align-items:start}
 .beauty-section .article-grid .article-card:nth-child(1){margin-top:clamp(25px,4vw,55px)}
 .beauty-section .article-grid .article-card:nth-child(1) .card-media{aspect-ratio:4/5}
@@ -215,17 +201,17 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .beauty-section .article-grid .article-card:nth-child(2) .card-media{aspect-ratio:1.22/1}
 .beauty-section .card-meta-line{border-color:rgba(33,28,29,.25)}
 .beauty-section .card-meta-line .tag{color:#a64159}
-.beauty-section .byline,.beauty-section .card-dek,.beauty-section .section-num,.beauty-section .section-heading p{color:#6a5d5d}
+.beauty-section .byline,.beauty-section .card-dek{color:#6a5d5d}
 .beauty-section .text-arrow{border-color:#211c1d}
 .beauty-section .article-card h3 a:hover{color:#a64159}
-.beauty-ghost{position:absolute;right:-.04em;top:90px;font:800 clamp(110px,21vw,310px)/.8 var(--display);letter-spacing:-.11em;color:rgba(255,255,255,.24);pointer-events:none;user-select:none}
 
 /* Art and ideas — split image panel */
-.arts-section{background:#1c1b19;color:#f6f2e9;padding:clamp(56px,7.5vw,108px) 0 clamp(60px,8vw,110px);margin-top:0}
-.arts-section .section-topline{border-color:#4a4740}
-.arts-section .section-num{color:#ada69a}
-.arts-section .section-heading h2 em{color:var(--sun)}
-.arts-section .section-heading p{color:#bdb5a8}
+.arts-section{background:#1c1b19;color:#f6f2e9;padding:clamp(44px,6vw,84px) 0 clamp(48px,6.5vw,90px);margin-top:0}
+.arts-section .vogue-section-header{border-color:rgba(255,255,255,.16)}
+.arts-section .vogue-section-title{color:#f6f2e9}
+.arts-section .vogue-section-title em{color:var(--sun)}
+.arts-section .vogue-section-action{color:#aaa396}
+.arts-section .vogue-section-action:hover{color:var(--sun)}
 .arts-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:13px;align-items:stretch}
 .arts-tile{position:relative;min-height:clamp(390px,48vw,670px);overflow:hidden;background:#2b2925;isolation:isolate}
 .arts-tile:after{content:"";position:absolute;inset:20% 0 0;background:linear-gradient(180deg,transparent 32%,rgba(0,0,0,.82));pointer-events:none;z-index:1}
@@ -240,11 +226,8 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .arts-index{position:absolute;z-index:2;right:18px;top:18px;font:500 10px var(--display);letter-spacing:.1em;border:1px solid rgba(255,255,255,.65);padding:8px 10px;color:white}
 
 /* Shopping edit */
-.shopping-section{padding-bottom:clamp(70px,8vw,120px)}
-.shopping-intro{display:grid;grid-template-columns:1fr .8fr;gap:35px;align-items:end;margin-bottom:30px}
-.shopping-intro h2{font:400 clamp(44px,7vw,90px)/.9 var(--serif);letter-spacing:-.05em;margin:0}
-.shopping-intro h2 em{color:var(--orange);font-weight:400}
-.shopping-intro p{max-width:360px;color:var(--muted);font-size:13px;line-height:1.75;margin:0 0 5px auto}
+.shopping-section{padding-bottom:clamp(54px,7vw,96px)}
+.shopping-section .vogue-section-title em{color:var(--orange)}
 .shopping-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .shopping-card{display:grid;grid-template-columns:1fr;min-width:0}
 .shopping-card .card-media{aspect-ratio:1.5/1;overflow:hidden;position:relative;background:var(--paper-deep)}
@@ -354,8 +337,6 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
 @media (max-width:720px){
   :root{--page:calc(100% - 32px)}
   html{scroll-padding-top:58px}
-  .edition-inner{min-height:31px;font-size:8px;letter-spacing:.08em;gap:8px}
-  .edition-inner span:nth-child(2){display:none}
   .masthead{padding-block:19px;gap:12px}
   .brand{gap:9px}
   .brand-glyph{font-size:39px}
@@ -407,11 +388,7 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   .article-grid .article-card:nth-child(2),.beauty-section .article-grid .article-card:nth-child(1){margin-top:0}
   .article-grid .article-card:nth-child(1) .card-media,.article-grid .article-card:nth-child(2) .card-media,.beauty-section .article-grid .article-card:nth-child(1) .card-media,.beauty-section .article-grid .article-card:nth-child(2) .card-media{aspect-ratio:1.2/1}
   .article-card h3{font-size:clamp(32px,7vw,43px);max-width:20ch}
-  .interlude{margin-top:56px}
-  .interlude-inner{grid-template-columns:auto 1fr;gap:15px;min-height:0;padding-block:32px}
-  .interlude-mark{width:46px;height:46px;font-size:8px}
-  .interlude blockquote{font-size:clamp(34px,8vw,54px)}
-  .interlude-side{grid-column:2;text-align:left;font-size:8px;margin-top:0}
+
   .beauty-ghost{top:200px;font-size:37vw;right:-.1em}
   .beauty-section{padding-bottom:58px}
   .arts-grid{grid-template-columns:1fr;gap:12px}
@@ -438,7 +415,6 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
 }
 @media (max-width:390px){
   :root{--page:calc(100% - 24px)}
-  .edition-inner a{font-size:8px}
   .cover-feature .feature-content{padding:16px}
   .cover-feature h2{font-size:36px}
   .cover-feature .feature-dek{font-size:11px}
@@ -456,276 +432,74 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
 }
 
 /* ==========================================================================
-   UI/UX Refinements: Glassmorphism, Elevated Connect Hub & Social Media Strip
+   Vogue Social Media Slideshow Carousel & Refined Social Hub
    ========================================================================== */
-.edition-inner {
-  min-height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.edition-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.edition-divider { opacity: 0.5; }
-.edition-social-strip {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-}
-.edition-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 10px;
-  border-radius: 99px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: none;
-  color: var(--paper);
-  transition: all 0.22s var(--ease);
-}
-.edition-pill:hover {
-  background: var(--sun);
-  border-color: var(--sun);
-  color: #171715;
-  transform: translateY(-1px);
-}
-.edition-cta {
-  font-weight: 700;
-  border-bottom: 1px solid rgba(255,255,255,.45);
-  padding-bottom: 2px;
-  margin-left: 6px;
-  font-size: 10px;
-  letter-spacing: .1em;
-}
-.edition-cta:hover { color: var(--sun); border-color: var(--sun); }
+.social-slideshow-section{padding:clamp(44px,6vw,80px) 0 clamp(44px,6vw,76px);background:var(--surface);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.social-header-tools{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.social-pills-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.social-pill{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:99px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:all .2s var(--ease);border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;text-decoration:none}
+.social-pill svg{width:13px;height:13px;flex:none}
+.social-pill:hover{transform:translateY(-1px);border-color:var(--ink);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.social-pill.ig-pill:hover{background:#E1306C;color:#fff;border-color:#E1306C}
+.social-pill.tt-pill:hover{background:#000;color:#fff;border-color:#000}
+.social-pill.mail-pill:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
 
-/* Glassmorphic Sticky Nav */
-.category-nav {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(23, 23, 21, 0.94);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-}
+.social-marquee-container{overflow:hidden;position:relative;width:100%;margin-top:28px;padding-block:12px;mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);-webkit-mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent)}
+.social-marquee-track{display:flex;gap:20px;width:max-content;animation:socialContinuousScroll 36s linear infinite;will-change:transform}
+.social-marquee-container:hover .social-marquee-track{animation-play-state:paused}
+@keyframes socialContinuousScroll{0%{transform:translateX(0)} 100%{transform:translateX(-50%)}}
+.social-slide{width:315px;flex:0 0 315px;box-sizing:border-box}
 
+/* Auth Dialog Modal */
+dialog{padding:0;border:0;background:transparent;color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(10,10,9,.75);backdrop-filter:blur(6px)}
+.auth-dialog{width:min(440px, calc(100% - 32px));background:var(--paper);border-radius:4px;box-shadow:0 28px 80px rgba(0,0,0,.35);overflow:hidden;border:1px solid var(--rule)}
+.auth-shell{padding:36px 32px}
+.auth-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.auth-title{font:400 32px/1 var(--serif);margin:0;letter-spacing:-.03em}
+.auth-close-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:transparent;cursor:pointer;display:grid;place-items:center}
+.auth-close-btn:hover{background:var(--sun);border-color:var(--sun)}
+.auth-close-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);margin-bottom:24px}
+.auth-tab{background:transparent;border:0;padding:10px;font:600 12px var(--display);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent}
+.auth-tab.active{color:var(--ink);border-bottom-color:var(--orange)}
+.auth-form{display:flex;flex-direction:column;gap:16px}
+.auth-field label{display:block;font:600 11px var(--display);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;color:var(--muted)}
+.auth-field input{width:100%;padding:11px 14px;background:var(--surface);border:1px solid var(--rule);border-radius:2px;font:inherit;color:var(--ink);outline:none}
+.auth-field input:focus{border-color:var(--orange)}
+.auth-extras{display:flex;align-items:center;justify-content:space-between;font-size:12px}
+.auth-extras a{color:var(--orange);text-decoration:underline}
+.auth-submit-btn{padding:13px;background:var(--ink);color:var(--paper);border:0;border-radius:2px;font:600 12px var(--display);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:background .2s}
+.auth-submit-btn:hover{background:var(--orange);color:#fff}
+.auth-divider{text-align:center;position:relative;margin-block:16px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.auth-divider::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule);z-index:0}
+.auth-divider span{background:var(--paper);padding-inline:10px;position:relative;z-index:1}
+.social-auth-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:11px;background:var(--surface);border:1px solid var(--rule);border-radius:2px;font:600 12px var(--sans);cursor:pointer;transition:background .2s}
+.social-auth-btn:hover{background:var(--paper-deep);border-color:var(--ink)}
+.social-auth-btn svg{width:16px;height:16px}
 
-/* Robust Footer Social Hub */
-.footer-social-hub {
-  margin-top: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.footer-social-icons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.footer-icon-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(255,255,255,0.06);
-  color: #dad3c7;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
-  transition: all 0.22s var(--ease);
-  flex: none;
-}
-.footer-icon-btn svg {
-  width: 18px !important;
-  height: 18px !important;
-  max-width: 18px !important;
-  max-height: 18px !important;
-  fill: none !important;
-  stroke: currentColor !important;
-  stroke-width: 1.8 !important;
-  display: block;
-}
-.footer-icon-btn:hover {
-  background: var(--sun);
-  border-color: var(--sun);
-  color: #171715;
-  transform: translateY(-2px);
-}
-.footer-handles {
-  font-size: 12px;
-  color: #a6a094;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.footer-handles a {
-  color: #dad3c7;
-  transition: color 0.18s;
-  text-decoration: none;
-}
-.footer-handles a:hover {
-  color: var(--sun);
-  text-decoration: underline;
-}
-.dot-sep {
-  opacity: 0.5;
-}
+/* Footer Social Hub */
+.footer-social-hub{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.footer-social-icons{display:flex;align-items:center;gap:10px}
+.footer-icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#dad3c7;display:grid;place-items:center;text-decoration:none;transition:all .2s var(--ease);flex:none}
+.footer-icon-btn svg{width:16px!important;height:16px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;display:block}
+.footer-icon-btn:hover{background:var(--sun);border-color:var(--sun);color:#171715;transform:translateY(-2px)}
+.footer-handles{font-size:11px;color:#a6a094;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.footer-handles a{color:#dad3c7;transition:color .18s;text-decoration:none}
+.footer-handles a:hover{color:var(--sun);text-decoration:underline}
+.dot-sep{opacity:.5}
 
-/* Simple & Elegant Social / Contact Connect Styles */
-.connect-section {
-  padding: clamp(48px, 6vw, 84px) 0 clamp(40px, 5vw, 70px);
-  background: var(--surface);
-  border-top: 1px solid var(--rule);
+@media (max-width:1040px){
+  .social-slide{flex:0 0 calc((100% - 18px) / 2)}
 }
-.connect-simple-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 20px;
-  margin-bottom: clamp(28px, 4vw, 44px);
-  flex-wrap: wrap;
-}
-.connect-simple-header h2 {
-  font: 400 clamp(36px, 5vw, 64px)/.95 var(--serif);
-  letter-spacing: -.04em;
-  margin: 6px 0 0;
-}
-.connect-simple-header h2 em {
-  color: var(--orange);
-  font-style: italic;
-}
-.connect-simple-header p {
-  color: var(--muted);
-  font-size: 13px;
-  max-width: 360px;
-  line-height: 1.6;
-  margin: 0;
-}
-.connect-simple-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.simple-social-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 22px;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  transition: all 0.25s var(--ease);
-  color: var(--ink);
-  text-decoration: none;
-}
-.simple-social-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--ink);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-}
-.simple-logo-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  flex: none;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  transition: transform 0.25s var(--ease), background 0.2s, color 0.2s;
-}
-.simple-social-card:hover .simple-logo-wrap {
-  transform: scale(1.08);
-}
-.simple-logo-wrap svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.simple-logo-wrap.ig-wrap { color: #E1306C; }
-.simple-social-card:hover .simple-logo-wrap.ig-wrap { background: #E1306C; color: #FFF; border-color: #E1306C; }
-.simple-logo-wrap.tt-wrap { color: var(--ink); }
-.simple-social-card:hover .simple-logo-wrap.tt-wrap { background: #000; color: #FFF; border-color: #000; }
-.simple-logo-wrap.mail-wrap { color: var(--orange); }
-.simple-social-card:hover .simple-logo-wrap.mail-wrap { background: var(--orange); color: #FFF; border-color: var(--orange); }
-
-.simple-card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-  flex: 1;
-}
-.simple-platform-name {
-  font: 600 10px/1.2 var(--display);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.simple-handle {
-  font: 500 clamp(14px, 1.3vw, 17px)/1.3 var(--serif);
-  color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.simple-arrow {
-  font-size: 18px;
-  color: var(--muted);
-  transition: transform 0.2s, color 0.2s;
-  flex: none;
-}
-.simple-social-card:hover .simple-arrow {
-  color: var(--orange);
-  transform: translate(3px, -3px);
-}
-.simple-copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border: 1px solid var(--rule);
-  background: var(--surface);
-  border-radius: 2px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  color: var(--ink);
-  transition: all 0.2s;
-  flex: none;
-}
-.simple-copy-btn:hover {
-  background: var(--sun);
-  border-color: var(--sun);
-  color: #171715;
-}
-
-@media (max-width: 980px) {
-  .connect-simple-grid {
-    grid-template-columns: 1fr;
-  }
-}
-  .edition-pill span {
-    display: none;
-  }
-  .edition-pill {
-    padding: 4px 8px;
-  }
+@media (max-width:720px){
+  .masthead{grid-template-columns:auto 1fr auto;gap:8px;padding-block:14px 12px}
+  .edition-badge{display:none}
+  .nav-mobile-tools{display:flex}
+  .social-slide{flex:0 0 100%}
+  .social-header-tools{width:100%;justify-content:space-between}
+  .social-pills-bar{width:100%;overflow-x:auto;padding-bottom:4px}
+  .social-pill{white-space:nowrap}
 }
 
 </style>
@@ -734,37 +508,21 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
 <a class="skip-link" href="#main-content">Skip to the stories</a>
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 <header class="site-header" id="page-top">
-  <div class="edition-bar">
-    <div class="container edition-inner">
-      <div class="edition-left">
-        <span>Hover21 <b>—</b> International culture desk</span>
-        <span class="edition-divider">·</span>
-        <span class="edition-issue">Issue No. 021 <b>·</b> Saturday, October 24, 2026</span>
-      </div>
-      <div class="edition-social-strip">
-        <a class="edition-pill" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram: @hover21magazine" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
-          <span>Instagram</span>
-        </a>
-        <a class="edition-pill" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" title="TikTok: @hover21magazine" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
-          <span>TikTok</span>
-        </a>
-        <a class="edition-pill" href="mailto:Hover21magazine@gmail.com" title="Email: Hover21magazine@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
-          <span>Email</span>
-        </a>
-        <a class="edition-cta" href="#connect">Connect <span aria-hidden="true">↓</span></a>
-      </div>
-    </div>
-  </div>
   <div class="container masthead">
-    <a class="brand" href="#page-top" aria-label="Hover21 Magazine home">
-      <span class="brand-glyph" aria-hidden="true">H<span class="twentyone">21</span></span>
-      <span class="brand-word">MAGAZINE</span>
-    </a>
-    <div class="brand-tagline">The global voice of culture.</div>
-    <div class="header-actions" aria-label="Magazine tools">
+    <div class="masthead-left">
+      <a class="edition-badge" href="#newsletter">The Weekly Edit</a>
+    </div>
+    <div class="masthead-center">
+      <a class="brand" href="index.html" aria-label="Hover21 Magazine home">
+        <img src="assets/images/h21_logo.png" alt="Hover21 Logo" class="brand-logo-img">
+        <span class="brand-word">MAGAZINE</span>
+      </a>
+    </div>
+    <div class="masthead-right header-actions" aria-label="Magazine tools">
+      <button class="sign-in-btn" id="sign-in-btn" type="button" aria-label="Sign in to your account">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span id="sign-in-text">Sign In</span>
+      </button>
       <button class="icon-button" id="search-toggle" type="button" aria-label="Open story search" aria-expanded="false" aria-controls="search-panel" title="Search stories">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.6"></circle><path d="m16 16 5 5"></path></svg>
       </button>
@@ -785,7 +543,7 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
         <li><a href="#beauty">Beauty</a></li>
         <li><a href="#arts">Arts &amp; lifestyle</a></li>
         <li><a href="#shopping">Shopping</a></li>
-        <li><a href="#connect">Connect &amp; Desk</a></li>
+        <li><a href="#connect">Social dispatches</a></li>
         <li><a href="#newsletter">The weekly edit</a></li>
       </ul>
       <div class="nav-mobile-tools">
@@ -811,63 +569,51 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   <div id="search-results-banner" class="search-results-banner" hidden>
     <div class="container search-results-inner"><strong id="search-results-title">THE SEARCH EDIT</strong><span id="search-results-detail"></span></div>
   </div>
-  <section class="cover-intro container reveal" aria-labelledby="issue-title">
-    <div class="issue-line">
-      <div class="eyebrow-line eyebrow">A point of view, not a feed</div>
-      <div class="issue-right">No. 021 <span class="dot">/</span> The culture issue</div>
-    </div>
-    <div class="cover-intro-row">
-      <h1 id="issue-title">Culture,<br><em>in motion.</em></h1>
-      <div class="cover-intro-copy">
-        <p>Fashion, beauty, art and the ideas that refuse to sit still. A considered look at the people, details and objects shaping the conversation.</p>
-        <p><strong>Hover21 Magazine.</strong> The global voice of culture, with a little more feeling and a little less noise.</p>
-      </div>
-    </div>
-    <div class="cover-prompt"><span>Stories with a point of view</span><a class="scroll-cue" href="#top-stories">Explore this issue <span aria-hidden="true">↓</span></a></div>
-  </section>
 
   <section class="top-stage" id="top-stories" aria-labelledby="top-stories-title">
     <div class="container">
-      <div class="stage-head"><h2 id="top-stories-title">The <span>cover</span> spread</h2><div class="stage-note">Three stories to start the conversation <span aria-hidden="true">↘</span></div></div>
+      <div class="stage-head">
+        <h1 id="top-stories-title" class="stage-title">Culture, <em>in motion.</em></h1>
+        <div class="stage-note">Issue No. 021 <span class="dot">·</span> Cover Stories</div>
+      </div>
       <div class="cover-grid" id="cover-grid">
         <article class="cover-story cover-side story-card" data-story-id="vs-show" data-kind="Column" data-search-text="victoria secret runway shane oneill wings glitter glamour maximalism spectacle fashion">
-          <a class="story-media" href="#story-vs-show" data-open-story="vs-show" aria-label="Read: The Victoria’s Secret show wasn’t subtle — and it totally worked">
+          <a class="story-media" href="article.html?id=vs-show" data-open-story="vs-show" aria-label="Read: The Victoria’s Secret show wasn’t subtle — and it totally worked">
             <img src="assets/images/hero_column.png" alt="Editorial cover image of a runway model in feathered white wings, with the column headline printed into the image" fetchpriority="high">
             <span class="feature-index" aria-hidden="true">01</span>
           </a>
           <div class="cover-side-meta"><span class="kind">Column <span class="dot">/</span> Shane O’Neill</span><span class="author">6 min read</span></div>
-          <h3><a href="#story-vs-show" data-open-story="vs-show">The Victoria’s Secret show wasn’t subtle — and it totally worked</a></h3>
+          <h3><a href="article.html?id=vs-show" data-open-story="vs-show">The Victoria’s Secret show wasn’t subtle — and it totally worked</a></h3>
           <p class="mini-dek">Maximalism, unapologetic glitter and theatrical spectacle make a case for full-volume glamour.</p>
           <button class="save-button cover-small-save" type="button" data-save-story="vs-show" aria-label="Save this column to your reading list" title="Save story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg><span>Save</span></button>
         </article>
         <article class="cover-story cover-feature story-card" data-story-id="culture-conversations" data-kind="Cover story" data-search-text="culture conversations artificial intelligence design ateliers emerging media power brokers weekly dossier">
           <div class="feature-visual">
-            <a class="story-media" href="#story-culture-conversations" data-open-story="culture-conversations" aria-label="Read: Inside the conversations shaping culture this week">
+            <a class="story-media" href="article.html?id=culture-conversations" data-open-story="culture-conversations" aria-label="Read: Inside the conversations shaping culture this week">
               <img src="assets/images/hero_cover.png" alt="A technology entrepreneur speaking and gesturing in a dark suit" fetchpriority="high">
               <span class="feature-index" aria-hidden="true">02</span>
             </a>
             <div class="feature-content">
               <div class="story-kicker">Cover story <span aria-hidden="true">/</span> The weekly dossier</div>
-              <h2><a href="#story-culture-conversations" data-open-story="culture-conversations">Inside the conversations shaping <em>culture</em> this week</a></h2>
+              <h2><a href="article.html?id=culture-conversations" data-open-story="culture-conversations">Inside the conversations shaping <em>culture</em> this week</a></h2>
               <p class="feature-dek">From artificial intelligence reshaping design ateliers to the emerging power brokers of international media: a closer look at the new cultural codes.</p>
-              <a class="read-link" href="#story-culture-conversations" data-open-story="culture-conversations">Enter the story <span aria-hidden="true">↗</span></a>
+              <a class="read-link" href="article.html?id=culture-conversations" data-open-story="culture-conversations">Enter the story <span aria-hidden="true">↗</span></a>
             </div>
           </div>
           <div class="story-actions" style="padding-top:12px"><button class="save-button" type="button" data-save-story="culture-conversations" aria-label="Save cover story to your reading list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg><span>Save for later</span></button><span style="font-size:10px;color:#aaa398">8 min read <span style="color:var(--sun)">·</span> Editorial desk</span></div>
         </article>
         <article class="cover-story cover-side story-card" data-story-id="front-row-faces" data-kind="Culture" data-search-text="front row faces culture profiles global music ambassadors gen z creative icons paris fashion week">
-          <a class="story-media" href="#story-front-row-faces" data-open-story="front-row-faces" aria-label="Read: The new faces redefining the front row">
+          <a class="story-media" href="article.html?id=front-row-faces" data-open-story="front-row-faces" aria-label="Read: The new faces redefining the front row">
             <img src="assets/images/hero_culture.png" alt="Close-up fashion portrait of a young man holding a pale round object" fetchpriority="high">
             <span class="feature-index" aria-hidden="true">03</span>
           </a>
           <div class="cover-side-meta"><span class="kind">Culture <span class="dot">/</span> Profiles</span><span class="author">5 min read</span></div>
-          <h3><a href="#story-front-row-faces" data-open-story="front-row-faces">The new faces redefining the front row</a></h3>
+          <h3><a href="article.html?id=front-row-faces" data-open-story="front-row-faces">The new faces redefining the front row</a></h3>
           <p class="mini-dek">How global music ambassadors and new creative icons are changing the gravity of fashion week.</p>
           <button class="save-button cover-small-save" type="button" data-save-story="front-row-faces" aria-label="Save this culture profile to your reading list" title="Save story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg><span>Save</span></button>
         </article>
       </div>
       <div id="hero-no-results" class="no-results" hidden>No cover stories match this search. Try another word.</div>
-      <div class="top-stage-bottom"><strong>Hover21 / A magazine of now</strong><span>Look closer. Think further.</span><span>Keep scrolling ↓</span></div>
     </div>
   </section>
 
@@ -879,57 +625,53 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   </div>
 
   <section class="editorial-section container" id="fashion" aria-labelledby="fashion-title" data-editorial-section>
-    <div class="section-topline"><div class="section-num"><strong>01</strong> <span class="dot">/</span> The runway edit</div><div class="section-aside">A little drama goes a long way.</div></div>
-    <div class="section-heading"><h2 id="fashion-title">Fashion <em>News</em></h2><p>The silhouette, the statement, the split-second when clothes become a whole mood.</p></div>
+    <div class="vogue-section-header">
+      <h2 id="fashion-title" class="vogue-section-title">Fashion <em>News</em></h2>
+      <a class="vogue-section-action" href="#fashion">The Runway Edit <span>→</span></a>
+    </div>
     <div class="article-grid">
       <article class="article-card story-card reveal" data-story-id="runway-wings" data-kind="Runway" data-search-text="wings glitter autumn runway full volume glamour dramatic featherwork crystal fringe theatrical spectacle shane oneill">
-        <a class="card-media" href="#story-runway-wings" data-open-story="runway-wings" aria-label="Read: Wings, glitter and a season of full-volume glamour"><img src="assets/images/fashion_wings.png" alt="Model in an extravagant feathered white-wing look on a blue-lit runway" loading="lazy"></a>
+        <a class="card-media" href="article.html?id=runway-wings" data-open-story="runway-wings" aria-label="Read: Wings, glitter and a season of full-volume glamour"><img src="assets/images/fashion_wings.png" alt="Model in an extravagant feathered white-wing look on a blue-lit runway" loading="lazy"></a>
         <div class="card-meta-line"><span class="tag">Runway <span class="dot">/</span> Autumn 2026</span><span class="read-time">4 min read</span></div>
-        <h3><a href="#story-runway-wings" data-open-story="runway-wings">Wings, glitter and a season of full-volume glamour</a></h3>
+        <h3><a href="article.html?id=runway-wings" data-open-story="runway-wings">Wings, glitter and a season of full-volume glamour</a></h3>
         <p class="card-dek">Dramatic featherwork, crystal fringe and an electrifying refusal to play quiet on autumn runways.</p>
-        <div class="card-footer"><span class="byline">By Shane O’Neill</span><a class="text-arrow" href="#story-runway-wings" data-open-story="runway-wings">Read the story <span aria-hidden="true">↗</span></a></div>
+        <div class="card-footer"><span class="byline">By Shane O’Neill</span><a class="text-arrow" href="article.html?id=runway-wings" data-open-story="runway-wings">Read the story <span aria-hidden="true">↗</span></a></div>
         <button class="save-float" type="button" data-save-story="runway-wings" aria-label="Save runway story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
       </article>
       <article class="article-card story-card reveal" data-story-id="pink-statement" data-kind="Style" data-search-text="pink statement color forecast fuchsia magenta couture shimmering stage maya lin">
-        <a class="card-media" href="#story-pink-statement" data-open-story="pink-statement" aria-label="Read: Pink returns, and it is not playing quiet"><img src="assets/images/fashion_pink.png" alt="Performer in a vivid pink sparkling dress against a purple-lit stage" loading="lazy"></a>
+        <a class="card-media" href="article.html?id=pink-statement" data-open-story="pink-statement" aria-label="Read: Pink returns, and it is not playing quiet"><img src="assets/images/fashion_pink.png" alt="Performer in a vivid pink sparkling dress against a purple-lit stage" loading="lazy"></a>
         <div class="card-meta-line"><span class="tag">Style <span class="dot">/</span> Color forecast</span><span class="read-time">5 min read</span></div>
-        <h3><a href="#story-pink-statement" data-open-story="pink-statement">Pink returns, and it is not playing quiet</a></h3>
+        <h3><a href="article.html?id=pink-statement" data-open-story="pink-statement">Pink returns, and it is not playing quiet</a></h3>
         <p class="card-dek">Forget muted pastels: high-saturation fuchsia and shimmering magenta make a grand couture entrance.</p>
-        <div class="card-footer"><span class="byline">By Maya Lin</span><a class="text-arrow" href="#story-pink-statement" data-open-story="pink-statement">Read the story <span aria-hidden="true">↗</span></a></div>
+        <div class="card-footer"><span class="byline">By Maya Lin</span><a class="text-arrow" href="article.html?id=pink-statement" data-open-story="pink-statement">Read the story <span aria-hidden="true">↗</span></a></div>
         <button class="save-float" type="button" data-save-story="pink-statement" aria-label="Save pink trend story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
       </article>
     </div>
     <div class="no-results" data-section-empty hidden>No fashion stories match your search. Try a different word.</div>
   </section>
 
-  <section class="interlude" aria-label="Editor's note">
-    <div class="interlude-inner">
-      <div class="interlude-mark" aria-hidden="true">H / 21</div>
-      <blockquote>“The story isn't only what we wear. It's what we choose to <em>show.</em>”</blockquote>
-      <div class="interlude-side">A note from the desk<br>On style, identity &amp; the everyday</div>
-    </div>
-  </section>
 
   <section class="editorial-section beauty-section" id="beauty" aria-labelledby="beauty-title" data-editorial-section>
-    <div class="beauty-ghost" aria-hidden="true">GLOW</div>
     <div class="container">
-      <div class="section-topline"><div class="section-num"><strong>02</strong> <span class="dot">/</span> The beauty desk</div><div class="section-aside">Less noise. More nuance.</div></div>
-      <div class="section-heading"><h2 id="beauty-title">Beauty <em>News</em></h2><p>Products, rituals and small shifts in how we want to look — and how we want to feel.</p></div>
+      <div class="vogue-section-header">
+        <h2 id="beauty-title" class="vogue-section-title">Beauty <em>News</em></h2>
+        <a class="vogue-section-action" href="#beauty">The Beauty Desk <span>→</span></a>
+      </div>
       <div class="article-grid">
         <article class="article-card story-card reveal" data-story-id="beauty-blush" data-kind="Makeup" data-search-text="blush palette sold out weekend ariana grande baked pigment sculpted cheekbone renaissance camille dubois">
-          <a class="card-media" href="#story-beauty-blush" data-open-story="beauty-blush" aria-label="Read: The blush palette that sold out in a weekend"><img src="assets/images/beauty_blush.png" alt="Beauty campaign portrait with an open blush palette" loading="lazy"></a>
+          <a class="card-media" href="article.html?id=beauty-blush" data-open-story="beauty-blush" aria-label="Read: The blush palette that sold out in a weekend"><img src="assets/images/beauty_blush.png" alt="Beauty campaign portrait with an open blush palette" loading="lazy"></a>
           <div class="card-meta-line"><span class="tag">Makeup <span class="dot">/</span> Cult release</span><span class="read-time">4 min read</span></div>
-          <h3><a href="#story-beauty-blush" data-open-story="beauty-blush">The blush palette that sold out in a weekend</a></h3>
+          <h3><a href="article.html?id=beauty-blush" data-open-story="beauty-blush">The blush palette that sold out in a weekend</a></h3>
           <p class="card-dek">Inside the viral obsession with buildable baked pigment and the sculpted-cheekbone renaissance.</p>
-          <div class="card-footer"><span class="byline">By Camille Dubois</span><a class="text-arrow" href="#story-beauty-blush" data-open-story="beauty-blush">Read the story <span aria-hidden="true">↗</span></a></div>
+          <div class="card-footer"><span class="byline">By Camille Dubois</span><a class="text-arrow" href="article.html?id=beauty-blush" data-open-story="beauty-blush">Read the story <span aria-hidden="true">↗</span></a></div>
           <button class="save-float" type="button" data-save-story="beauty-blush" aria-label="Save blush palette story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
         </article>
         <article class="article-card story-card reveal" data-story-id="glass-skin" data-kind="Skincare" data-search-text="glass skin ten step routine k beauty barrier repair cushions multi benefit ceramides dewy finish kenji sato">
-          <a class="card-media" href="#story-glass-skin" data-open-story="glass-skin" aria-label="Read: Glass skin, minus the ten-step routine"><img src="assets/images/beauty_skincare.png" alt="Minimal skincare campaign portrait with a pale cushion compact" loading="lazy"></a>
+          <a class="card-media" href="article.html?id=glass-skin" data-open-story="glass-skin" aria-label="Read: Glass skin, minus the ten-step routine"><img src="assets/images/beauty_skincare.png" alt="Minimal skincare campaign portrait with a pale cushion compact" loading="lazy"></a>
           <div class="card-meta-line"><span class="tag">Skincare <span class="dot">/</span> K-beauty</span><span class="read-time">5 min read</span></div>
-          <h3><a href="#story-glass-skin" data-open-story="glass-skin">Glass skin, minus the ten-step routine</a></h3>
+          <h3><a href="article.html?id=glass-skin" data-open-story="glass-skin">Glass skin, minus the ten-step routine</a></h3>
           <p class="card-dek">Streamlined barrier-repair cushions and multi-benefit ceramides promise a dewy finish without the clutter.</p>
-          <div class="card-footer"><span class="byline">By Kenji Sato</span><a class="text-arrow" href="#story-glass-skin" data-open-story="glass-skin">Read the story <span aria-hidden="true">↗</span></a></div>
+          <div class="card-footer"><span class="byline">By Kenji Sato</span><a class="text-arrow" href="article.html?id=glass-skin" data-open-story="glass-skin">Read the story <span aria-hidden="true">↗</span></a></div>
           <button class="save-float" type="button" data-save-story="glass-skin" aria-label="Save skincare story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
         </article>
       </div>
@@ -939,19 +681,21 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
 
   <section class="editorial-section arts-section" id="arts" aria-labelledby="arts-title" data-editorial-section>
     <div class="container">
-      <div class="section-topline"><div class="section-num"><strong>03</strong> <span class="dot">/</span> Art &amp; ideas</div><div class="section-aside">Look at the world sideways.</div></div>
-      <div class="section-heading"><h2 id="arts-title">Arts &amp; <em>lifestyle</em></h2><p>Form, function and a little bit of wonder — where design crosses over into feeling.</p></div>
+      <div class="vogue-section-header">
+        <h2 id="arts-title" class="vogue-section-title">Arts &amp; <em>Lifestyle</em></h2>
+        <a class="vogue-section-action" href="#arts">Design &amp; Culture <span>→</span></a>
+      </div>
       <div class="arts-grid">
         <article class="arts-tile story-card reveal" data-story-id="arts-car" data-kind="Design" data-search-text="concept car sculpture RDSTR Milan prototype aerodynamic minimalism Julian Vance automotive sculpture">
-          <a href="#story-arts-car" data-open-story="arts-car" aria-label="Read: A concept car that looks like a sculpture"><img src="assets/images/arts_car.png" alt="Sculptural silver concept car in a dark studio" loading="lazy"></a>
+          <a href="article.html?id=arts-car" data-open-story="arts-car" aria-label="Read: A concept car that looks like a sculpture"><img src="assets/images/arts_car.png" alt="Sculptural silver concept car in a dark studio" loading="lazy"></a>
           <span class="arts-index">OBJECT 01</span>
-          <div class="arts-copy"><div class="eyebrow">Design <span class="dot">/</span> Automotive sculpture</div><h3>A concept car that looks like a sculpture</h3><p>The RDSTR prototype strips away visual noise to put aerodynamic form and proportion at the centre.</p><a class="text-arrow" href="#story-arts-car" data-open-story="arts-car">Explore the feature <span aria-hidden="true">↗</span></a></div>
+          <div class="arts-copy"><div class="eyebrow">Design <span class="dot">/</span> Automotive sculpture</div><h3>A concept car that looks like a sculpture</h3><p>The RDSTR prototype strips away visual noise to put aerodynamic form and proportion at the centre.</p><a class="text-arrow" href="article.html?id=arts-car" data-open-story="arts-car">Explore the feature <span aria-hidden="true">↗</span></a></div>
           <button class="save-float" type="button" data-save-story="arts-car" aria-label="Save concept car story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
         </article>
         <article class="arts-tile story-card reveal" data-story-id="arts-flowers" data-kind="Art" data-search-text="digital meadow immersive tech generative florals visitor movement London landmark Clara Oswald">
-          <a href="#story-arts-flowers" data-open-story="arts-flowers" aria-label="Read: Walk through a digital meadow in full bloom"><img src="assets/images/arts_flowers.png" alt="Immersive digital flower meadow installation filled with purple and orange blooms" loading="lazy"></a>
+          <a href="article.html?id=arts-flowers" data-open-story="arts-flowers" aria-label="Read: Walk through a digital meadow in full bloom"><img src="assets/images/arts_flowers.png" alt="Immersive digital flower meadow installation filled with purple and orange blooms" loading="lazy"></a>
           <span class="arts-index">EXPERIENCE 02</span>
-          <div class="arts-copy"><div class="eyebrow">Art <span class="dot">/</span> Immersive tech</div><h3>Walk through a digital meadow in full bloom</h3><p>Generative florals respond to movement, inviting visitors into a landscape that is part artwork, part atmosphere.</p><a class="text-arrow" href="#story-arts-flowers" data-open-story="arts-flowers">Explore the feature <span aria-hidden="true">↗</span></a></div>
+          <div class="arts-copy"><div class="eyebrow">Art <span class="dot">/</span> Immersive tech</div><h3>Walk through a digital meadow in full bloom</h3><p>Generative florals respond to movement, inviting visitors into a landscape that is part artwork, part atmosphere.</p><a class="text-arrow" href="article.html?id=arts-flowers" data-open-story="arts-flowers">Explore the feature <span aria-hidden="true">↗</span></a></div>
           <button class="save-float" type="button" data-save-story="arts-flowers" aria-label="Save immersive art story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button>
         </article>
       </div>
@@ -960,74 +704,219 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   </section>
 
   <section class="editorial-section shopping-section container" id="shopping" aria-labelledby="shopping-title" data-editorial-section>
-    <div class="section-topline"><div class="section-num"><strong>04</strong> <span class="dot">/</span> The considered edit</div><div class="section-aside">Worth a closer look.</div></div>
-    <div class="shopping-intro"><h2 id="shopping-title">Shopping <em>News</em></h2><p>Pieces with a little personality. This is the edit for things that earn their place, from everyday uniform to collectible design.</p></div>
+    <div class="vogue-section-header">
+      <h2 id="shopping-title" class="vogue-section-title">Shopping <em>Edit</em></h2>
+      <a class="vogue-section-action" href="#shopping">The Considered Edit <span>→</span></a>
+    </div>
     <div class="shopping-grid">
       <article class="shopping-card story-card reveal" data-story-id="shopping-streetwear" data-kind="Streetwear" data-search-text="green tracksuits chrome sneakers head to toe streetwear autumn drop athletic tailoring modern capital cities marcus reid">
-        <div class="card-media"><a href="#story-shopping-streetwear" data-open-story="shopping-streetwear" aria-label="Read: Green tracksuits and chrome sneakers, head to toe"><img src="assets/images/shopping_streetwear.png" alt="Models in green sportswear and earth-tone layers in a warm wheat-coloured setting" loading="lazy"></a><button class="save-float" type="button" data-save-story="shopping-streetwear" aria-label="Save streetwear story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button></div>
-        <div class="card-details"><div><div class="tag">Streetwear <span class="dot">/</span> Autumn drop</div><h3><a href="#story-shopping-streetwear" data-open-story="shopping-streetwear">Green tracksuits and chrome sneakers, head to toe</a></h3><p>Elevated athletic tailoring meets space-age footwear, with colour doing much of the talking.</p></div><a class="text-arrow" href="#story-shopping-streetwear" data-open-story="shopping-streetwear" aria-label="Read streetwear story">↗</a></div>
+        <div class="card-media"><a href="article.html?id=shopping-streetwear" data-open-story="shopping-streetwear" aria-label="Read: Green tracksuits and chrome sneakers, head to toe"><img src="assets/images/shopping_streetwear.png" alt="Models in green sportswear and earth-tone layers in a warm wheat-coloured setting" loading="lazy"></a><button class="save-float" type="button" data-save-story="shopping-streetwear" aria-label="Save streetwear story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button></div>
+        <div class="card-details"><div><div class="tag">Streetwear <span class="dot">/</span> Autumn drop</div><h3><a href="article.html?id=shopping-streetwear" data-open-story="shopping-streetwear">Green tracksuits and chrome sneakers, head to toe</a></h3><p>Elevated athletic tailoring meets space-age footwear, with colour doing much of the talking.</p></div><a class="text-arrow" href="article.html?id=shopping-streetwear" data-open-story="shopping-streetwear" aria-label="Read streetwear story">↗</a></div>
       </article>
       <article class="shopping-card story-card reveal" data-story-id="shopping-sneakers" data-kind="Sneakers" data-search-text="earth tone running shoes everyone wants New Balance 992 forest green sage suede charcoal collectors wish list Chloe Dupont">
-        <div class="card-media"><a href="#story-shopping-sneakers" data-open-story="shopping-sneakers" aria-label="Read: The earth-tone running shoes everyone wants"><img src="assets/images/shopping_sneakers.png" alt="Earth-tone running sneakers arranged on a display plinth beside greenery" loading="lazy"></a><button class="save-float" type="button" data-save-story="shopping-sneakers" aria-label="Save sneakers story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button></div>
-        <div class="card-details"><div><div class="tag">Sneakers <span class="dot">/</span> Collector edit</div><h3><a href="#story-shopping-sneakers" data-open-story="shopping-sneakers">The earth-tone running shoes everyone wants</a></h3><p>Forest green, sage suede and charcoal tones bring a softer palette to a collector favourite.</p></div><a class="text-arrow" href="#story-shopping-sneakers" data-open-story="shopping-sneakers" aria-label="Read sneaker story">↗</a></div>
+        <div class="card-media"><a href="article.html?id=shopping-sneakers" data-open-story="shopping-sneakers" aria-label="Read: The earth-tone running shoes everyone wants"><img src="assets/images/shopping_sneakers.png" alt="Earth-tone running sneakers arranged on a display plinth beside greenery" loading="lazy"></a><button class="save-float" type="button" data-save-story="shopping-sneakers" aria-label="Save sneakers story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.8h12a1.5 1.5 0 0 1 1.5 1.5V21l-7.5-4.4L4.5 21V5.3A1.5 1.5 0 0 1 6 3.8Z"></path></svg></button></div>
+        <div class="card-details"><div><div class="tag">Sneakers <span class="dot">/</span> Collector edit</div><h3><a href="article.html?id=shopping-sneakers" data-open-story="shopping-sneakers">The earth-tone running shoes everyone wants</a></h3><p>Forest green, sage suede and charcoal tones bring a softer palette to a collector favourite.</p></div><a class="text-arrow" href="article.html?id=shopping-sneakers" data-open-story="shopping-sneakers" aria-label="Read sneaker story">↗</a></div>
       </article>
     </div>
     <div class="no-results" data-section-empty hidden>No shopping stories match your search. Try a different word.</div>
   </section>
 
-    <!-- Simple & Elegant Social / Contact Connect Hub -->
-  <section class="editorial-section connect-section" id="connect" aria-labelledby="connect-title" data-editorial-section>
+  <!-- Vogue Social Media Slideshow Carousel -->
+  <section class="editorial-section social-slideshow-section" id="connect" aria-labelledby="connect-title" data-editorial-section>
     <div class="container">
-      <div class="section-topline">
-        <div class="section-num"><strong>05</strong> <span class="dot">/</span> Connect</div>
-        <div class="section-aside">Social &amp; Editorial Desk</div>
-      </div>
-      <div class="connect-simple-header reveal">
-        <div>
-          <div class="eyebrow eyebrow-line">Direct Channels</div>
-          <h2 id="connect-title">Follow &amp; <em>Get in touch.</em></h2>
+      <div class="vogue-section-header">
+        <h2 id="connect-title" class="vogue-section-title">Social <em>Dispatches</em></h2>
+        <div class="social-header-tools">
+          <div class="social-pills-bar">
+            <a class="social-pill ig-pill" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram: @hover21magazine">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+              <span>@hover21magazine</span>
+            </a>
+            <a class="social-pill tt-pill" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" title="TikTok: @hover21magazine">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
+              <span>TikTok</span>
+            </a>
+            <button class="social-pill mail-pill" id="copy-email-btn" type="button" data-copy="Hover21magazine@gmail.com" title="Copy email address" aria-label="Copy editorial email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+          <span style="font:600 10px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Hover to pause stream</span>
         </div>
-        <p>Follow Hover21 for real-time runway moments and visual dispatches, or reach our editorial desk directly.</p>
       </div>
 
-      <div class="connect-simple-grid reveal">
-        <!-- Instagram -->
-        <a class="simple-social-card" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @hover21magazine">
-          <div class="simple-logo-wrap ig-wrap">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+      <!-- Continuous Scrolling Slideshow Marquee -->
+      <div class="social-marquee-container" id="social-marquee-container" aria-label="Continuously scrolling social feed">
+        <div class="social-marquee-track" id="social-marquee-track">
+          <!-- Slide 1 -->
+          <div class="social-slide">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/fashion_wings.png" alt="Runway spectacle" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Runway Dispatch</span></div>
+                <h3 class="slide-title">Backstage at the spectacle: Haute featherwork and crystal fringe taking over Paris.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
           </div>
-          <div class="simple-card-info">
-            <span class="simple-platform-name">Instagram</span>
-            <span class="simple-handle">@hover21magazine</span>
+          <!-- Slide 2 -->
+          <div class="social-slide">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/fashion_pink.png" alt="High-saturation magenta couture" loading="lazy">
+                <span class="slide-platform tt-tag">TikTok</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Color Forecast</span></div>
+                <h3 class="slide-title">High-saturation magenta couture: why vibrant shades are returning to the runway.</h3>
+                <a class="slide-cta" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer">Watch on TikTok <span>↗</span></a>
+              </div>
+            </div>
           </div>
-          <span class="simple-arrow" aria-hidden="true">↗</span>
-        </a>
+          <!-- Slide 3 -->
+          <div class="social-slide">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/beauty_blush.png" alt="Viral baked blush palette" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Cult Release</span></div>
+                <h3 class="slide-title">Inside the viral obsession with buildable baked pigment and the sculpted cheekbone.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="social-slide">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/hero_culture.png" alt="Front row culture ambassadors" loading="lazy">
+                <span class="slide-platform tt-tag">TikTok</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Culture Desk</span></div>
+                <h3 class="slide-title">Front row gravity: How music ambassadors and new icons are redefining Fashion Week.</h3>
+                <a class="slide-cta" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer">Watch on TikTok <span>↗</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="social-slide">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/shopping_streetwear.png" alt="Streetwear tailoring" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Style Drop</span></div>
+                <h3 class="slide-title">Streetwear drop: Emerald athletic tailoring and space-age chrome footwear in Milan.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 6 -->
+          <div class="social-slide">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/arts_car.png" alt="Sculptural concept car" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Design Edit</span></div>
+                <h3 class="slide-title">Aerodynamic sculpture: The RDSTR prototype stripped of visual noise.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
+          </div>
 
-        <!-- TikTok -->
-        <a class="simple-social-card" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer" aria-label="TikTok: @hover21magazine">
-          <div class="simple-logo-wrap tt-wrap">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.8"></path><path d="M14 3c.7 3 2.6 4.5 5.5 4.7"></path></svg>
+          <!-- Slide 1 (Duplicate for seamless continuous loop) -->
+          <div class="social-slide" aria-hidden="true">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/fashion_wings.png" alt="Runway spectacle" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Runway Dispatch</span></div>
+                <h3 class="slide-title">Backstage at the spectacle: Haute featherwork and crystal fringe taking over Paris.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
           </div>
-          <div class="simple-card-info">
-            <span class="simple-platform-name">TikTok</span>
-            <span class="simple-handle">@hover21magazine</span>
+          <!-- Slide 2 (Duplicate) -->
+          <div class="social-slide" aria-hidden="true">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/fashion_pink.png" alt="High-saturation magenta couture" loading="lazy">
+                <span class="slide-platform tt-tag">TikTok</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Color Forecast</span></div>
+                <h3 class="slide-title">High-saturation magenta couture: why vibrant shades are returning to the runway.</h3>
+                <a class="slide-cta" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer">Watch on TikTok <span>↗</span></a>
+              </div>
+            </div>
           </div>
-          <span class="simple-arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <!-- Email -->
-        <div class="simple-social-card email-card">
-          <a class="simple-logo-wrap mail-wrap" href="mailto:Hover21magazine@gmail.com" aria-label="Send email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m22 7-10 7L2 7"></path></svg>
-          </a>
-          <div class="simple-card-info">
-            <span class="simple-platform-name">Editorial Desk</span>
-            <a class="simple-handle" href="mailto:Hover21magazine@gmail.com">Hover21magazine@gmail.com</a>
+          <!-- Slide 3 (Duplicate) -->
+          <div class="social-slide" aria-hidden="true">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/beauty_blush.png" alt="Viral baked blush palette" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Cult Release</span></div>
+                <h3 class="slide-title">Inside the viral obsession with buildable baked pigment and the sculpted cheekbone.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
           </div>
-          <button class="simple-copy-btn" id="copy-email-btn" type="button" data-copy="Hover21magazine@gmail.com" title="Copy email address" aria-label="Copy email address">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span>Copy</span>
-          </button>
+          <!-- Slide 4 (Duplicate) -->
+          <div class="social-slide" aria-hidden="true">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/hero_culture.png" alt="Front row culture ambassadors" loading="lazy">
+                <span class="slide-platform tt-tag">TikTok</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Culture Desk</span></div>
+                <h3 class="slide-title">Front row gravity: How music ambassadors and new icons are redefining Fashion Week.</h3>
+                <a class="slide-cta" href="https://www.tiktok.com/@hover21magazine?_r=1&amp;_t=ZG-9AjygvD8MzI" target="_blank" rel="noopener noreferrer">Watch on TikTok <span>↗</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 5 (Duplicate) -->
+          <div class="social-slide" aria-hidden="true">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/shopping_streetwear.png" alt="Streetwear tailoring" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Style Drop</span></div>
+                <h3 class="slide-title">Streetwear drop: Emerald athletic tailoring and space-age chrome footwear in Milan.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 6 (Duplicate) -->
+          <div class="social-slide" aria-hidden="true">
+            <div class="social-slide-card">
+              <div class="slide-media">
+                <img src="assets/images/arts_car.png" alt="Sculptural concept car" loading="lazy">
+                <span class="slide-platform ig-tag">Instagram</span>
+              </div>
+              <div class="slide-content">
+                <div class="slide-meta"><span class="slide-handle">@hover21magazine</span><span class="slide-tag">Design Edit</span></div>
+                <h3 class="slide-title">Aerodynamic sculpture: The RDSTR prototype stripped of visual noise.</h3>
+                <a class="slide-cta" href="https://www.instagram.com/hover21magazine?xtok=cXI0bmxqN3pwZmQ0&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">View on Instagram <span>↗</span></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1052,7 +941,7 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a class="brand" href="#page-top" aria-label="Hover21 Magazine home"><span class="brand-glyph" aria-hidden="true">H<span class="twentyone">21</span></span><span class="brand-word">MAGAZINE</span></a>
+        <a class="brand" href="index.html" aria-label="Hover21 Magazine home"><img src="assets/images/h21_logo.png" alt="Hover21 Logo" class="brand-logo-img"><span class="brand-word">MAGAZINE</span></a>
         <p>Fashion, beauty, ideas and objects — viewed with curiosity, edited with intention. The global voice of culture.</p>
         <div class="footer-social-hub">
           <div class="footer-social-icons">
@@ -1109,6 +998,60 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   <a class="read-link" href="mailto:Hover21magazine@gmail.com">Contact the editorial desk <span aria-hidden="true">↗</span></a>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Auth Dialog Modal -->
+<dialog id="auth-dialog" class="auth-dialog">
+  <div class="auth-shell">
+    <div class="auth-top">
+      <h3 class="auth-title" id="auth-modal-title">Sign In</h3>
+      <button class="auth-close-btn" id="auth-close" type="button" aria-label="Close dialog">
+        <svg viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"></path></svg>
+      </button>
+    </div>
+    
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-signin" type="button">Sign In</button>
+      <button class="auth-tab" id="tab-register" type="button">Create Account</button>
+    </div>
+
+    <form class="auth-form" id="auth-form" onsubmit="return false;">
+      <div class="auth-field" id="name-field" hidden>
+        <label for="auth-name">Full Name</label>
+        <input type="text" id="auth-name" placeholder="Alex Morgan" autocomplete="name">
+      </div>
+      <div class="auth-field">
+        <label for="auth-email">Email Address</label>
+        <input type="email" id="auth-email" placeholder="alex@example.com" required autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label for="auth-password">Password</label>
+        <input type="password" id="auth-password" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+      
+      <div class="auth-extras">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+          <input type="checkbox" id="auth-remember" checked> Remember me
+        </label>
+        <a href="#" id="auth-forgot">Forgot password?</a>
+      </div>
+
+      <button class="auth-submit-btn" id="auth-submit" type="button">Sign In to Hover21</button>
+
+      <div class="auth-divider">
+        <span>or continue with</span>
+      </div>
+
+      <button class="social-auth-btn" id="social-google" type="button">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.17 0 9.97 0 12s.45 3.83 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+        <span>Continue with Google</span>
+      </button>
+      <button class="social-auth-btn" id="social-apple" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.66-.82 1.12-1.95.99-3.09-1 .04-2.18.67-2.87 1.48-.61.71-1.14 1.86-1 2.98 1.11.09 2.23-.57 2.88-1.37z"/></svg>
+        <span>Continue with Apple</span>
+      </button>
+    </form>
+  </div>
+</dialog>
 
 <script>
 (() => {
@@ -1190,14 +1133,8 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
     refreshSaved();
   }
   function openStory(id){
-    const story=STORIES[id], card=getStoryCard(id), image=storyImage(id); if(!story || !card || !image) return;
-    currentStory=id;
-    $('#reader-image').src=image.currentSrc || image.src; $('#reader-image').alt=image.alt || story.title;
-    $('#reader-image-label').textContent=`Hover21 / ${story.category}`;
-    $('#reader-category').textContent=story.category; $('#reader-title').textContent=story.title; $('#reader-dek').textContent=story.dek;
-    $('#reader-byline').textContent=`${story.author}  /  ${story.readTime}  /  The culture issue`;
-    $('#reader-body').replaceChildren(...story.body.map(copy=>{const p=document.createElement('p');p.textContent=copy;return p;}));
-    refreshSaved(); const d=$('#reader-dialog'); if(!d.open) d.showModal();
+    if(!id) return;
+    window.location.href = `article.html?id=${encodeURIComponent(id)}`;
   }
   function closeDialog(id){ const d=document.getElementById(id); if(d && d.open)d.close(); }
   function renderSavedList(){
@@ -1232,7 +1169,7 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
     $('#search-count').textContent=query?`${total} ${total===1?'story':'stories'} found`:`${STORY_IDS.length} stories in this issue`;
     $('.cover-intro').hidden=Boolean(query);
     $('.ticker').hidden=Boolean(query);
-    $('.interlude').hidden=Boolean(query);
+    const interludeEl=$('.interlude'); if(interludeEl) interludeEl.hidden=Boolean(query);
   }
   $('#search-toggle').addEventListener('click',()=>{
     const opening=searchPanel.hidden;searchPanel.hidden=!opening;$('#search-toggle').setAttribute('aria-expanded',String(opening));
@@ -1280,11 +1217,105 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
   else $$('.reveal').forEach(el=>el.classList.add('is-visible'));
   // Current section underline: only decorate the link, never alter navigation.
   if('IntersectionObserver' in window){const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const href='#'+entry.target.id;$$('#nav-links a').forEach(a=>{if(a.getAttribute('href')===href)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}),{rootMargin:'-30% 0px -60% 0px'});$$('main section[id]').forEach(section=>sectionObserver.observe(section));}
+  
+  // Story card click navigation to dedicated article page
+  $$('[data-story-id]').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', event => {
+      if (event.target.closest('[data-save-story]')) return;
+      const id = card.dataset.storyId;
+      if (id) {
+        window.location.href = `article.html?id=${encodeURIComponent(id)}`;
+      }
+    });
+  });
+
+  // Auth Dialog & Sign In Management
+  const authDialog = $('#auth-dialog');
+  const signInBtn = $('#sign-in-btn');
+  const authClose = $('#auth-close');
+  const tabSignIn = $('#tab-signin');
+  const tabRegister = $('#tab-register');
+  const nameField = $('#name-field');
+  const authSubmit = $('#auth-submit');
+  const authTitle = $('#auth-modal-title');
+  const signInText = $('#sign-in-text');
+
+  const currentUser = localStorage.getItem('hover21_user');
+  if (currentUser) {
+    signInText.textContent = currentUser;
+    signInBtn.title = `Signed in as ${currentUser}. Click to sign out.`;
+  }
+
+  if (signInBtn) {
+    signInBtn.addEventListener('click', () => {
+      const activeUser = localStorage.getItem('hover21_user');
+      if (activeUser) {
+        if (confirm(`You are signed in as ${activeUser}. Would you like to sign out?`)) {
+          localStorage.removeItem('hover21_user');
+          signInText.textContent = 'Sign In';
+          signInBtn.title = 'Sign in';
+          toast('You have been signed out.');
+        }
+        return;
+      }
+      authDialog.showModal();
+    });
+  }
+
+  if (authClose) authClose.addEventListener('click', () => authDialog.close());
+
+  if (tabSignIn && tabRegister) {
+    tabSignIn.addEventListener('click', () => {
+      tabSignIn.classList.add('active');
+      tabRegister.classList.remove('active');
+      nameField.hidden = true;
+      authTitle.textContent = 'Sign In';
+      authSubmit.textContent = 'Sign In to Hover21';
+    });
+
+    tabRegister.addEventListener('click', () => {
+      tabRegister.classList.add('active');
+      tabSignIn.classList.remove('active');
+      nameField.hidden = false;
+      authTitle.textContent = 'Create Account';
+      authSubmit.textContent = 'Create Free Account';
+    });
+  }
+
+  function completeAuth(name) {
+    localStorage.setItem('hover21_user', name);
+    if (signInText) signInText.textContent = name;
+    authDialog.close();
+    toast(`Welcome back, ${name}!`);
+  }
+
+  if (authSubmit) {
+    authSubmit.addEventListener('click', () => {
+      const email = $('#auth-email').value.trim();
+      if (!email) {
+        toast('Please enter a valid email address.');
+        return;
+      }
+      const name = nameField.hidden ? email.split('@')[0] : ($('#auth-name').value.trim() || 'Reader');
+      completeAuth(name);
+    });
+  }
+
+  const googleAuth = $('#social-google');
+  if (googleAuth) googleAuth.addEventListener('click', () => completeAuth('Google User'));
+  const appleAuth = $('#social-apple');
+  if (appleAuth) appleAuth.addEventListener('click', () => completeAuth('Apple User'));
+  const forgotLink = $('#auth-forgot');
+  if (forgotLink) forgotLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    toast('A password reset link has been dispatched to your email.');
+  });
+
   // 1-Click Copy Email Handler
-  const copyEmailBtn = $('#copy-email-btn');
-  if (copyEmailBtn) {
-    copyEmailBtn.addEventListener('click', async () => {
-      const email = copyEmailBtn.dataset.copy || 'Hover21magazine@gmail.com';
+  $$('[data-copy]').forEach(copyBtn => {
+    copyBtn.addEventListener('click', async () => {
+      const email = copyBtn.dataset.copy || 'Hover21magazine@gmail.com';
       try {
         if (navigator.clipboard && location.protocol !== 'file:') {
           await navigator.clipboard.writeText(email);
@@ -1301,7 +1332,7 @@ dialog::backdrop{background:rgba(10,10,9,.72);backdrop-filter:blur(5px)}
         toast('Direct mail: ' + email);
       }
     });
-  }
+  });
   refreshSaved();
 })();
 </script>
